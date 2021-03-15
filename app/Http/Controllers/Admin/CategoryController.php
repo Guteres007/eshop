@@ -6,13 +6,14 @@ use App\Models\Category;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Repositories\CategoryRepository;
 
 class CategoryController extends Controller
 {
-    public function index()
+    public function index(CategoryRepository $categoryRepository)
     {
         //Repository patern
-        return view('admin.category.index', ["categories" => Category::all()]);
+        return view('admin.category.index', ["categories" => $categoryRepository->getAll()]);
     }
 
     public function create()
