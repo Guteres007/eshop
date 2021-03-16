@@ -227,6 +227,10 @@ return [
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View' => Illuminate\Support\Facades\View::class,
 
+        //custom
+
+        'Debugbar' => Barryvdh\Debugbar\Facade::class,
+
     ],
 
 ];

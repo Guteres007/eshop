@@ -9,6 +9,9 @@ class SlugHelper
 {
     public static function createSlug($title, $tableName)
     {
+
+        //TODO: zbytečně se ptám v každém cyklu, mohu to tady jednou vytáhnout a procyklova a najít, při větším poštu
+        //otazů se stane, že se to bude 50x dotazovat do databáze
         $slug = Str::slug($title);
 
         $allSlugs = DB::table($tableName)->select('slug')->where('slug', 'like', '%' . $slug . '%')->get();
