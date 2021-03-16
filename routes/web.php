@@ -19,6 +19,6 @@ Route::get('/', [HomepageController::class, 'index']);
 
 Route::prefix('admin')->group(function () {
     Route::name('admin.')->group(function () {
-        Route::resource('category', CategoryController::class);
+        Route::resource('category', CategoryController::class)->except(['show']);
     });
 });

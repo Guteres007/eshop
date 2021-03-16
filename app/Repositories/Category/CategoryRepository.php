@@ -14,7 +14,6 @@ class CategoryRepository extends BaseRepository
     }
     public function create($attributes)
     {
-        //TODO: helper pro slugy udělat
         $formRequest = $attributes->all();
         $slug = ['slug' => SlugHelper::createSlug($attributes->input('name'), 'categories')];
         $formRequest += $slug;

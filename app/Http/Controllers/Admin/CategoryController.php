@@ -12,8 +12,9 @@ class CategoryController extends Controller
 {
     public function index(CategoryRepository $categoryRepository)
     {
-        //Repository patern
-        return view('admin.category.index', ["categories" => $categoryRepository->all()]);
+        return view('admin.category.index', [
+            "categories" => $categoryRepository->allPagginate()
+        ]);
     }
 
     public function create()
@@ -27,5 +28,12 @@ class CategoryController extends Controller
             return redirect()->route('admin.category.index')->withSuccess("Kategorie uložena");
         };
         return redirect()->route('admin.category.index')->withError("Kategorie neuložena");
+    }
+
+    public function destroy($id,  CategoryRepository $categoryRepository)
+    {
+        $categoryRepository->delete($id);
+
+        return redirect()->route('admin.category.index')->withSuccess("Kategorie smazána");
     }
 }

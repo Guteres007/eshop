@@ -12,4 +12,6 @@ interface RepositoryInterface
     public function create($attributes);
 
     public function delete($id);
+
+    public function allPagginate();
 }

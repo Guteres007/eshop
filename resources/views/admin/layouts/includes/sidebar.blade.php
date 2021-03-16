@@ -1,15 +1,15 @@
 <ul class="c-sidebar-nav">
 
-    <li class="c-sidebar-nav-dropdown"><a class="c-sidebar-nav-dropdown-toggle" href="#">
+    <li class="c-sidebar-nav-dropdown">
+        <a class="c-sidebar-nav-dropdown-toggle" href="#">
             <i class="c-sidebar-nav-icon cil-speedometer">
-            </i> Icons</a>
+            </i> Kategorie</a>
         <ul class="c-sidebar-nav-dropdown-items">
-            <li class="c-sidebar-nav-item"><a class="c-sidebar-nav-link" href="icons/coreui-icons-free.html"> CoreUI
-                    Icons<span class="badge badge-success">Free</span></a></li>
-            <li class="c-sidebar-nav-item"><a class="c-sidebar-nav-link" href="icons/coreui-icons-brand.html"> CoreUI
-                    Icons - Brand</a></li>
-            <li class="c-sidebar-nav-item"><a class="c-sidebar-nav-link" href="icons/coreui-icons-flag.html"> CoreUI
-                    Icons - Flag</a></li>
+            <li class="c-sidebar-nav-item"><a class="c-sidebar-nav-link" href="{{ route('admin.category.index') }}">
+                    Seznam </a> </li>
+            <li class="c-sidebar-nav-item"><a class="c-sidebar-nav-link" href="{{ route('admin.category.create') }}">
+                    Přidat
+                </a></li>
         </ul>
     </li>
 
