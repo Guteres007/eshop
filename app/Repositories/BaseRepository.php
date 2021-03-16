@@ -32,7 +32,7 @@ class BaseRepository implements RepositoryInterface
         return $this->model->find($id)->delete();
     }
 
-    public function allPagginate()
+    public function allPaginate()
     {
         return $this->model->orderBy('id', 'desc')->paginate(10);
     }
