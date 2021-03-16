@@ -23,7 +23,9 @@ class CategoryController extends Controller
 
     public function store(Request $request, CategoryRepository $categoryRepository)
     {
-        $categoryRepository->create($request);
-        return redirect()->route('admin.category.index');
+        if ($categoryRepository->create($request)) {
+            return redirect()->route('admin.category.index')->withSuccess("Kategorie uložena");
+        };
+        return redirect()->route('admin.category.index')->withError("Kategorie neuložena");
     }
 }

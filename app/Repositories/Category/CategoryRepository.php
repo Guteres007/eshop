@@ -18,6 +18,6 @@ class CategoryRepository extends BaseRepository
         $formRequest = $attributes->all();
         $slug = ['slug' => SlugHelper::createSlug($attributes->input('name'), 'categories')];
         $formRequest += $slug;
-        $this->model->create($formRequest);
+        return $this->model->create($formRequest);
     }
 }
