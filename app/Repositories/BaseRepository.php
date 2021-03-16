@@ -21,7 +21,7 @@ class BaseRepository implements RepositoryInterface
         return $this->model->findOrFail($id);
     }
 
-    public function create(array $attributes)
+    public function create($attributes)
     {
         return $this->model->create($attributes);
     }

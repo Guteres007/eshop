@@ -9,8 +9,7 @@ interface RepositoryInterface
 
     public function find($id);
 
-    public function create(array $attributes);
+    public function create($attributes);
 
     public function delete($id);
-    // more
 }

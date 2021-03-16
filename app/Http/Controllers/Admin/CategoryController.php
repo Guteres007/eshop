@@ -21,14 +21,9 @@ class CategoryController extends Controller
         return view('admin.category.create');
     }
 
-    public function store(Request $request)
+    public function store(Request $request, CategoryRepository $categoryRepository)
     {
-
-        //Slug factory
-        $formRequest = $request->all();
-        $slug = ['slug' => Str::slug($request->input('name'))];
-        $formRequest += $slug;
-        Category::create($formRequest);
+        $categoryRepository->create($request);
         return redirect()->route('admin.category.index');
     }
 }
