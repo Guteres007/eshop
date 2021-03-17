@@ -18775,3 +18775,6 @@ h3 {
     border-color: #d8dbe0;
   }
 }
+.color-red {
+  color: rgba(235, 19, 19, 0.849);
+}

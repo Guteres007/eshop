@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Http\Requests\Admin\CategoryRequest;
 use App\Repositories\Category\CategoryRepository;
 
 class CategoryController extends Controller
@@ -20,9 +21,9 @@ class CategoryController extends Controller
         return view('admin.category.create');
     }
 
-    public function store(Request $request, CategoryRepository $categoryRepository)
+    public function store(CategoryRequest $request, CategoryRepository $categoryRepository)
     {
-        if ($categoryRepository->create($request->all())) {
+        if ($categoryRepository->create($request->validated())) {
             return redirect()->route('admin.category.index')->withSuccess("Kategorie uložena");
         };
         return redirect()->route('admin.category.index')->withError("Kategorie neuložena");
