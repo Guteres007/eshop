@@ -3,7 +3,6 @@
 namespace App\Repositories\Category;
 
 use App\Models\Category;
-use App\Helpers\Slug\SlugHelper;
 use App\Repositories\BaseRepository;
 
 class CategoryRepository extends BaseRepository
@@ -14,9 +13,6 @@ class CategoryRepository extends BaseRepository
     }
     public function create($attributes)
     {
-        $formRequest = $attributes->all();
-        $slug = ['slug' => SlugHelper::createSlug($attributes->input('name'), 'categories')];
-        $formRequest += $slug;
-        return $this->model->create($formRequest);
+        return $this->model->create($attributes->all());
     }
 }
