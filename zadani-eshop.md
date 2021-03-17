@@ -68,6 +68,7 @@
 ## košík
 - user_id
 - active
+- session_id?  session()->getId()
 - datum
 
 ## kosik_item

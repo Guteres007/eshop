@@ -2,7 +2,9 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomepageController;
+use App\Http\Controllers\Admin\ProductController;
 use App\Http\Controllers\Admin\CategoryController;
+use App\Http\Controllers\Admin\DashboardController;
 
 /*
 |--------------------------------------------------------------------------
@@ -19,6 +21,8 @@ Route::get('/', [HomepageController::class, 'index']);
 
 Route::prefix('admin')->group(function () {
     Route::name('admin.')->group(function () {
+        Route::get('dashboard', [DashboardController::class, 'index']);
         Route::resource('category', CategoryController::class)->except(['show']);
+        Route::resource('product', ProductController::class)->except(['show']);
     });
 });
