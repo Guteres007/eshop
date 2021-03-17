@@ -44,6 +44,6 @@ class CategoryController extends Controller
     public function update($id, Request $request, CategoryRepository $categoryRepository)
     {
         $categoryRepository->update($id, $request->all());
-        return redirect()->route('admin.category.index');
+        return redirect()->route('admin.category.index')->withSuccess("Kategorie upravena");;
     }
 }
