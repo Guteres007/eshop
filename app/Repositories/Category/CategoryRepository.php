@@ -11,8 +11,4 @@ class CategoryRepository extends BaseRepository
     {
         parent::__construct($model);
     }
-    public function create($attributes)
-    {
-        return $this->model->create($attributes->all());
-    }
 }

@@ -22,7 +22,7 @@ class CategoryController extends Controller
 
     public function store(Request $request, CategoryRepository $categoryRepository)
     {
-        if ($categoryRepository->create($request)) {
+        if ($categoryRepository->create($request->all())) {
             return redirect()->route('admin.category.index')->withSuccess("Kategorie uložena");
         };
         return redirect()->route('admin.category.index')->withError("Kategorie neuložena");
@@ -33,5 +33,17 @@ class CategoryController extends Controller
         $categoryRepository->delete($id);
 
         return redirect()->route('admin.category.index')->withSuccess("Kategorie smazána");
+    }
+
+    public function edit($id, CategoryRepository $categoryRepository)
+    {
+        $category = $categoryRepository->find($id);
+        return view("admin.category.edit", ["category" => $category]);
+    }
+
+    public function update($id, Request $request, CategoryRepository $categoryRepository)
+    {
+        $categoryRepository->update($id, $request->all());
+        return redirect()->route('admin.category.index');
     }
 }
