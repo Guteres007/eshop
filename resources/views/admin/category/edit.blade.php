@@ -12,14 +12,17 @@
                         @method("PUT")
                         <div class="col-sm-12">
                             <div class="form-group">
-                                <label for="name">Jméno kategorie</label>
-                                <input class="form-control" name="name" id="name" type="text" value="{{ $category->name }}">
+                                <label for="name">Jméno kategorie <span
+                                        class="color-red">{{ $errors->first('name') }}</span></label>
+                                <input class="form-control" name="name" id="name" type="text"
+                                    value="{{ $category->name }}">
                             </div>
                         </div>
 
                         <div class="col-sm-12">
                             <div class="form-group">
-                                <label for="name">Popis kategorie</label>
+                                <label for="name">Popis kategorie <span
+                                        class="color-red">{{ $errors->first('description') }}</span></label>
                                 <textarea class="form-control" name="description" id="name"
                                     type="text">{{ $category->description }}</textarea>
                             </div>

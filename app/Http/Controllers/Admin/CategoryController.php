@@ -42,9 +42,9 @@ class CategoryController extends Controller
         return view("admin.category.edit", ["category" => $category]);
     }
 
-    public function update($id, Request $request, CategoryRepository $categoryRepository)
+    public function update($id, CategoryRequest $request, CategoryRepository $categoryRepository)
     {
-        $categoryRepository->update($id, $request->all());
+        $categoryRepository->update($id, $request->validated());
         return redirect()->route('admin.category.index')->withSuccess("Kategorie upravena");;
     }
 }
