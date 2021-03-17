@@ -15,20 +15,20 @@ class CreateProductsTable extends Migration
     {
         Schema::create('products', function (Blueprint $table) {
             $table->id();
+            $table->string('internal_id')->nullable();
             $table->string('name');
-            $table->text('description');
-            $table->text('short_description');
-            $table->text('long_description');
+            $table->text('description')->nullable();
+            $table->text('short_description')->nullable();
+            $table->text('long_description')->nullable();
             $table->string('price_without_vat');
-            $table->string('price_with_vat');
-            $table->string('shopping_price');
+            $table->string('price');
+            $table->string("price_margin");
+            $table->string('shopping_price')->nullable();
             $table->string('tax');
-            $table->text("percent_margin");
-            $table->text("price_margin");
             $table->integer('quantity');
-            $table->text("slug")->unique();
+            $table->string("slug")->unique();
             $table->boolean('active')->default(1);
-            $table->string('ean');
+            $table->string('ean')->nullable();
             $table->timestamps();
         });
     }

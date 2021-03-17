@@ -55,6 +55,7 @@
 - zatím nevím jak to udělat
 
 ## obrázky
+- produkt_id
 - jméno
 - přípona
 - vstupní jméno

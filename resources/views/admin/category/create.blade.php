@@ -13,7 +13,7 @@
                             <div class="form-group">
                                 <label for="name">Jméno kategorie <span
                                         class="color-red">{{ $errors->first('name') }}</span></label>
-                                <input class="form-control" name="name" id="name" type="text">
+                                <input class="form-control" name="name" type="text">
                             </div>
                         </div>
 
@@ -21,7 +21,7 @@
                             <div class="form-group">
                                 <label for="name">Popis kategorie <span
                                         class="color-red">{{ $errors->first('description') }}</span></label>
-                                <textarea class="form-control" name="description" id="name" type="text"></textarea>
+                                <textarea class="form-control" name="description" type="text"></textarea>
                             </div>
                         </div>
 
