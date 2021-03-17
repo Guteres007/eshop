@@ -17,11 +17,22 @@ class CreateProductsTable extends Migration
             $table->id();
             $table->string('name');
             $table->text('description');
-            $table->string('price');
+            $table->text('short_description');
+            $table->text('long_description');
+            $table->string('price_without_vat');
+            $table->string('price_with_vat');
+            $table->string('shopping_price');
+            $table->string('tax');
+            $table->text("percent_margin");
+            $table->text("price_margin");
+            $table->integer('quantity');
+            $table->text("slug")->unique();
             $table->boolean('active')->default(1);
+            $table->string('ean');
             $table->timestamps();
         });
     }
+
 
     /**
      * Reverse the migrations.

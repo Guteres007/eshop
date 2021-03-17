@@ -11,8 +11,8 @@
                         <thead>
                             <tr>
                                 <th>Id</th>
-                                <th>Nadpis kategorie</th>
-                                <th>Popis kategorie</th>
+                                <th>Nadpis</th>
+                                <th>Popis</th>
                                 <th>Akce</th>
                             </tr>
                         </thead>

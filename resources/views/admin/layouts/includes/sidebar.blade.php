@@ -13,6 +13,18 @@
         </ul>
     </li>
 
+    <li class="c-sidebar-nav-dropdown">
+        <a class="c-sidebar-nav-dropdown-toggle" href="#">
+            <i class="c-sidebar-nav-icon cil-speedometer">
+            </i> Produkty</a>
+        <ul class="c-sidebar-nav-dropdown-items">
+            <li class="c-sidebar-nav-item"><a class="c-sidebar-nav-link" href="{{ route('admin.product.index') }}">
+                    Seznam </a> </li>
+            <li class="c-sidebar-nav-item"><a class="c-sidebar-nav-link" href="{{ route('admin.product.create') }}">
+                    Přidat
+                </a></li>
+        </ul>
+    </li>
 
     <li class="c-sidebar-nav-title">Nav Title</li>
     <li class="c-sidebar-nav-item">

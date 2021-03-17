@@ -27,7 +27,7 @@
 
                         <div class="col-sm-12">
                             <div class="form-group">
-                                <button class="btn btn-success" type="submit">Odeslat</button>
+                                <button class="btn btn-success" type="submit">Vytvořit</button>
                             </div>
                         </div>
 
