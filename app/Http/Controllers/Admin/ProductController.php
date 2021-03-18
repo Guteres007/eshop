@@ -51,6 +51,7 @@ class ProductController extends Controller
         $product = $this->productRepository->find($id);
         $categories = $this->categoryRepository->all();
 
+        //helper nebo tak něco udělat, budu asi používat častěji
         $selected_category = [];
         foreach ($product->category as $category) {
             $selected_category[$category->id] = $category->id;
@@ -61,5 +62,10 @@ class ProductController extends Controller
             'categories' =>  $categories,
             'selected_category' => $selected_category
         ]);
+    }
+
+    public function update(ProductRequest $request, CreateProductService $createProductService)
+    {
+        # code...
     }
 }

@@ -7,8 +7,9 @@
             <div class="card">
                 <div class="card-header"><strong>Produkt</strong></div>
                 <div class="card-body">
-                    <form class="row" action="{{ route('admin.product.store') }}" method="POST">
+                    <form class="row" action="{{ route('admin.product.update', $product->id) }}" method="POST">
                         @csrf
+                        @method("PUT")
                         <div class="col-sm-6">
                             <div class="form-group">
                                 <label for="name">Jméno produktu <span
@@ -134,7 +135,7 @@
 
                         <div class="col-sm-12">
                             <div class="form-group">
-                                <button class="btn btn-success" type="submit">Vytvořit</button>
+                                <button class="btn btn-success" type="submit">Editovat</button>
                             </div>
                         </div>
 
