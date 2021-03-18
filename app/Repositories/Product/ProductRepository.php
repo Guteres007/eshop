@@ -21,10 +21,9 @@ class ProductRepository extends BaseRepository
         $array_of_category_ids = $attributes['category_id'];
 
         $product = $this->model->create($attributes);
-        foreach ($array_of_category_ids as $category_id)
-            DB::insert('insert into category_product (category_id, product_id) values (?, ?)', [
-                $category_id, $product->id
-            ]);
+        foreach ($array_of_category_ids as $category_id) {
+            $product->category()->attach($category_id);
+        }
 
         return $this;
     }
