@@ -39,4 +39,27 @@ class ProductController extends Controller
         }
         return redirect()->route('admin.product.index')->withError("Produkt přidán");
     }
+
+    public function destroy($id)
+    {
+        $this->productRepository->delete($id);
+        return redirect()->route('admin.product.index')->withSuccess('Produkt smazán');
+    }
+
+    public function edit($id)
+    {
+        $product = $this->productRepository->find($id);
+        $categories = $this->categoryRepository->all();
+
+        $selected_category = [];
+        foreach ($product->category as $category) {
+            $selected_category[$category->id] = $category->id;
+        }
+
+        return view("admin.product.edit", [
+            'product' => $product,
+            'categories' =>  $categories,
+            'selected_category' => $selected_category
+        ]);
+    }
 }
