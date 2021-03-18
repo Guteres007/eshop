@@ -3,5 +3,6 @@
 return [
     'tax' => 21,
     'tax_rate' => 1.21,
-    'decimals' => 0
+    'decimals' => 0,
+    'currency' => 'Kč'
 ];

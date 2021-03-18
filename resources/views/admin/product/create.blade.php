@@ -7,7 +7,8 @@
             <div class="card">
                 <div class="card-header"><strong>Produkt</strong></div>
                 <div class="card-body">
-                    <form class="row" action="{{ route('admin.product.store') }}" method="POST">
+                    <form class="row" action="{{ route('admin.product.store') }}" method="POST"
+                        enctype="multipart/form-data">
                         @csrf
                         <div class="col-sm-6">
                             <div class="form-group">
@@ -119,6 +120,23 @@
                                 </div>
                             </div>
                         </div>
+
+
+
+
+
+
+                        <div class="form-group row">
+                            <label class="col-md-3 col-form-label" for="file-multiple-input">Multiple File input</label>
+                            <div class="col-md-9">
+                                <input id="file-multiple-input" type="file" name="images[]" multiple>
+                            </div>
+                        </div>
+
+
+
+
+
 
                         <div class="col-sm-12">
                             <div class="form-group">

@@ -22,15 +22,15 @@
                                     <td>{{ $category->id }}</td>
                                     <td>{{ $category->name }}</td>
                                     <td> {{ $category->description }}</td>
-                                    <td>
+                                    <td class="d-flex">
+                                        <a class="btn btn-primary btn-sm"
+                                            href="{{ route('admin.category.edit', $category->id) }}">Editovat</a>
                                         <form onsubmit="return confirm('Určitě smazat?');"
                                             action="{{ route('admin.category.destroy', $category) }}" method="POST">
                                             @csrf
                                             @method("DELETE")
                                             <button type="submit" class="btn btn-sm">Odstranit</button>
                                         </form>
-                                        <a class="btn btn-primary btn-sm"
-                                            href="{{ route('admin.category.edit', $category->id) }}">Editovat</a>
                                     </td>
                                 </tr>
                             @endforeach

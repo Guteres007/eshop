@@ -11,8 +11,9 @@
                         <thead>
                             <tr>
                                 <th>Id</th>
+                                <th>Obrázek</th>
                                 <th>Nadpis</th>
-                                <th>Popis</th>
+                                <th>Cena</th>
                                 <th>Akce</th>
                             </tr>
                         </thead>
@@ -20,17 +21,19 @@
                             @foreach ($products as $product)
                                 <tr>
                                     <td>{{ $product->id }}</td>
+                                    <td>{{ $product->id }}</td>
                                     <td>{{ $product->name }}</td>
-                                    <td> {{ $product->description }}</td>
-                                    <td>
+                                    <td> {{ $product->price }} {{ config('price.currency') }}</td>
+                                    <td class="d-flex">
+                                        <a class="btn btn-primary btn-sm"
+                                            href="{{ route('admin.product.edit', $product->id) }}">Editovat</a>
                                         <form onsubmit="return confirm('Určitě smazat?');"
                                             action="{{ route('admin.product.destroy', $product) }}" method="POST">
                                             @csrf
                                             @method("DELETE")
                                             <button type="submit" class="btn btn-sm">Odstranit</button>
                                         </form>
-                                        <a class="btn btn-primary btn-sm"
-                                            href="{{ route('admin.product.edit', $product->id) }}">Editovat</a>
+
                                     </td>
                                 </tr>
                             @endforeach

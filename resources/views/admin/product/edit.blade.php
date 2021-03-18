@@ -7,7 +7,8 @@
             <div class="card">
                 <div class="card-header"><strong>Produkt</strong></div>
                 <div class="card-body">
-                    <form class="row" action="{{ route('admin.product.update', $product->id) }}" method="POST">
+                    <form class="row" action="{{ route('admin.product.update', $product->id) }}" method="POST"
+                        enctype="multipart/form-data">
                         @csrf
                         @method("PUT")
                         <div class="col-sm-6">
@@ -20,13 +21,6 @@
 
                         <div class="col-sm-6">
                             <div class="form-group">
-
-
-
-
-
-
-
 
                                 <label class="col-form-label" for="multiple-select">Kategorie <span
                                         class="color-red">{{ $errors->first('category_id') }}</span></label>
