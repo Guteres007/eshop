@@ -4,7 +4,7 @@ namespace App\Services\Admin\Product;
 
 use App\Repositories\Product\ProductRepository;
 
-class CreateProductService
+class UpdateProductService
 {
     private $productRepository;
 
@@ -13,7 +13,7 @@ class CreateProductService
         $this->productRepository = $productRepository;
     }
 
-    public function make(array $attributes)
+    public function make($id, array $attributes)
     {
         if (!isset($attributes['active'])) {
             $calculate['active'] = false;
@@ -29,9 +29,9 @@ class CreateProductService
 
         $array_of_category_ids = $attributes['category_id'];
 
-        $product = $this->productRepository->create($attributes);
-        $product->category()->attach($array_of_category_ids);
-
+        $product = $this->productRepository->find($id);
+        $product->update($attributes);
+        $product->category()->sync($array_of_category_ids);
 
         return true;
     }

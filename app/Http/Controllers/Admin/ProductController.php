@@ -5,9 +5,10 @@ namespace App\Http\Controllers\Admin;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Admin\ProductRequest;
-use App\Repositories\Category\CategoryRepository;
 use App\Repositories\Product\ProductRepository;
+use App\Repositories\Category\CategoryRepository;
 use App\Services\Admin\Product\CreateProductService;
+use App\Services\Admin\Product\UpdateProductService;
 
 class ProductController extends Controller
 {
@@ -37,7 +38,7 @@ class ProductController extends Controller
         if ($createProductService->make($request->all())) {
             return redirect()->route('admin.product.index')->withSuccess("Produkt přidán");
         }
-        return redirect()->route('admin.product.index')->withError("Produkt přidán");
+        return redirect()->route('admin.product.index')->withError("Produkt nepřidán");
     }
 
     public function destroy($id)
@@ -61,11 +62,12 @@ class ProductController extends Controller
         ]);
     }
 
-    public function update(ProductRequest $request, CreateProductService $createProductService)
+    public function update($id, ProductRequest $request, UpdateProductService $updateProductService)
     {
-        # code...
+        $updateProductService->make($id, $request->all());
+        return redirect()->route('admin.product.index')->withSuccess("Produkt editován");
     }
-
+    //------------ private ------------
     private function selectedCategory($product)
     {
         $selected_category = [];
