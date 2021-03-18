@@ -18,13 +18,6 @@ class ProductRepository extends BaseRepository
 
     public function create($attributes)
     {
-        $array_of_category_ids = $attributes['category_id'];
-
-        $product = $this->model->create($attributes);
-        foreach ($array_of_category_ids as $category_id) {
-            $product->category()->attach($category_id);
-        }
-
-        return $this;
+        return $this->model->create($attributes);
     }
 }

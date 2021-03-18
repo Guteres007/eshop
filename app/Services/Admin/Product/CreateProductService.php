@@ -26,6 +26,14 @@ class CreateProductService
         $calculate['tax'] = config('price.tax');
         $calculate['price_margin'] = $attributes['price'] - $attributes['shopping_price'];
         $attributes += $calculate;
-        return $this->productRepository->create($attributes);
+
+        $array_of_category_ids = $attributes['category_id'];
+        $product = $this->productRepository->create($attributes);
+
+        foreach ($array_of_category_ids as $category_id) {
+            $product->category()->attach($category_id);
+        }
+
+        return true;
     }
 }
