@@ -121,22 +121,13 @@
                             </div>
                         </div>
 
-
-
-
-
-
-                        <div class="form-group row">
-                            <label class="col-md-3 col-form-label" for="file-multiple-input">Multiple File input</label>
-                            <div class="col-md-9">
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label for="file-multiple-input">Obrázky <span
+                                        class="color-red">{{ $errors->first('images') }}{{ $errors->first('images.*') }}</span></label>
                                 <input id="file-multiple-input" type="file" name="images[]" multiple>
                             </div>
                         </div>
-
-
-
-
-
 
                         <div class="col-sm-12">
                             <div class="form-group">

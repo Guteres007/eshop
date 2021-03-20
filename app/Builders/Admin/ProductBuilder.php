@@ -29,8 +29,7 @@ class ProductBuilder
     public function createImages(array $images)
     {
         $this->folderCreator->make($this->product->id);
-        //image save
-        $this->imageSaver->setDestionation($this->product->id);
+        $this->imageSaver->setDestionation("/product-images/" . $this->product->id);
         foreach ($images as $image) {
             $this->imageSaver->make($image);
         }

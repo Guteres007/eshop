@@ -17,6 +17,6 @@ class ImageSaver
 
     public function setDestionation($destination)
     {
-        $this->folder_destination = "/product-images/" . $destination;
+        $this->folder_destination = $destination;
     }
 }
