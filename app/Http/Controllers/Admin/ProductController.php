@@ -4,10 +4,10 @@ namespace App\Http\Controllers\Admin;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Builders\Admin\ProductBuilder;
 use App\Http\Requests\Admin\ProductRequest;
 use App\Repositories\Product\ProductRepository;
 use App\Repositories\Category\CategoryRepository;
-use App\Services\Admin\Product\CreateProductService;
 use App\Services\Admin\Product\UpdateProductService;
 
 class ProductController extends Controller
@@ -33,18 +33,21 @@ class ProductController extends Controller
         return view('admin.product.create', ['categories' => $categories]);
     }
 
-    public function store(ProductRequest $request, CreateProductService $createProductService)
+    public function store(ProductRequest $request, ProductBuilder $productBuilder)
     {
 
-        foreach ($request->file('images') as $image) {
-            //scenář: vytvořím složku ve store podle id produktu a nahraju
-            dd($image->getClientOriginalExtension());
-            dd($image->getClientOriginalName());
+        if ($request->file('images')) {
+            foreach ($request->file('images') as $image) {
+                //scenář: vytvořím složku ve store podle id produktu a nahraju
+                //dd(uniqid() . $image->getClientOriginalExtension());
+                //dd($image->getClientOriginalName());
+            }
         }
-        if ($createProductService->make($request->all())) {
-            return redirect()->route('admin.product.index')->withSuccess("Produkt přidán");
-        }
-        return redirect()->route('admin.product.index')->withError("Produkt nepřidán");
+
+        $productBuilder
+            ->createProduct($request->all())
+            ->createImages($request->file('images'));
+        return redirect()->route('admin.product.index')->withSuccess("Produkt přidán");
     }
 
     public function destroy($id)
