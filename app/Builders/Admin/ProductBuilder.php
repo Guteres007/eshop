@@ -30,8 +30,10 @@ class ProductBuilder
     {
         $this->folderCreator->make($this->product->id);
         $this->imageSaver->setDestionation("/product-images/" . $this->product->id);
+
         foreach ($images as $image) {
-            $this->imageSaver->make($image);
+            $image_path =  $this->imageSaver->make($image);
+            $this->product->images()->create(['name' => $image->getClientOriginalName(), 'path' => $image_path]);
         }
         return $this;
     }

@@ -21,7 +21,13 @@
                             @foreach ($products as $product)
                                 <tr>
                                     <td>{{ $product->id }}</td>
-                                    <td>{{ $product->id }}</td>
+                                    <td>
+
+                                        <img style="width: 100px;"
+                                            src="{{ asset('storage/' . ($product->images()->first()->path ?? '')) }}"
+                                            alt="{{ $product->images()->first()->name ?? '' }}">
+
+                                    </td>
                                     <td>{{ $product->name }}</td>
                                     <td> {{ $product->price }} {{ config('price.currency') }}</td>
                                     <td class="d-flex">
