@@ -35,18 +35,10 @@ class ProductController extends Controller
 
     public function store(ProductRequest $request, ProductBuilder $productBuilder)
     {
-
-        if ($request->file('images')) {
-            foreach ($request->file('images') as $image) {
-                //scenář: vytvořím složku ve store podle id produktu a nahraju
-                //dd(uniqid() . $image->getClientOriginalExtension());
-                //dd($image->getClientOriginalName());
-            }
-        }
-
         $productBuilder
             ->createProduct($request->all())
             ->createImages($request->file('images'));
+
         return redirect()->route('admin.product.index')->withSuccess("Produkt přidán");
     }
 

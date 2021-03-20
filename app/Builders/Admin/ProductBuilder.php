@@ -4,13 +4,19 @@ namespace App\Builders\Admin;
 
 use App\Services\Admin\Product\CreateProductService;
 use App\Services\Files\FolderCreator;
+use App\Services\Images\ImageSaver;
 
 class ProductBuilder
 {
     private $product;
     private $createProductService;
-    public function __construct(CreateProductService $createProductService, FolderCreator $folderCreator)
-    {
+    private $imageSaver;
+    public function __construct(
+        CreateProductService $createProductService,
+        FolderCreator $folderCreator,
+        ImageSaver $imageSaver
+    ) {
+        $this->imageSaver = $imageSaver;
         $this->createProductService = $createProductService;
         $this->folderCreator = $folderCreator;
     }
@@ -20,9 +26,14 @@ class ProductBuilder
         $this->product = $this->createProductService->make($attributes);
         return $this;
     }
-    public function createImages(array $attributes)
+    public function createImages(array $images)
     {
         $this->folderCreator->make($this->product->id);
+        //image save
+        $this->imageSaver->setDestionation($this->product->id);
+        foreach ($images as $image) {
+            $this->imageSaver->make($image);
+        }
         return $this;
     }
 }
