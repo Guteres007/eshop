@@ -8,6 +8,7 @@ use App\Builders\Admin\ProductBuilder;
 use App\Http\Requests\Admin\ProductRequest;
 use App\Repositories\Product\ProductRepository;
 use App\Repositories\Category\CategoryRepository;
+use App\Services\Admin\Product\DeleteProductService;
 use App\Services\Admin\Product\UpdateProductService;
 use App\Services\Files\FolderRemover;
 
@@ -43,13 +44,9 @@ class ProductController extends Controller
         return redirect()->route('admin.product.index')->withSuccess("Produkt přidán");
     }
 
-    public function destroy($id, FolderRemover $folderRemover)
+    public function destroy($id, DeleteProductService $deleteProductService)
     {
-        $this->productRepository->delete($id);
-        //remove folder $id
-
-        $folderRemover->setDestionation('/product-images/');
-        $folderRemover->make($id);
+        $deleteProductService->make($id);
         return redirect()->route('admin.product.index')->withSuccess('Produkt smazán');
     }
 

@@ -3,7 +3,6 @@
 namespace App\Services\Admin\Product;
 
 use App\Repositories\Product\ProductRepository;
-use App\Services\Files\FolderCreator;
 
 class CreateProductService
 {
