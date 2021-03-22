@@ -22,10 +22,10 @@
                                     <td>{{ $category->id }}</td>
                                     <td>{{ $category->name }}</td>
                                     <td> {{ $category->description }}</td>
-                                    <td class="d-flex">
+                                    <td>
                                         <a class="btn btn-primary btn-sm"
                                             href="{{ route('admin.category.edit', $category->id) }}">Editovat</a>
-                                        <form onsubmit="return confirm('Určitě smazat?');"
+                                        <form class="d-inline-block" onsubmit="return confirm('Určitě smazat?');"
                                             action="{{ route('admin.category.destroy', $category) }}" method="POST">
                                             @csrf
                                             @method("DELETE")

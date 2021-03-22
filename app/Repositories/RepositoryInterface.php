@@ -16,4 +16,6 @@ interface RepositoryInterface
     public function update($id, $attributes);
 
     public function allPaginate();
+
+    public function where(array $query);
 }

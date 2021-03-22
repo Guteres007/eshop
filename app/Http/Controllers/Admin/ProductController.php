@@ -2,15 +2,16 @@
 
 namespace App\Http\Controllers\Admin;
 
-use Illuminate\Http\Request;
+
 use App\Http\Controllers\Controller;
 use App\Builders\Admin\ProductBuilder;
-use App\Http\Requests\Admin\ProductRequest;
+use Illuminate\Http\Request;
 use App\Repositories\Product\ProductRepository;
 use App\Repositories\Category\CategoryRepository;
 use App\Services\Admin\Product\DeleteProductService;
 use App\Services\Admin\Product\UpdateProductService;
-use App\Services\Files\FolderRemover;
+use App\Http\Requests\Admin\Product\ProductCreateRequest;
+use App\Http\Requests\Admin\Product\ProductUpdateRequest;
 
 class ProductController extends Controller
 {
@@ -22,9 +23,15 @@ class ProductController extends Controller
         $this->categoryRepository = $categoryRepository;
     }
 
-    public function index()
+    public function index(Request $request)
     {
-        $products = $this->productRepository->allPaginate();
+        if ($request->query('id')) {
+            //vytvořit where a vrátit paginované hodnoty
+            $products = $this->productRepository->where(['id' => $request->query('id')]);
+        } else {
+            $products = $this->productRepository->allPaginate();
+        }
+
         return view('admin.product.index', ['products' => $products]);
     }
 
@@ -35,7 +42,7 @@ class ProductController extends Controller
         return view('admin.product.create', ['categories' => $categories]);
     }
 
-    public function store(ProductRequest $request, ProductBuilder $productBuilder)
+    public function store(ProductCreateRequest $request, ProductBuilder $productBuilder)
     {
         $productBuilder
             ->createProduct($request->all())
@@ -58,15 +65,16 @@ class ProductController extends Controller
         //helper nebo tak něco udělat, budu asi používat častěji
         $selected_category = $this->selectedCategory($product);
 
-        return view("admin.product.edit", [
+        return view('admin.product.edit', [
             'product' => $product,
             'categories' =>  $categories,
             'selected_category' => $selected_category
         ]);
     }
 
-    public function update($id, ProductRequest $request, UpdateProductService $updateProductService)
+    public function update($id, ProductUpdateRequest $request, UpdateProductService $updateProductService)
     {
+        //musím získat obrázky a pak editovat
         $updateProductService->make($id, $request->all());
         return redirect()->route('admin.product.index')->withSuccess("Produkt editován");
     }

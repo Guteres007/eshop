@@ -127,6 +127,19 @@
                             </div>
                         </div>
 
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label for="file-multiple-input">Obrázky <span
+                                        class="color-red">{{ $errors->first('images') }}{{ $errors->first('images.*') }}</span></label>
+                                <input id="file-multiple-input" type="file" name="images[]" multiple>
+                            </div>
+                        </div>
+
+                        @foreach ($product->images as $image)
+                            <img style="width: 150px;" src="{{ asset('storage/' . ($image->path ?? '')) }}"
+                                alt="{{ $image->name ?? '' }}">
+                        @endforeach
+
                         <div class="col-sm-12">
                             <div class="form-group">
                                 <button class="btn btn-success" type="submit">Editovat</button>

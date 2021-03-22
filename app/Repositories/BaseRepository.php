@@ -41,4 +41,9 @@ class BaseRepository implements RepositoryInterface
     {
         return $this->model->orderBy('id', 'desc')->paginate(10);
     }
+
+    public function where(array $query)
+    {
+        return $this->model->where($query)->orderBy('id', 'desc')->paginate(10);
+    }
 }

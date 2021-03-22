@@ -23,17 +23,17 @@
                                     <td>{{ $product->id }}</td>
                                     <td>
 
-                                        <img style="width: 100px;"
+                                        <img style="width: 70px;"
                                             src="{{ asset('storage/' . ($product->images()->first()->path ?? '')) }}"
                                             alt="{{ $product->images()->first()->name ?? '' }}">
 
                                     </td>
                                     <td>{{ $product->name }}</td>
                                     <td> {{ $product->price }} {{ config('price.currency') }}</td>
-                                    <td class="d-flex">
+                                    <td>
                                         <a class="btn btn-primary btn-sm"
                                             href="{{ route('admin.product.edit', $product->id) }}">Editovat</a>
-                                        <form onsubmit="return confirm('Určitě smazat?');"
+                                        <form class="d-inline-block" onsubmit="return confirm('Určitě smazat?');"
                                             action="{{ route('admin.product.destroy', $product) }}" method="POST">
                                             @csrf
                                             @method("DELETE")
@@ -45,7 +45,7 @@
                             @endforeach
                         </tbody>
                     </table>
-                    {{ $products->links() }}
+                    {{ $products->links() ?? '' }}
                 </div>
             </div>
         </div>
