@@ -84,7 +84,7 @@ class ProductController extends Controller
     private function selectedCategory($product)
     {
         $selected_category = [];
-        foreach ($product->category as $category) {
+        foreach ($product->categories as $category) {
             $selected_category[$category->id] = $category->id;
         }
         return $selected_category;

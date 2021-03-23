@@ -31,7 +31,7 @@ class UpdateProductService
 
         $product = $this->productRepository->find($id);
         $product->update($attributes);
-        $product->category()->sync($array_of_category_ids);
+        $product->categories()->sync($array_of_category_ids);
 
         return true;
     }

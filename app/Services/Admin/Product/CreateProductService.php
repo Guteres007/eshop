@@ -30,7 +30,7 @@ class CreateProductService
         $array_of_category_ids = $attributes['category_id'];
 
         $product = $this->productRepository->create($attributes);
-        $product->category()->attach($array_of_category_ids);
+        $product->categories()->attach($array_of_category_ids);
 
         return $product;
     }

@@ -2,13 +2,14 @@
 
 namespace App\Http\Controllers;
 
+use App\Repositories\Category\CategoryRepository;
 use Illuminate\Http\Request;
 
 class HomepageController extends Controller
 {
-    public function index(Request $request)
+    public function index(CategoryRepository $categoryRepository)
     {
-        $request->session()->put('key', 'value');
-        dd($request->session()->get('key'));
+        $categoryRepository->all();
+        return view('frontend.homepage', ['categories' => $categoryRepository->all()]);
     }
 }

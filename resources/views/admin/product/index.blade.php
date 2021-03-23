@@ -5,14 +5,36 @@
     <div class="row">
         <div class="col-12">
             <div class="card">
-                <form action="{{ route('admin.product.index') }}" method="get">
-                    <input type="text" name="search_by_id">
-                </form>
-                <form action="{{ route('admin.product.index') }}" method="get">
-                    <input type="text" name="search_by_name">
-                </form>
                 <div class="card-header"><i class="fa fa-align-justify"></i> Produkty</div>
                 <div class="card-body">
+                    <div class="row">
+                        <div class="col-2">
+                            <form action="{{ route('admin.product.index') }}" method="get">
+                                <div class="form-group">
+                                    <div class="col-sm-12">
+                                        <input type="text" name="search_by_id" class="form-control form-control-sm"
+                                            placeholder="podle id">
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                        <div class="col-2">
+                            <form action="{{ route('admin.product.index') }}" method="get">
+                                <div class="form-group">
+                                    <div class="col-sm-12">
+                                        <input type="text" name="search_by_name" class="form-control form-control-sm"
+                                            placeholder="podle nadpisu">
+                                    </div>
+                                </div>
+
+                            </form>
+                        </div>
+
+                    </div>
+
+
+
+
                     <table class="table table-responsive-sm table-bordered">
                         <thead>
                             <tr>
