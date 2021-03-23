@@ -17,5 +17,7 @@ interface RepositoryInterface
 
     public function allPaginate();
 
-    public function where(array $query);
+    public function where($query);
+
+    public function whereLike($query, $text);
 }

@@ -5,6 +5,12 @@
     <div class="row">
         <div class="col-12">
             <div class="card">
+                <form action="{{ route('admin.product.index') }}" method="get">
+                    <input type="text" name="search_by_id">
+                </form>
+                <form action="{{ route('admin.product.index') }}" method="get">
+                    <input type="text" name="search_by_name">
+                </form>
                 <div class="card-header"><i class="fa fa-align-justify"></i> Produkty</div>
                 <div class="card-body">
                     <table class="table table-responsive-sm table-bordered">

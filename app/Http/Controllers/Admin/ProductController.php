@@ -12,6 +12,7 @@ use App\Services\Admin\Product\DeleteProductService;
 use App\Services\Admin\Product\UpdateProductService;
 use App\Http\Requests\Admin\Product\ProductCreateRequest;
 use App\Http\Requests\Admin\Product\ProductUpdateRequest;
+use App\Models\Product;
 
 class ProductController extends Controller
 {
@@ -25,9 +26,10 @@ class ProductController extends Controller
 
     public function index(Request $request)
     {
-        if ($request->query('id')) {
-            //vytvořit where a vrátit paginované hodnoty
-            $products = $this->productRepository->where(['id' => $request->query('id')]);
+        if ($request->query('search_by_id')) {
+            $products = $this->productRepository->where(['id' => (int)$request->query('search_by_id')]);
+        } else if ($request->query('search_by_name')) {
+            $products =  $this->productRepository->whereLike('name', $request->query('search_by_name'));
         } else {
             $products = $this->productRepository->allPaginate();
         }

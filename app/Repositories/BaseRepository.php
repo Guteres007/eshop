@@ -42,8 +42,14 @@ class BaseRepository implements RepositoryInterface
         return $this->model->orderBy('id', 'desc')->paginate(10);
     }
 
-    public function where(array $query)
+    public function where($query)
     {
+
         return $this->model->where($query)->orderBy('id', 'desc')->paginate(10);
+    }
+
+    public function whereLike($column, $text)
+    {
+        return $this->model->where($column, 'like', "%{$text}%")->paginate(10);
     }
 }
