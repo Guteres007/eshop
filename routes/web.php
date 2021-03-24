@@ -7,6 +7,8 @@ use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Frontend\CategoryController as FrontendCategoryController;
 use App\Http\Controllers\Frontend\ProductController as FrontendProductController;
+use App\Http\Controllers\Frontend\CartController;
+
 
 
 /*
@@ -23,6 +25,10 @@ use App\Http\Controllers\Frontend\ProductController as FrontendProductController
 Route::get('/', [HomepageController::class, 'index']);
 Route::get('/category/{category:slug}', [FrontendCategoryController::class, 'show'])->name('frontend.category.show');
 Route::get('/product/{product:slug}', [FrontendProductController::class, 'show'])->name('frontend.product.show');
+
+Route::name('frontend.')->group(function () {
+    Route::resource('cart', CartController::class)->except(['create']);
+});
 
 Route::prefix('admin')->group(function () {
     Route::name('admin.')->group(function () {

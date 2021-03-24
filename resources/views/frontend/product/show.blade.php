@@ -8,9 +8,10 @@
         <li>{{ $product->description }}</li>
     </ul>
 
-    <form action="">
+    <form action="{{ route('frontend.cart.store') }}" method="POST">
         @csrf
-        <input type="hidden" value="1">
+        <input type="hidden" name="count" value="1">
+        <input type="hidden" name="product_id" value="{{ $product->id }}">
         <button type="submit">
             Koupit
         </button>
