@@ -5,16 +5,18 @@ namespace App\Http\Controllers\Frontend;
 use App\Http\Controllers\Controller;
 use App\Models\Category;
 use App\Repositories\Category\CategoryRepository;
-use App\Services\Frontend\Product\ProductService;
 
 class CategoryController extends Controller
 {
-    public function show(Category $category, ProductService $productService)
+    public function show(Category $category, CategoryRepository $categoryRepository)
     {
-
-        //TODO: předělat na service Product/ProductService :: getActiveProducts
         return view('frontend.category.show', [
-            'products' => $productService->getActiveProductsByCategorySlug($category->slug)
+            'products' => $categoryRepository
+                ->getModel()
+                ->find($category->id)
+                ->products()
+                ->where('active', true)
+                ->paginate(20)
         ]);
     }
 }
