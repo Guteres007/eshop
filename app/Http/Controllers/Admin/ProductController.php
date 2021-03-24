@@ -27,9 +27,9 @@ class ProductController extends Controller
     public function index(Request $request)
     {
         if ($request->query('search_by_id')) {
-            $products = $this->productRepository->where(['id' => (int)$request->query('search_by_id')]);
+            $products = $this->productRepository->where(['id' => (int)$request->query('search_by_id')])->paginate(10);
         } else if ($request->query('search_by_name')) {
-            $products =  $this->productRepository->whereLike('name', $request->query('search_by_name'));
+            $products =  $this->productRepository->whereLike('name', $request->query('search_by_name'))->paginate(10);
         } else {
             $products = $this->productRepository->allPaginate();
         }

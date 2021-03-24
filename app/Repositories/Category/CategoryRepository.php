@@ -13,8 +13,4 @@ class CategoryRepository extends BaseRepository
         $this->model = $model;
         parent::__construct($model);
     }
-    public function getActiveProductsByCategorySlug($slug)
-    {
-        return $this->model->where('slug', $slug)->first()->products;
-    }
 }

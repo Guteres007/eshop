@@ -20,4 +20,6 @@ interface RepositoryInterface
     public function where($query);
 
     public function whereLike($query, $text);
+
+    public function getModel();
 }

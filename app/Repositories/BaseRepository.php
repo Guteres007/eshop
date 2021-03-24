@@ -44,12 +44,15 @@ class BaseRepository implements RepositoryInterface
 
     public function where($query)
     {
-
-        return $this->model->where($query)->orderBy('id', 'desc')->paginate(10);
+        return $this->model->where($query)->orderBy('id', 'desc');
     }
 
     public function whereLike($column, $text)
     {
-        return $this->model->where($column, 'like', "%{$text}%")->paginate(10);
+        return $this->model->where($column, 'like', "%{$text}%");
+    }
+    public function getModel()
+    {
+        return $this->model;
     }
 }
