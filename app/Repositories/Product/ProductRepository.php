@@ -15,9 +15,4 @@ class ProductRepository extends BaseRepository
         $this->model = $model;
         parent::__construct($model);
     }
-
-    public function create($attributes)
-    {
-        return $this->model->create($attributes);
-    }
 }

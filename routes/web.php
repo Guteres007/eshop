@@ -6,6 +6,8 @@ use App\Http\Controllers\Admin\ProductController;
 use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Frontend\CategoryController as FrontendCategoryController;
+use App\Http\Controllers\Frontend\ProductController as FrontendProductController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -20,6 +22,7 @@ use App\Http\Controllers\Frontend\CategoryController as FrontendCategoryControll
 
 Route::get('/', [HomepageController::class, 'index']);
 Route::get('/category/{category:slug}', [FrontendCategoryController::class, 'show'])->name('frontend.category.show');
+Route::get('/product/{product:slug}', [FrontendProductController::class, 'show'])->name('frontend.product.show');
 
 Route::prefix('admin')->group(function () {
     Route::name('admin.')->group(function () {
