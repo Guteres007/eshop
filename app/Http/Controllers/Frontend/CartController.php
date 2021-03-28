@@ -2,16 +2,16 @@
 
 namespace App\Http\Controllers\Frontend;
 
-use App\Http\Controllers\Controller;
 use App\Models\Cart;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
-use App\Factories\CartFactory;
+use App\Http\Controllers\Controller;
+use App\Builders\Frontend\CartBuilder;
+
 
 class CartController extends Controller
 {
-    public function store(Request $request, CartFactory $cartFactory)
+    public function store(Request $request, CartBuilder $cartBuilder)
     {
-        return dd($cartFactory->make());
+        return dd($cartBuilder->createCart());
     }
 }
