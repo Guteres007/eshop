@@ -7,7 +7,7 @@ use Illuminate\Support\Facades\DB;
 class CartProductService
 {
 
-    public function make($user_session_id)
+    public function getProducts($user_session_id)
     {
 
         $cart_products = DB::table('cart_product')

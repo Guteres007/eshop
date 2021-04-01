@@ -19,8 +19,8 @@ class CartController extends Controller
 
     public function index(Request $request, CartProductService $cartProductService, CartProductCalculator $cartProductCalculator)
     {
-        $cart_products = $cartProductService->make($request->session()->getId());
-        $total_products_price = $cartProductCalculator->make($request->session()->getId());
+        $cart_products = $cartProductService->getProducts($request->session()->getId());
+        $total_products_price = $cartProductCalculator->getTotalPrice($request->session()->getId());
 
         return view('frontend.cart.index', [
             'cart_products' => $cart_products,

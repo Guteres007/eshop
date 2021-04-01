@@ -7,7 +7,7 @@ use App\Models\Cart;
 
 class CartProductCalculator
 {
-    public function make($user_session_id)
+    public function getTotalPrice($user_session_id)
     {
         $cart = Cart::where('session_id', $user_session_id)->first();
         return $cart->products()->sum('price');
