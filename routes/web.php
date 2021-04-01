@@ -27,7 +27,8 @@ Route::get('/category/{category:slug}', [FrontendCategoryController::class, 'sho
 Route::get('/product/{product:slug}', [FrontendProductController::class, 'show'])->name('frontend.product.show');
 
 Route::name('frontend.')->group(function () {
-    Route::resource('cart', CartController::class)->except(['create']);
+    Route::resource('cart', CartController::class)->except(['create', 'show']);
+    Route::get('/cart/{cart:hash}', [CartController::class, 'show'])->name('cart.show');
 });
 
 Route::prefix('admin')->group(function () {

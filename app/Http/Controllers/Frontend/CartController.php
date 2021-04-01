@@ -12,6 +12,13 @@ class CartController extends Controller
 {
     public function store(Request $request, CartBuilder $cartBuilder)
     {
-        return dd($cartBuilder->createCart());
+        $product = $cartBuilder->createCart()
+            ->createProduct($request->input('product_id'));
+        return redirect()->route('frontend.cart.show', $product->hash);
+    }
+
+    public function show($hash)
+    {
+        dd($hash);
     }
 }

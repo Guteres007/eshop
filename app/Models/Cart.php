@@ -12,6 +12,12 @@ class Cart extends Model
     protected $fillable = [
         'user_id',
         'session_id',
-        'active'
+        'active',
+        'hash'
     ];
+
+    public function products()
+    {
+        return $this->belongsToMany(Product::class);
+    }
 }
