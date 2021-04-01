@@ -7,5 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class CartProduct extends Model
 {
+
     use HasFactory;
+    protected $table = 'cart_product';
 }
