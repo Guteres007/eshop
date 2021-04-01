@@ -29,6 +29,6 @@ class CartBuilder
     public function createProduct($product_id)
     {
         $this->cartProductFactory->make($this->cart, $product_id);
-        return $this->cart;
+        return $this;
     }
 }
