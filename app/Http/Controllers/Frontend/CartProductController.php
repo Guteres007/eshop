@@ -10,6 +10,7 @@ class CartProductController extends Controller
 {
     public function destroy($product_id)
     {
-        dd(CartProduct::where('product_id', $product_id)->delete());
+        CartProduct::where('product_id', $product_id)->delete();
+        return redirect()->back();
     }
 }

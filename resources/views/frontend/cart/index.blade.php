@@ -2,8 +2,12 @@
 
 @section('container')
 
-    @foreach ($cart_products as $product)
-        {{ $product->total_products }} x {{ $product->name }} : {{ $product->total_product_price }}
+    @forelse ($cart_products as $product)
+        <img style="width: 50px" src="{{ asset('storage/' . $product->product_image_path) }}" alt="ss">
+        {{ $product->total_products }} x {{ $product->price }}
+        {{ $product->name }}
+        :
+        {{ $product->total_product_price }}
         {{ config('price.currency') }}
         <form action="{{ route('frontend.cartproduct.destroy', $product->id) }}" method="POST">
             @csrf
@@ -11,7 +15,14 @@
             <button type="submit">Delete</button>
         </form>
         <br>
-    @endforeach
+
+    @empty
+        Prázdný košík
+        <a href="{{ route('frontend.home') }}">Domů</a>
+    @endforelse
+
+
     {{ $total_products_price }} {{ config('price.currency') }}
+
 
 @endsection

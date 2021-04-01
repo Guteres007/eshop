@@ -23,7 +23,7 @@ use App\Http\Controllers\Frontend\CartController;
 |
 */
 
-Route::get('/', [HomepageController::class, 'index']);
+Route::get('/', [HomepageController::class, 'index'])->name('frontend.home');
 Route::get('/category/{category:slug}', [FrontendCategoryController::class, 'show'])->name('frontend.category.show');
 Route::get('/product/{product:slug}', [FrontendProductController::class, 'show'])->name('frontend.product.show');
 
