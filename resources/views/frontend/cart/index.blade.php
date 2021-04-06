@@ -46,13 +46,20 @@
                             </tr>
                         </tfoot>
                     </table>
-
+                    <div class="row">
+                        <div class="col-6">
+                            <a href="/">Zpět</a>
+                        </div>
+                        <div class="col-6 text-right">
+                            <a class="btn btn-success" href="{{ route('frontend.delivery-payment.index') }}">Doprava a
+                                platba</a>
+                        </div>
+                    </div>
                 @else
                     Prázdný košík
                     <a href="{{ route('frontend.home') }}">Domů</a>
                 @endif
             </div>
-
 
         </div>
     </div>

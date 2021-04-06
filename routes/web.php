@@ -9,16 +9,18 @@ use App\Http\Controllers\Frontend\CategoryController as FrontendCategoryControll
 use App\Http\Controllers\Frontend\ProductController as FrontendProductController;
 use App\Http\Controllers\Frontend\CartProductController;
 use App\Http\Controllers\Frontend\CartController;
+use App\Http\Controllers\Frontend\DeliveryPaymentController;
 
 
-Route::get('/', [HomepageController::class, 'index'])->name('frontend.home');
-Route::get('/category/{category:slug}', [FrontendCategoryController::class, 'show'])->name('frontend.category.show');
-Route::get('/product/{product:slug}', [FrontendProductController::class, 'show'])->name('frontend.product.show');
 
 Route::name('frontend.')->group(function () {
+    Route::get('/', [HomepageController::class, 'index'])->name('home');
+    Route::get('/category/{category:slug}', [FrontendCategoryController::class, 'show'])->name('category.show');
+    Route::get('/product/{product:slug}', [FrontendProductController::class, 'show'])->name('product.show');
     Route::resource('cart', CartController::class)->except(['create', 'show']);
     Route::get('/cart/{cart:hash}', [CartController::class, 'show'])->name('cart.show');
     Route::delete('/cart-product/{id}', [CartProductController::class, 'destroy'])->name('cartproduct.destroy');
+    Route::get('/delivery-payment', [DeliveryPaymentController::class, 'index'])->name('delivery-payment.index');
 });
 
 Route::prefix('admin')->group(function () {
