@@ -4,6 +4,14 @@
 
     <div class="container">
         <div class="row">
+            <div class="col-12">
+                <nav aria-label="breadcrumb" class="pt-3">
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="/">Domů</a></li>
+                        <li class="breadcrumb-item active" aria-current="page">{{ $category->name }}</li>
+                    </ol>
+                </nav>
+            </div>
             @foreach ($products as $product)
                 <div class="col-3">
                     <a href="{{ route('frontend.product.show', $product->slug) }}" class="card">
@@ -17,6 +25,9 @@
                             </p>
                             <p class="card-text">
                                 {{ $product->description }}
+                            </p>
+                            <p class="card-text">
+                                {{ $product->price }} {{ config('price.currency') }}
                             </p>
                             <span class="btn btn-success">
                                 Detail

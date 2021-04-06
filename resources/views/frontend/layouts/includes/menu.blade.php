@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
     <div class="container-fluid">
         <a class="navbar-brand" href="/">Navbar</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
@@ -16,7 +16,8 @@
             </ul>
 
             <div class="d-flex">
-                <a href="{{ route('frontend.cart.index') }}">Košík</a>
+                <a class="text-light" href="{{ route('frontend.cart.index') }}">Košík {{ $cart_total_price }}
+                    {{ config('price.currency') }}</a>
             </div>
         </div>
     </div>
