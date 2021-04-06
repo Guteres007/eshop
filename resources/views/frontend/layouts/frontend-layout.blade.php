@@ -6,16 +6,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <title>Frontend</title>
-    <!--   <link href="{{ mix('/css/admin/admin.css') }}" rel="stylesheet">
-    <link rel="stylesheet" href="https://unpkg.com/@coreui/icons@2.0.0-beta.3/css/all.min.css"> -->
-
+    <link href="{{ mix('/css/frontend/frontend.css') }}" rel="stylesheet">
 </head>
 
 <body>
 
+    @include('frontend.layouts.includes.menu')
     @yield("container")
 
-    <!--  <script src="{{ mix('/js/admin/admin.js') }}"></script> -->
+    <script src="{{ mix('/js/frontend/frontend.js') }}"></script>
 
 
 </body>
