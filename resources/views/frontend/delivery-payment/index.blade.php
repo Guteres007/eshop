@@ -4,23 +4,28 @@
     <div class="container">
         <div class="row">
             <div class="col-12">
-                <table class="table">
-                    <thead>
-                        <tr>
-                            <th scope="col">Obrázek</th>
-                            <th scope="col">Jméno dopravy</th>
-                            <th scope="col">Cena</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td scope="row">checkbox</td>
-                            <td>PPL</td>
-                            <th>Price {{ config('price.currency') }}</th>
-                        </tr>
-                    </tbody>
+                <form action="" method="POST">
+                    @csrf
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th scope="col">Obrázek</th>
+                                <th scope="col">Jméno dopravy</th>
+                                <th scope="col">Cena</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach ($deliveries as $delivery)
+                                <tr>
+                                    <td scope="row"><input type="radio" name="delivery[]"></td>
+                                    <td>{{ $delivery->name }}</td>
+                                    <td>{{ $delivery->price }} {{ config('price.currency') }}</td>
+                                </tr>
+                            @endforeach
+                        </tbody>
 
-                </table>
+                    </table>
+                </form>
             </div>
         </div>
     </div>
