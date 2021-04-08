@@ -26,6 +26,19 @@
         </ul>
     </li>
 
+    <li class="c-sidebar-nav-dropdown">
+        <a class="c-sidebar-nav-dropdown-toggle" href="#">
+            <i class="c-sidebar-nav-icon cil-speedometer">
+            </i> Doprava</a>
+        <ul class="c-sidebar-nav-dropdown-items">
+            <li class="c-sidebar-nav-item"><a class="c-sidebar-nav-link" href="{{ route('admin.delivery.index') }}">
+                    Seznam </a> </li>
+            <li class="c-sidebar-nav-item"><a class="c-sidebar-nav-link" href="{{ route('admin.delivery.create') }}">
+                    Přidat
+                </a></li>
+        </ul>
+    </li>
+
     <li class="c-sidebar-nav-title">Nav Title</li>
     <li class="c-sidebar-nav-item">
         <a class="c-sidebar-nav-link" href="#">

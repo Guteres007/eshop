@@ -7,29 +7,35 @@
             <div class="card">
                 <div class="card-header"><strong>Kategorie</strong></div>
                 <div class="card-body">
-                    <form class="row" action="{{ route('admin.category.update', $category->id) }}" method="POST">
+                    <form class="row" action="{{ route('admin.delivery.store') }}" method="POST">
                         @csrf
-                        @method("PUT")
                         <div class="col-sm-12">
                             <div class="form-group">
-                                <label for="name">Jméno kategorie <span
+                                <label for="name">Jméno dopravy <span
                                         class="color-red">{{ $errors->first('name') }}</span></label>
-                                <input class="form-control" name="name" type="text" value="{{ $category->name }}">
+                                <input class="form-control" name="name" type="text">
                             </div>
                         </div>
 
                         <div class="col-sm-12">
                             <div class="form-group">
-                                <label for="name">Popis kategorie <span
+                                <label for="name">Popis dopravy <span
                                         class="color-red">{{ $errors->first('description') }}</span></label>
-                                <textarea class="form-control" name="description"
-                                    type="text">{{ $category->description }}</textarea>
+                                <textarea class="form-control" name="description" type="text"></textarea>
                             </div>
                         </div>
 
                         <div class="col-sm-12">
                             <div class="form-group">
-                                <button class="btn btn-success" type="submit">Editovat</button>
+                                <label for="name">Cena dopravy <span
+                                        class="color-red">{{ $errors->first('price') }}</span></label>
+                                <input class="form-control" name="price" type="text">
+                            </div>
+                        </div>
+
+                        <div class="col-sm-12">
+                            <div class="form-group">
+                                <button class="btn btn-success" type="submit">Vytvořit</button>
                             </div>
                         </div>
 
