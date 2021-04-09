@@ -13,17 +13,17 @@
 
 <body class="c-app">
     <div class="c-sidebar c-sidebar-dark c-sidebar-show">
-        @include('admin.layouts.includes.sidebar')
+        @include('admin._layouts.includes.sidebar')
     </div>
 
     <div class="c-wrapper">
         <header class="c-header">
-            @include('admin.layouts.includes.header')
+            @include('admin._layouts.includes.header')
         </header>
         <div class="c-body">
             <main class="c-main">
                 <div class="container-fluid">
-                    @include('admin.layouts.includes.messages')
+                    @include('admin._layouts.includes.messages')
                     @yield("container")
                 </div>
             </main>

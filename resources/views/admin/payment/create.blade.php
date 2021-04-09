@@ -1,11 +1,11 @@
-@extends('admin.layouts.admin-layout')
+@extends('admin._layouts.admin-layout')
 
 @section('container')
 
     <div class="row">
         <div class="col-6">
             <div class="card">
-                <div class="card-header"><strong>Kategorie</strong></div>
+                <div class="card-header"><strong>Platba</strong></div>
                 <div class="card-body">
                     <form class="row" action="{{ route('admin.payment.store') }}" method="POST">
                         @csrf

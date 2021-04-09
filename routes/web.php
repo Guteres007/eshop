@@ -1,17 +1,21 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\HomepageController;
+
 use App\Http\Controllers\Admin\ProductController;
 use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\DeliveryController;
 use App\Http\Controllers\Admin\PaymentController;
+use App\Http\Controllers\Admin\DeliveryPaymentController as AdminDeliveryPaymentController;
+
+use App\Http\Controllers\HomepageController;
 use App\Http\Controllers\Frontend\CategoryController as FrontendCategoryController;
 use App\Http\Controllers\Frontend\ProductController as FrontendProductController;
 use App\Http\Controllers\Frontend\CartProductController;
 use App\Http\Controllers\Frontend\CartController;
 use App\Http\Controllers\Frontend\DeliveryPaymentController;
+
 
 
 
@@ -35,5 +39,7 @@ Route::prefix('admin')->group(function () {
         Route::resource('delivery', DeliveryController::class)->except(['show']);
         Route::resource('payment', PaymentController::class)->except(['show']);
         Route::resource('product', ProductController::class)->except(['show']);
+        //TODO: nebudu potřebovat tolik routes na editaci?
+        Route::resource('delivery-payment', AdminDeliveryPaymentController::class)->except(['show', 'destroy']);
     });
 });

@@ -5,16 +5,14 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Payment extends Model
+class DeliveryPayment extends Model
 {
     use HasFactory;
+
     protected $fillable = [
         'name',
-        'description'
+        'active',
+        'price'
     ];
-
-    public function deliveries()
-    {
-        return $this->belongsToMany(Delivery::class)->withPivot('price', 'active');
-    }
+    protected $table = 'delivery_payment';
 }

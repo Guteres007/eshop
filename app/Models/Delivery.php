@@ -14,4 +14,9 @@ class Delivery extends Model
         'description',
         'price'
     ];
+
+    public function payments()
+    {
+        return $this->belongsToMany(Payment::class)->withPivot('price', 'active');
+    }
 }

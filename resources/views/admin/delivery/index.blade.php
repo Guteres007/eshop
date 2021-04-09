@@ -1,11 +1,11 @@
-@extends('admin.layouts.admin-layout')
+@extends('admin._layouts.admin-layout')
 
 @section('container')
 
     <div class="row">
         <div class="col-12">
             <div class="card">
-                <div class="card-header"><i class="fa fa-align-justify"></i> Kategorie</div>
+                <div class="card-header"><i class="fa fa-align-justify"></i> Doprava</div>
                 <div class="card-body">
                     <table class="table table-responsive-sm table-bordered">
                         <thead>

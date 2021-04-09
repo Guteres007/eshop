@@ -11,7 +11,7 @@
 
 <body>
 
-    @include('frontend.layouts.includes.menu')
+    @include('frontend._layouts.includes.menu')
     @yield("container")
 
     <script src="{{ mix('/js/frontend/frontend.js') }}"></script>

@@ -17,8 +17,8 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        View::composer('frontend.layouts.includes.menu', MenuComposer::class);
-        View::composer('frontend.layouts.includes.menu', CartComposer::class);
+        View::composer('frontend._layouts.includes.menu', MenuComposer::class);
+        View::composer('frontend._layouts.includes.menu', CartComposer::class);
     }
 
     /**
