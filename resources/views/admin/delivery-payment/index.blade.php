@@ -24,10 +24,10 @@
                                             <label for="">{{ $payment->name }}
                                                 <input type="checkbox"
                                                     name="delivery_payment[{{ $delivery->id }}][{{ $payment->id }}][active]"
-                                                    {{ $payment->deliveries[$delivery->id]->pivot->active ? 'checked' : '' }}>
+                                                    {{ $payment->deliveries->find($delivery->id)->pivot->active ? 'checked' : '' }}>
                                                 <input type="text" class="form-control" placeholder="Cena"
                                                     name="delivery_payment[{{ $delivery->id }}][{{ $payment->id }}][price]"
-                                                    value="{{ $payment->deliveries[$delivery->id]->pivot->price }}">
+                                                    value="{{ $payment->deliveries->find($delivery->id)->pivot->price }}">
                                         </td>
                                     @endforeach
                                 </tr>
