@@ -6,11 +6,14 @@ use App\Http\Controllers\Admin\ProductController;
 use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\DeliveryController;
+use App\Http\Controllers\Admin\PaymentController;
 use App\Http\Controllers\Frontend\CategoryController as FrontendCategoryController;
 use App\Http\Controllers\Frontend\ProductController as FrontendProductController;
 use App\Http\Controllers\Frontend\CartProductController;
 use App\Http\Controllers\Frontend\CartController;
 use App\Http\Controllers\Frontend\DeliveryPaymentController;
+
+
 
 
 
@@ -30,6 +33,7 @@ Route::prefix('admin')->group(function () {
         Route::get('dashboard', [DashboardController::class, 'index']);
         Route::resource('category', CategoryController::class)->except(['show']);
         Route::resource('delivery', DeliveryController::class)->except(['show']);
+        Route::resource('payment', PaymentController::class)->except(['show']);
         Route::resource('product', ProductController::class)->except(['show']);
     });
 });

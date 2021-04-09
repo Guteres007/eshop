@@ -10,23 +10,21 @@
                     <table class="table table-responsive-sm table-bordered">
                         <thead>
                             <tr>
-                                <th>Nadpis dopravy</th>
-                                <th>Popis dopravy</th>
-                                <th>Cena dopravy</th>
+                                <th>Nadpis platby</th>
+                                <th>Popis platby</th>
                                 <th>Akce</th>
                             </tr>
                         </thead>
                         <tbody>
-                            @foreach ($deliveries as $delivery)
+                            @foreach ($payments as $payment)
                                 <tr>
-                                    <td>{{ $delivery->name }}</td>
-                                    <td> {{ $delivery->description }}</td>
-                                    <td> {{ $delivery->price }} {{ config('price.currency') }}</td>
+                                    <td>{{ $payment->name }}</td>
+                                    <td> {{ $payment->description }}</td>
                                     <td>
                                         <a class="btn btn-primary btn-sm"
-                                            href="{{ route('admin.delivery.edit', $delivery->id) }}">Editovat</a>
+                                            href="{{ route('admin.payment.edit', $payment->id) }}">Editovat</a>
                                         <form class="d-inline-block" onsubmit="return confirm('Určitě smazat?');"
-                                            action="{{ route('admin.delivery.destroy', $delivery) }}" method="POST">
+                                            action="{{ route('admin.payment.destroy', $payment) }}" method="POST">
                                             @csrf
                                             @method("DELETE")
                                             <button type="submit" class="btn btn-sm">Odstranit</button>
@@ -37,7 +35,7 @@
 
                         </tbody>
                     </table>
-                    {{ $deliveries->links() }}
+                    {{ $payments->links() }}
                 </div>
             </div>
         </div>
