@@ -29,14 +29,22 @@ class DeliveryPaymentController extends Controller
 
     public function store(Request $request)
     {
-        //Smazat a pak přidat nové záznamy?
+        //TODO: DeliveryPaymentService
         collect($request->input('delivery_payment'))->each(function ($delivery, $delivery_id) {
-            Delivery::find($delivery_id)->payments()->attach($delivery);
+
+            $sanitize_delivery_payment = collect($delivery)->map(function ($payment) {
+                if (!isset($payment['active'])) {
+                    $payment['active'] = false;
+                }
+                if (!isset($payment['price'])) {
+                    $payment['price'] = 0;
+                }
+                return $payment;
+            });
+            Delivery::find($delivery_id)->payments()->attach($sanitize_delivery_payment);
         });
 
-
-        //DeliveryPaymentService
-        //dd($request->input('delivery'));
+        return redirect()->back();
     }
 
 

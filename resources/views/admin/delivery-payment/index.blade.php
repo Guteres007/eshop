@@ -20,15 +20,27 @@
                             @foreach ($payments as $payment)
                                 <tr>
                                     @foreach ($deliveries as $delivery)
-                                        <td>
-                                            <label for="">{{ $payment->name }}
-                                                <input type="checkbox"
-                                                    name="delivery_payment[{{ $delivery->id }}][{{ $payment->id }}][active]"
-                                                    {{ $payment->deliveries->find($delivery->id)->pivot->active ? 'checked' : '' }}>
-                                                <input type="text" class="form-control" placeholder="Cena"
-                                                    name="delivery_payment[{{ $delivery->id }}][{{ $payment->id }}][price]"
-                                                    value="{{ $payment->deliveries->find($delivery->id)->pivot->price }}">
-                                        </td>
+
+                                        @if ($payment->deliveries->find($delivery->id))
+                                            <td>
+                                                <label for="">{{ $payment->name }}
+                                                    <input type="checkbox"
+                                                        name="delivery_payment[{{ $delivery->id }}][{{ $payment->id }}][active]"
+                                                        {{ $payment->deliveries->find($delivery->id)->pivot->active ? 'checked' : '' }}>
+                                                    <input type="text" class="form-control" placeholder="Cena"
+                                                        name="delivery_payment[{{ $delivery->id }}][{{ $payment->id }}][price]"
+                                                        value="{{ $payment->deliveries->find($delivery->id)->pivot->price }}">
+                                            </td>
+                                        @else
+                                            <td>
+                                                <label for="">{{ $payment->name }}
+                                                    <input type="checkbox"
+                                                        name="delivery_payment[{{ $delivery->id }}][{{ $payment->id }}][active]">
+                                                    <input type="text" class="form-control" placeholder="Cena"
+                                                        name="delivery_payment[{{ $delivery->id }}][{{ $payment->id }}][price]">
+                                            </td>
+                                        @endif
+
                                     @endforeach
                                 </tr>
                             @endforeach
