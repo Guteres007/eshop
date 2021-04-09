@@ -22,6 +22,7 @@ Route::name('frontend.')->group(function () {
     Route::get('/cart/{cart:hash}', [CartController::class, 'show'])->name('cart.show');
     Route::delete('/cart-product/{id}', [CartProductController::class, 'destroy'])->name('cartproduct.destroy');
     Route::get('/delivery-payment', [DeliveryPaymentController::class, 'index'])->name('delivery-payment.index');
+    Route::post('/delivery-payment', [DeliveryPaymentController::class, 'store'])->name('delivery-payment.store');
 });
 
 Route::prefix('admin')->group(function () {

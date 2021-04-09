@@ -10,7 +10,11 @@ class DeliveryPaymentController extends Controller
 {
     public function index()
     {
-
         return view('frontend.delivery-payment.index', ['deliveries'  => Delivery::get()]);
+    }
+
+    public function store(Request $request)
+    {
+        dd($request);
     }
 }

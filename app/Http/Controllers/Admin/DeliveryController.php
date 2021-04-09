@@ -46,5 +46,6 @@ class DeliveryController extends Controller
     public function destroy($id)
     {
         Delivery::destroy($id);
+        return redirect()->back();
     }
 }
