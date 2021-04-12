@@ -16,7 +16,7 @@
                         </thead>
                         <tbody>
                             @foreach ($deliveries as $delivery)
-                                <tr onclick="return getPayments({{ $delivery->id }})">
+                                <tr onclick="return getPayments(this, {{ $delivery->id }})">
                                     <td scope="row"><input type="radio" name="delivery_id" value="{{ $delivery->id }}">
                                     </td>
                                     <td>{{ $delivery->name }}</td>
@@ -37,9 +37,10 @@
                         </thead>
                         <tbody>
                             @foreach ($payments as $payment)
-                                <tr class="payment" data-payment-id="{{ $payment->id }}"">
-                                                        <td scope=" row"><input type="radio" name="payment_id"
-                                        value="{{ $payment->id }}"></td>
+                                <tr class="payment" data-payment-id="{{ $payment->id }}"
+                                    onclick="return setPayments(this)">
+                                    <td scope="row"><input type="radio" name="payment_id" value="{{ $payment->id }}">
+                                    </td>
                                     <td class="payment-name">{{ $payment->name }}</td>
                                     <td class="payment-price">{{ $payment->price }} {{ config('price.currency') }}</td>
                                 </tr>

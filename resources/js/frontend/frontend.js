@@ -1,5 +1,6 @@
 require("../bootstrap");
 import bootstrap from "bootstrap";
 
-import { getPayments } from "./delivery-payment";
+import { getPayments, setPayments } from "./delivery-payment";
 window.getPayments = getPayments;
+window.setPayments = setPayments;

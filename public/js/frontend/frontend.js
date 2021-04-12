@@ -4965,12 +4965,14 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "getPayments": () => (/* binding */ getPayments)
+/* harmony export */   "getPayments": () => (/* binding */ getPayments),
+/* harmony export */   "setPayments": () => (/* binding */ setPayments)
 /* harmony export */ });
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_0__);
 
-var getPayments = function getPayments(delivery_id) {
+var getPayments = function getPayments(el, delivery_id) {
+  el.querySelector("input[name=delivery_id]").checked = true;
   axios__WEBPACK_IMPORTED_MODULE_0___default().get("/delivery-payment/".concat(delivery_id)).then(function (response) {
     return response.data;
   }).then(function (data) {
@@ -4992,6 +4994,9 @@ var getPayments = function getPayments(delivery_id) {
       });
     });
   });
+};
+var setPayments = function setPayments(el) {
+  el.querySelector("input[name=payment_id]").checked = true;
 };
 
 /***/ }),
@@ -27480,6 +27485,7 @@ __webpack_require__(/*! ../bootstrap */ "./resources/js/bootstrap.js");
 
 
 window.getPayments = _delivery_payment__WEBPACK_IMPORTED_MODULE_1__.getPayments;
+window.setPayments = _delivery_payment__WEBPACK_IMPORTED_MODULE_1__.setPayments;
 })();
 
 /******/ })()

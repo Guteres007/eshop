@@ -1,6 +1,7 @@
 import axios from "axios";
 
-export const getPayments = (delivery_id) => {
+export const getPayments = (el, delivery_id) => {
+    el.querySelector("input[name=delivery_id]").checked = true;
     axios
         .get(`/delivery-payment/${delivery_id}`)
         .then((response) => {
@@ -28,4 +29,8 @@ export const getPayments = (delivery_id) => {
                 });
             });
         });
+};
+
+export const setPayments = (el) => {
+    el.querySelector("input[name=payment_id]").checked = true;
 };
