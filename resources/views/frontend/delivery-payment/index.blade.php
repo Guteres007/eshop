@@ -25,6 +25,26 @@
                         </tbody>
 
                     </table>
+
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th scope="col"></th>
+                                <th scope="col">Jméno platby</th>
+                                <th scope="col">Cena</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach ($payments as $payment)
+                                <tr>
+                                    <td scope="row"><input type="radio" name="delivery_id[{{ $payment->id }}]"></td>
+                                    <td>{{ $payment->name }}</td>
+                                    <td>{{ $payment->price }} {{ config('price.currency') }}</td>
+                                </tr>
+                            @endforeach
+                        </tbody>
+
+                    </table>
                     <a class="btn" href="{{ route('frontend.cart.index') }}">Zpět</a> <button class="btn btn-success"
                         type="submit">Kontaktní údaje</button>
                 </form>

@@ -83,3 +83,18 @@
 ## platba 
 - jmeno
 - cena
+
+
+## objednávky
+## stavy objednavek 
+-  přijato
+-  zpracovává se
+-  předáno přepravci / expedováno
+-  dodáno
+
+## trakovací čísla
+- id_objednavky
+- hash od doručovatele
+## akce
+- vyprodej
+- akce
