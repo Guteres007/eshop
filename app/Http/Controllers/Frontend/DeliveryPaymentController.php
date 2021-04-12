@@ -7,6 +7,7 @@ use App\Models\Delivery;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
+use App\Services\Frontend\DeliveryPaymentService;
 
 class DeliveryPaymentController extends Controller
 {
@@ -18,20 +19,16 @@ class DeliveryPaymentController extends Controller
 
     public function store(Request $request)
     {
+        //dd(session()->get('delivery_id'), session()->get('payment_id'));
 
-        //session?
-        dd($request);
+        session([
+            'delivery_id' => $request->input('delivery_id'),
+            'payment_id' => $request->input('payment_id')
+        ]);
     }
 
-    public function show($delivery_id)
+    public function show($delivery_id, DeliveryPaymentService $deliveryPaymentService)
     {
-        $payments = DB::table('delivery_payment')
-            ->select('delivery_payment.delivery_id', 'delivery_payment.payment_id', 'delivery_payment.price', 'payments.name', 'payments.description')
-            ->leftJoin('deliveries', 'delivery_payment.delivery_id', '=', 'deliveries.id')
-            ->leftJoin('payments', 'delivery_payment.payment_id', '=', 'payments.id')
-            ->where('delivery_payment.active', true)
-            ->where('delivery_id', $delivery_id)
-            ->get();
-        return $payments;
+        return $deliveryPaymentService->getPaymentsByDeliveryId($delivery_id);
     }
 }
