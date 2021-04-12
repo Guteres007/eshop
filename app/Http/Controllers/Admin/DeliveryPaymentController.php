@@ -6,6 +6,8 @@ use App\Models\Payment;
 use App\Models\Delivery;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Services\Admin\DeliveryPaymentService;
+use Illuminate\Support\Facades\DB;
 
 class DeliveryPaymentController extends Controller
 {
@@ -21,53 +23,9 @@ class DeliveryPaymentController extends Controller
         return view('admin.delivery-payment.index', compact('deliveries', 'payments'));
     }
 
-
-    public function create()
+    public function store(Request $request, DeliveryPaymentService $deliveryPaymentService)
     {
-        //
-    }
-
-    public function store(Request $request)
-    {
-        //TODO: DeliveryPaymentService
-        collect($request->input('delivery_payment'))->each(function ($delivery, $delivery_id) {
-
-            $sanitize_delivery_payment = collect($delivery)->map(function ($payment) {
-                if (!isset($payment['active'])) {
-                    $payment['active'] = false;
-                }
-                if (!isset($payment['price'])) {
-                    $payment['price'] = 0;
-                }
-                return $payment;
-            });
-            Delivery::find($delivery_id)->payments()->attach($sanitize_delivery_payment);
-        });
-
+        $deliveryPaymentService->save($request->input('delivery_payment'));
         return redirect()->back();
-    }
-
-
-    public function show($id)
-    {
-        //
-    }
-
-
-    public function edit($id)
-    {
-        //
-    }
-
-
-    public function update(Request $request, $id)
-    {
-        //
-    }
-
-
-    public function destroy($id)
-    {
-        //
     }
 }

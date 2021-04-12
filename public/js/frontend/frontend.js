@@ -4956,6 +4956,46 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 
 /***/ }),
 
+/***/ "./resources/js/frontend/delivery-payment.js":
+/*!***************************************************!*\
+  !*** ./resources/js/frontend/delivery-payment.js ***!
+  \***************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "getPayments": () => (/* binding */ getPayments)
+/* harmony export */ });
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_0__);
+
+var getPayments = function getPayments(delivery_id) {
+  axios__WEBPACK_IMPORTED_MODULE_0___default().get("/delivery-payment/".concat(delivery_id)).then(function (response) {
+    return response.data;
+  }).then(function (data) {
+    document.querySelector("#payments").style.display = "table";
+    var payments = document.querySelectorAll(".payment");
+    payments.forEach(function (payment) {
+      payment.style.display = "none";
+    });
+    payments.forEach(function (payment) {
+      var payment_id = payment.getAttribute("data-payment-id");
+      data.forEach(function (item) {
+        console.log(item.payment_id == payment_id);
+
+        if (item.payment_id == parseInt(payment_id)) {
+          payment.querySelector(".payment-name").innerHTML = item.name;
+          payment.querySelector(".payment-price").innerHTML = item.price;
+          payment.style.display = "table-row";
+        }
+      });
+    });
+  });
+};
+
+/***/ }),
+
 /***/ "./node_modules/bootstrap/dist/js/bootstrap.esm.js":
 /*!*********************************************************!*\
   !*** ./node_modules/bootstrap/dist/js/bootstrap.esm.js ***!
@@ -4979,7 +5019,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "Tooltip": () => (/* binding */ Tooltip)
 /* harmony export */ });
 /* harmony import */ var _popperjs_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @popperjs/core */ "./node_modules/@popperjs/core/lib/index.js");
-/* harmony import */ var _popperjs_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @popperjs/core */ "./node_modules/@popperjs/core/lib/popper.js");
 /*!
   * Bootstrap v5.0.0-beta3 (https://getbootstrap.com/)
   * Copyright 2011-2021 The Bootstrap Authors (https://github.com/twbs/bootstrap/graphs/contributors)
@@ -7024,7 +7063,7 @@ class Dropdown extends BaseComponent {
       const popperConfig = this._getPopperConfig();
 
       const isDisplayStatic = popperConfig.modifiers.find(modifier => modifier.name === 'applyStyles' && modifier.enabled === false);
-      this._popper = _popperjs_core__WEBPACK_IMPORTED_MODULE_1__.createPopper(referenceElement, this._menu, popperConfig);
+      this._popper = _popperjs_core__WEBPACK_IMPORTED_MODULE_0__.createPopper(referenceElement, this._menu, popperConfig);
 
       if (isDisplayStatic) {
         Manipulator.setDataAttribute(this._menu, 'popper', 'static');
@@ -8632,7 +8671,7 @@ class Tooltip extends BaseComponent {
     if (this._popper) {
       this._popper.update();
     } else {
-      this._popper = _popperjs_core__WEBPACK_IMPORTED_MODULE_1__.createPopper(this._element, tip, this._getPopperConfig(attachment));
+      this._popper = _popperjs_core__WEBPACK_IMPORTED_MODULE_0__.createPopper(this._element, tip, this._getPopperConfig(attachment));
     }
 
     tip.classList.add(CLASS_NAME_SHOW$3);
@@ -27364,6 +27403,18 @@ process.umask = function() { return 0; };
 /******/ 	}
 /******/ 	
 /************************************************************************/
+/******/ 	/* webpack/runtime/compat get default export */
+/******/ 	(() => {
+/******/ 		// getDefaultExport function for compatibility with non-harmony modules
+/******/ 		__webpack_require__.n = (module) => {
+/******/ 			var getter = module && module.__esModule ?
+/******/ 				() => (module['default']) :
+/******/ 				() => (module);
+/******/ 			__webpack_require__.d(getter, { a: getter });
+/******/ 			return getter;
+/******/ 		};
+/******/ 	})();
+/******/ 	
 /******/ 	/* webpack/runtime/define property getters */
 /******/ 	(() => {
 /******/ 		// define getter functions for harmony exports
@@ -27423,9 +27474,12 @@ var __webpack_exports__ = {};
   \*******************************************/
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var bootstrap__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! bootstrap */ "./node_modules/bootstrap/dist/js/bootstrap.esm.js");
+/* harmony import */ var _delivery_payment__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./delivery-payment */ "./resources/js/frontend/delivery-payment.js");
 __webpack_require__(/*! ../bootstrap */ "./resources/js/bootstrap.js");
 
 
+
+window.getPayments = _delivery_payment__WEBPACK_IMPORTED_MODULE_1__.getPayments;
 })();
 
 /******/ })()

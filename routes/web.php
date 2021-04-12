@@ -30,6 +30,7 @@ Route::name('frontend.')->group(function () {
     Route::delete('/cart-product/{id}', [CartProductController::class, 'destroy'])->name('cartproduct.destroy');
     Route::get('/delivery-payment', [DeliveryPaymentController::class, 'index'])->name('delivery-payment.index');
     Route::post('/delivery-payment', [DeliveryPaymentController::class, 'store'])->name('delivery-payment.store');
+    Route::get('/delivery-payment/{id}', [DeliveryPaymentController::class, 'show'])->name('delivery-payment.show');
 });
 
 Route::prefix('admin')->group(function () {
@@ -39,7 +40,7 @@ Route::prefix('admin')->group(function () {
         Route::resource('delivery', DeliveryController::class)->except(['show']);
         Route::resource('payment', PaymentController::class)->except(['show']);
         Route::resource('product', ProductController::class)->except(['show']);
-        //TODO: nebudu potřebovat tolik routes na editaci?
-        Route::resource('delivery-payment', AdminDeliveryPaymentController::class)->except(['show', 'destroy']);
+        Route::get('delivery-payment', [AdminDeliveryPaymentController::class, 'index'])->name('delivery-payment.index');
+        Route::post('delivery-payment', [AdminDeliveryPaymentController::class, 'store'])->name('delivery-payment.store');
     });
 });

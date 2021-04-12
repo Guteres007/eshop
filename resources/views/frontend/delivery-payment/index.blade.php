@@ -16,8 +16,9 @@
                         </thead>
                         <tbody>
                             @foreach ($deliveries as $delivery)
-                                <tr>
-                                    <td scope="row"><input type="radio" name="delivery_id[{{ $delivery->id }}]"></td>
+                                <tr onclick="return getPayments({{ $delivery->id }})">
+                                    <td scope="row"><input type="radio" name="delivery_id" value="{{ $delivery->id }}">
+                                    </td>
                                     <td>{{ $delivery->name }}</td>
                                     <td>{{ $delivery->price }} {{ config('price.currency') }}</td>
                                 </tr>
@@ -26,7 +27,7 @@
 
                     </table>
 
-                    <table class="table">
+                    <table class="table" id="payments" style="display: none;">
                         <thead>
                             <tr>
                                 <th scope="col"></th>
@@ -36,10 +37,11 @@
                         </thead>
                         <tbody>
                             @foreach ($payments as $payment)
-                                <tr>
-                                    <td scope="row"><input type="radio" name="delivery_id[{{ $payment->id }}]"></td>
-                                    <td>{{ $payment->name }}</td>
-                                    <td>{{ $payment->price }} {{ config('price.currency') }}</td>
+                                <tr class="payment" data-payment-id="{{ $payment->id }}"">
+                                                        <td scope=" row"><input type="radio" name="payment_id"
+                                        value="{{ $payment->id }}"></td>
+                                    <td class="payment-name">{{ $payment->name }}</td>
+                                    <td class="payment-price">{{ $payment->price }} {{ config('price.currency') }}</td>
                                 </tr>
                             @endforeach
                         </tbody>
