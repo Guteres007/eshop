@@ -115,12 +115,14 @@
     flex-grow: 1;
     display: flex;
     flex-direction: column;
+    color: #333;
 }
 .product-card__name {
     font-size: 15px;
     line-height: 19px;
 
-    a {
+    a, span {
+        color: #333;
         color: inherit;
         transition: .15s;
     }

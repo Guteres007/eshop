@@ -3122,6 +3122,7 @@ html:not([dir="rtl"]) .noUi-horizontal .noUi-origin {
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
           flex-direction: column;
+  color: #333;
 }
 
 .product-card__name {
@@ -3129,7 +3130,8 @@ html:not([dir="rtl"]) .noUi-horizontal .noUi-origin {
   line-height: 19px;
 }
 
-.product-card__name a {
+.product-card__name a, .product-card__name span {
+  color: #333;
   color: inherit;
   -webkit-transition: .15s;
   transition: .15s;
