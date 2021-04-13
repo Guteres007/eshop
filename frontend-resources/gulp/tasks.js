@@ -157,7 +157,9 @@ exports.makeTasks = function (config) {
      * @return Promise<string[]>
      */
     const cleanTask = function () {
-        return del([config.distDir]);
+        return del([config.distDir], {
+            force: true,
+        });
     };
 
     /**

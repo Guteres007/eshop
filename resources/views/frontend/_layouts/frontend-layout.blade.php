@@ -15,7 +15,7 @@
     <link rel="stylesheet" href="/theme-v1/vendor/photoswipe/photoswipe.css">
     <link rel="stylesheet" href="/theme-v1/vendor/photoswipe/default-skin/default-skin.css">
     <link rel="stylesheet" href="/theme-v1/vendor/select2/css/select2.min.css">
-    <link rel="stylesheet" href="/theme-v1/css/style.css">
+    <link rel="stylesheet" href="/theme-v1/css/style.ltr.css">
     <!-- font - fontawesome -->
     <link rel="stylesheet" href="/theme-v1/vendor/fontawesome/css/all.min.css">
     <!-- font - stroyka -->

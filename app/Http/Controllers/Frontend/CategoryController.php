@@ -16,7 +16,7 @@ class CategoryController extends Controller
                 ->find($category->id)
                 ->products()
                 ->where('active', true)
-                ->paginate(20),
+                ->paginate(1),
             'category' => $category
         ]);
     }
