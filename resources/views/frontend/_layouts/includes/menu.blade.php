@@ -503,9 +503,9 @@
                                             </div>
                                             <div class="dropcart__buttons">
                                                 <a class="btn btn-secondary"
-                                                    href="{{ route('frontend.cart.index') }}">View Cart</a>
+                                                    href="{{ route('frontend.cart.index') }}">Košík</a>
                                                 <a class="btn btn-primary"
-                                                    href="{{ route('frontend.cart.index') }}">Checkout</a>
+                                                    href="{{ route('frontend.delivery-payment.index') }}">Zaplatit</a>
                                             </div>
                                         </div>
                                     </div>

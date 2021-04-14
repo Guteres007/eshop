@@ -2,11 +2,12 @@
 
 namespace App\Http\Controllers\Frontend;
 
+use App\Models\Delivery;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Builders\Frontend\CartBuilder;
-use App\Services\Frontend\Cart\CartProductCalculator;
 use App\Services\Frontend\Cart\CartProductService;
+use App\Services\Frontend\Cart\CartProductCalculator;
 
 class CartController extends Controller
 {
@@ -22,9 +23,11 @@ class CartController extends Controller
         $cart_products = $cartProductService->getProducts($request->session()->getId());
         $total_products_price = $cartProductCalculator->getTotalPrice($request->session()->getId());
 
+
         return view('frontend.cart.index', [
             'cart_products' => $cart_products,
-            'total_products_price' => $total_products_price
+            'total_products_price' => $total_products_price,
+            'delivery_price' => Delivery::min('price')
         ]);
     }
 }

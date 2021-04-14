@@ -126,8 +126,8 @@
                     <div class="site-footer__bottom">
                         <div class="site-footer__copyright">
                             <!-- copyright -->
-                            Powered by HTML — Design by <a href="https://themeforest.net/user/kos9"
-                                target="_blank">Kos</a>
+                            Tvorba webů a e-shopů na míru <a href="https://www.andrasi.cz" target="_blank">Martin
+                                Andráši</a>
                             <!-- copyright / end -->
                         </div>
                         <div class="site-footer__payments">
@@ -142,7 +142,7 @@
                         <div class="totop__end">
                             <button type="button" class="totop__button">
                                 <svg width="13px" height="8px">
-                                    <use xlink:href="images/sprite.svg#arrow-rounded-up-13x8"></use>
+                                    <use xlink:href="/theme-v1/images/sprite.svg#arrow-rounded-up-13x8"></use>
                                 </svg>
                             </button>
                         </div>
