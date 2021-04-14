@@ -58,7 +58,8 @@
                                     {{ $product->price }} {{ config('price.currency') }}</td>
                                 <td class="cart-table__column cart-table__column--quantity" data-title="Quantity">
                                     <div class="input-number">
-                                        <input class="form-control input-number__input" type="number" min="1"
+                                        <input onchange="return changeProductQuantity(this,  {{ $product->id }})"
+                                            class="form-control input-number__input" type="number" min="1"
                                             value="{{ $product->total_products }}" max="10">
                                         <div class="input-number__add"></div>
                                         <div class="input-number__sub"></div>

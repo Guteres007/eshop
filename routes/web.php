@@ -28,6 +28,7 @@ Route::name('frontend.')->group(function () {
     Route::resource('cart', CartController::class)->except(['create', 'show']);
     Route::get('/cart/{cart:hash}', [CartController::class, 'show'])->name('cart.show');
     Route::delete('/cart-product/{id}', [CartProductController::class, 'destroy'])->name('cartproduct.destroy');
+    Route::post('/cart-product', [CartProductController::class, 'store'])->name('cartproduct.store');
     Route::get('/delivery-payment', [DeliveryPaymentController::class, 'index'])->name('delivery-payment.index');
     Route::post('/delivery-payment', [DeliveryPaymentController::class, 'store'])->name('delivery-payment.store');
     Route::get('/delivery-payment/{id}', [DeliveryPaymentController::class, 'show'])->name('delivery-payment.show');

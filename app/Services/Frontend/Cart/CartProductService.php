@@ -31,4 +31,14 @@ class CartProductService
 
         return $cart_products;
     }
+
+    public function getProductCountByProductId($user_session_id, $product_id)
+    {
+        $cart_products = DB::table('cart_product')
+            ->leftJoin('carts', 'cart_product.cart_id', '=', 'carts.id')
+            ->where('cart_product.product_id', $product_id)
+            ->where('carts.session_id', $user_session_id)->count();
+
+        return $cart_products;
+    }
 }
