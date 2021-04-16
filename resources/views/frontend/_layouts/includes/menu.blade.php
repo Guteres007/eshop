@@ -496,8 +496,8 @@
                                                     </tr>
                                                     <tr>
                                                         <th>Total</th>
-                                                        <td>{{ $cart_total_price }}
-                                                            {{ config('price.currency') }}</td>
+                                                        <td>{{ $cart_total_price->price_with_currency() }}
+                                                        </td>
                                                     </tr>
                                                 </table>
                                             </div>

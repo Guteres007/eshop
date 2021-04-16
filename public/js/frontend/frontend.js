@@ -1896,6 +1896,7 @@ var changeProductQuantity = function changeProductQuantity(element, product_id) 
     clearTimeout(changeTimer);
     changeTimer = setTimeout(function () {
       axios__WEBPACK_IMPORTED_MODULE_0___default().post("/cart-product", _objectSpread({}, form)).then(function (response) {
+        console.log(response.data);
         window.location.href = "/cart";
       });
     }, doneTypingInterval);

@@ -29,15 +29,12 @@ class CartBuilder
 
     public function addProduct($product_id, $quantity = 1)
     {
-        $cart_product = CartProduct::where(['product_id' => $product_id]);
-
+        $cart_product = $this->cart->products()->where(['product_id' => $product_id]);
         if (!$cart_product->first()) {
             $this->cartProductFactory->create($this->cart, $product_id, $quantity);
         } else {
-            $cart_product->update(['quantity' => $quantity]);
+            $cart_product->first()->pivot->update(['quantity' => $quantity]);
         }
-
-
 
         return $this;
     }

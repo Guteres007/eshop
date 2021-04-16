@@ -124,7 +124,7 @@
                                 @endif
                             </div>
                             <div class="product__prices">
-                                {{ number_format($product->price, config('price.decimals')) }}
+                                {{ $product->price->formated() }}
                                 {{ config('price.currency') }}
                             </div>
 

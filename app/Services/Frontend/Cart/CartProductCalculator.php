@@ -29,7 +29,6 @@ class CartProductCalculator
             $total_price = $cart_products->sum(function ($product) {
                 return $product->price * $product->quantity;
             });
-
             return new PriceDataObject($total_price);
         }
         return 0;

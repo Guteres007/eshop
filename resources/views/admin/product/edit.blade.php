@@ -79,7 +79,8 @@
                             <div class="form-group">
                                 <label for="name">Cena <span
                                         class="color-red">{{ $errors->first('price') }}</span></label>
-                                <input class="form-control" name="price" type="text" value="{{ $product->price }}">
+                                <input class="form-control" name="price" type="text"
+                                    value="{{ $product->price->formated() }}">
                             </div>
                         </div>
 
@@ -88,7 +89,7 @@
                                 <label for="name">Cena bez DPH <span
                                         class="color-red">{{ $errors->first('price_without_vat') }}</span></label>
                                 <input class="form-control" name="price_without_vat" type="text"
-                                    value="{{ $product->price_without_vat }}">
+                                    value="{{ $product->price_without_vat->formated() }}">
                             </div>
                         </div>
 
@@ -97,7 +98,7 @@
                                 <label for="name">Nákupní cena <span
                                         class="color-red">{{ $errors->first('shopping_price') }}</span></label>
                                 <input class="form-control" name="shopping_price" type="text"
-                                    value="{{ $product->shopping_price }}">
+                                    value="{{ $product->shopping_price->formated() }}">
                             </div>
                         </div>
 

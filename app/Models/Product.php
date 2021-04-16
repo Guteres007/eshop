@@ -2,9 +2,10 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
+use App\DataObjects\PriceDataObject;
 use Illuminate\Database\Eloquent\Model;
 use Cviebrock\EloquentSluggable\Sluggable;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Product extends Model
 {
@@ -37,49 +38,29 @@ class Product extends Model
         ];
     }
     //Todo: Refaktorovat
-    public function setPriceAttribute($value)
-    {
-
-        $this->attributes['price'] = number_format($value, config('price.decimals'));
-    }
-
-    public function setPriceMarginAttribute($value)
-    {
-        $this->attributes['price_margin'] = number_format($value, config('price.decimals'));
-    }
-
-    public function setPriceWithoutVatAttribute($value)
-    {
-        $this->attributes['price_without_vat'] = number_format($value, config('price.decimals'));
-    }
-
-    public function setShoppingPriceAttribute($value)
-    {
-        $this->attributes['shopping_price'] = number_format($value, config('price.decimals'));
-    }
 
 
     public function getPriceAttribute($value)
     {
-        return  number_format($value, config('price.decimals'));
+        return new PriceDataObject($value);
     }
 
 
     public function getPriceMarginAttribute($value)
     {
-        return  number_format($value, config('price.decimals'));
+        return new PriceDataObject($value);
     }
 
 
     public function getPriceWithoutVatAttribute($value)
     {
-        return  number_format($value, config('price.decimals'));
+        return new PriceDataObject($value);
     }
 
 
     public function getShoppingPriceAttribute($value)
     {
-        return  number_format($value, config('price.decimals'));
+        return new PriceDataObject($value);
     }
 
 

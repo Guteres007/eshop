@@ -45,7 +45,7 @@
                                     <div class="product-image">
                                         <a href="" class="product-image__body">
                                             <img class="product-image__img"
-                                                src="{{ asset('storage/' . $product->product_image_path) }}"
+                                                src="{{ asset('storage/' . $product->product_images->path) }}"
                                                 alt="{{ $product->name }}">
                                         </a>
                                     </div>
@@ -56,8 +56,8 @@
 
                                 </td>
                                 <td class="cart-table__column cart-table__column--price" data-title="Price">
-                                    {{ number_format($product->price, config('price.decimals')) }}
-                                    {{ config('price.currency') }}</td>
+                                    {{ $product->price->price_with_currency() }}
+                                </td>
                                 <td class="cart-table__column cart-table__column--quantity" data-title="Quantity">
                                     <div class="input-number">
                                         <input onchange="return changeProductQuantity(this,  {{ $product->id }})"
@@ -68,7 +68,7 @@
                                     </div>
                                 </td>
                                 <td class="cart-table__column cart-table__column--total" data-title="Total">
-                                    {{ number_format($product->price * $product->quantity, config('price.decimals')) }}
+                                    {{ number_format($product->price->raw() * $product->quantity, config('price.decimals')) }}
                                     {{ config('price.currency') }}
                                 </td>
                                 <td class="cart-table__column cart-table__column--remove">
@@ -105,6 +105,7 @@
                                     <thead class="cart__totals-header">
                                         <tr>
                                             <th>Cena bez dopravy</th>
+
                                             <td>{{ $total_products_price->formated() }}
                                                 {{ config('price.currency') }}</td>
                                         </tr>

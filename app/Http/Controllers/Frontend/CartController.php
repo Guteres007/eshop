@@ -6,6 +6,7 @@ use App\Models\Delivery;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Builders\Frontend\CartBuilder;
+use App\DataObjects\PriceDataObject;
 use App\Services\Frontend\Cart\CartProductService;
 use App\Services\Frontend\Cart\CartProductCalculator;
 
@@ -22,11 +23,10 @@ class CartController extends Controller
     {
         $cart_products = $cartProductService->getProducts($request->session()->getId());
         $total_products_price = $cartProductCalculator->getTotalPrice($request->session()->getId());
-
         return view('frontend.cart.index', [
             'cart_products' => $cart_products,
             'total_products_price' => $total_products_price,
-            'delivery_price' => number_format(Delivery::min('price'), config('price.decimals'))
+            'delivery_price' => (new PriceDataObject(Delivery::min('price')))->formated()
         ]);
     }
 }

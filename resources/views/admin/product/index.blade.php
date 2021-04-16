@@ -57,7 +57,7 @@
 
                                     </td>
                                     <td>{{ $product->name }}</td>
-                                    <td> {{ $product->price }} {{ config('price.currency') }}</td>
+                                    <td> {{ $product->price->price_with_currency() }}</td>
                                     <td>
                                         <a class="btn btn-primary btn-sm"
                                             href="{{ route('admin.product.edit', $product->id) }}">Editovat</a>

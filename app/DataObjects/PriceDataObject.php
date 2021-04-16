@@ -23,6 +23,6 @@ class PriceDataObject
 
     public function price_with_currency()
     {
-        return number_format($this->value, config('price.decimals')) . config('price.currency');
+        return number_format($this->value, config('price.decimals')) . " " . config('price.currency');
     }
 }

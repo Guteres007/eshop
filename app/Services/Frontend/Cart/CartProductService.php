@@ -3,12 +3,15 @@
 namespace App\Services\Frontend\Cart;
 
 use Illuminate\Support\Facades\DB;
+use App\DataObjects\PriceDataObject;
+use App\Models\ProductImage;
 
 class CartProductService
 {
 
     public function getProducts($user_session_id)
     {
+
 
         $cart_products = DB::table('cart_product')
             ->leftJoin('products', 'cart_product.product_id', '=', 'products.id')
@@ -20,12 +23,17 @@ class CartProductService
                 'products.id',
                 'products.price',
                 'products.name',
-                'product_images.path as product_image_path',
                 'cart_product.quantity',
+                'cart_product.product_id',
                 'products.slug',
+                'product_images'
             )
             ->get();
 
-        return $cart_products;
+        return collect($cart_products)->map(function ($product) {
+            $product->price = (new PriceDataObject($product->price));
+            $product->product_images = ProductImage::where('product_id', $product->product_id)->where('rank', 1)->first();
+            return $product;
+        });
     }
 }
