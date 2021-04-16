@@ -14,7 +14,7 @@ class CartController extends Controller
     public function store(Request $request, CartBuilder $cartBuilder)
     {
         $cartBuilder->getCurrentCart()
-            ->addProduct($request->input('product_id'));
+            ->addProduct($request->input('product_id'), $request->input('quantity'));
         return redirect()->route('frontend.cart.index');
     }
 
@@ -22,7 +22,6 @@ class CartController extends Controller
     {
         $cart_products = $cartProductService->getProducts($request->session()->getId());
         $total_products_price = $cartProductCalculator->getTotalPrice($request->session()->getId());
-
 
         return view('frontend.cart.index', [
             'cart_products' => $cart_products,
