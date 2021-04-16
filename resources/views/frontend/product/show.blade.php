@@ -42,83 +42,34 @@
                                         </svg>
                                     </button>
                                     <div class="owl-carousel" id="product-image">
-                                        <div class="product-image product-image--location--gallery">
+                                        @foreach ($product->images()->orderBy('id')->get()
+        as $image)
+                                            <div class="product-image product-image--location--gallery">
+                                                <a href="{{ asset('storage/' . ($image->path ?? '')) }}" data-width="700"
+                                                    data-height="700" class="product-image__body" target="_blank">
+                                                    <img class="product-image__img product-gallery__carousel-image"
+                                                        src="{{ asset('storage/' . ($image->path ?? '')) }}"
+                                                        alt="{{ $image->name }}">
+                                                </a>
+                                            </div>
 
-                                            <a href="/theme-v1/images/products/product-16.jpg" data-width="700"
-                                                data-height="700" class="product-image__body" target="_blank">
-                                                <img class="product-image__img"
-                                                    src="/theme-v1/images/products/product-16.jpg" alt="">
-                                            </a>
-                                        </div>
-                                        <div class="product-image product-image--location--gallery">
+                                        @endforeach
 
-                                            <a href="/theme-v1/images/products/product-16-1.jpg" data-width="700"
-                                                data-height="700" class="product-image__body" target="_blank">
-                                                <img class="product-image__img"
-                                                    src="/theme-v1/images/products/product-16-1.jpg" alt="">
-                                            </a>
-                                        </div>
-                                        <div class="product-image product-image--location--gallery">
-
-                                            <a href="/theme-v1/images/products/product-16-2.jpg" data-width="700"
-                                                data-height="700" class="product-image__body" target="_blank">
-                                                <img class="product-image__img"
-                                                    src="/theme-v1/images/products/product-16-2.jpg" alt="">
-                                            </a>
-                                        </div>
-                                        <div class="product-image product-image--location--gallery">
-                                            <a href="/theme-v1/images/products/product-16-3.jpg" data-width="700"
-                                                data-height="700" class="product-image__body" target="_blank">
-                                                <img class="product-image__img"
-                                                    src="/theme-v1/images/products/product-16-3.jpg" alt="">
-                                            </a>
-                                        </div>
-                                        <div class="product-image product-image--location--gallery">
-                                            <a href="/theme-v1/images/products/product-16-4.jpg" data-width="700"
-                                                data-height="700" class="product-image__body" target="_blank">
-                                                <img class="product-image__img"
-                                                    src="/theme-v1/images/products/product-16-4.jpg" alt="">
-                                            </a>
-                                        </div>
                                     </div>
                                 </div>
                                 <div class="product-gallery__carousel">
                                     <div class="owl-carousel" id="product-carousel">
-                                        <a href="/theme-v1/images/products/product-16.jpg"
-                                            class="product-image product-gallery__carousel-item">
-                                            <div class="product-image__body">
-                                                <img class="product-image__img product-gallery__carousel-image"
-                                                    src="/theme-v1/images/products/product-16.jpg" alt="">
-                                            </div>
-                                        </a>
-                                        <a href="/theme-v1/images/products/product-16-1.jpg"
-                                            class="product-image product-gallery__carousel-item">
-                                            <div class="product-image__body">
-                                                <img class="product-image__img product-gallery__carousel-image"
-                                                    src="/theme-v1/images/products/product-16-1.jpg" alt="">
-                                            </div>
-                                        </a>
-                                        <a href="/theme-v1/images/products/product-16-2.jpg"
-                                            class="product-image product-gallery__carousel-item">
-                                            <div class="product-image__body">
-                                                <img class="product-image__img product-gallery__carousel-image"
-                                                    src="/theme-v1/images/products/product-16-2.jpg" alt="">
-                                            </div>
-                                        </a>
-                                        <a href="/theme-v1/images/products/product-16-3.jpg"
-                                            class="product-image product-gallery__carousel-item">
-                                            <div class="product-image__body">
-                                                <img class="product-image__img product-gallery__carousel-image"
-                                                    src="/theme-v1/images/products/product-16-3.jpg" alt="">
-                                            </div>
-                                        </a>
-                                        <a href="/theme-v1/images/products/product-16-4.jpg"
-                                            class="product-image product-gallery__carousel-item">
-                                            <div class="product-image__body">
-                                                <img class="product-image__img product-gallery__carousel-image"
-                                                    src="/theme-v1/images/products/product-16-4.jpg" alt="">
-                                            </div>
-                                        </a>
+                                        @foreach ($product->images()->orderBy('id')->get()
+        as $image)
+                                            <a href="{{ asset('storage/' . ($image->path ?? '')) }}"
+                                                class="product-image product-gallery__carousel-item">
+                                                <div class="product-image__body">
+                                                    <img class="product-image__img product-gallery__carousel-image"
+                                                        src="{{ asset('storage/' . ($image->path ?? '')) }}"
+                                                        alt="{{ $image->name }}">
+                                                </div>
+                                            </a>
+                                        @endforeach
                                     </div>
                                 </div>
                             </div>
