@@ -42,7 +42,7 @@
                                         </svg>
                                     </button>
                                     <div class="owl-carousel" id="product-image">
-                                        @foreach ($product->images()->orderBy('id')->get()
+                                        @foreach ($product->images()->orderBy('rank', 'asc')->get()
         as $image)
                                             <div class="product-image product-image--location--gallery">
                                                 <a href="{{ asset('storage/' . ($image->path ?? '')) }}" data-width="700"
@@ -59,7 +59,8 @@
                                 </div>
                                 <div class="product-gallery__carousel">
                                     <div class="owl-carousel" id="product-carousel">
-                                        @foreach ($product->images()->orderBy('id')->get()
+
+                                        @foreach ($product->images()->orderBy('rank', 'asc')->get()
         as $image)
                                             <a href="{{ asset('storage/' . ($image->path ?? '')) }}"
                                                 class="product-image product-gallery__carousel-item">
@@ -148,22 +149,7 @@
                                             <button type="submit" class="btn btn-primary btn-lg">Koupit</button>
                                         </div>
 
-                                        <div class="product__actions-item product__actions-item--wishlist">
-                                            <button type="button" class="btn btn-secondary btn-svg-icon btn-lg"
-                                                data-toggle="tooltip" title="Wishlist">
-                                                <svg width="16px" height="16px">
-                                                    <use xlink:href="/theme-v1/images/sprite.svg#wishlist-16"></use>
-                                                </svg>
-                                            </button>
-                                        </div>
-                                        <div class="product__actions-item product__actions-item--compare">
-                                            <button type="button" class="btn btn-secondary btn-svg-icon btn-lg"
-                                                data-toggle="tooltip" title="Compare">
-                                                <svg width="16px" height="16px">
-                                                    <use xlink:href="/theme-v1/images/sprite.svg#compare-16"></use>
-                                                </svg>
-                                            </button>
-                                        </div>
+
                                     </div>
                                 </div>
                             </form>

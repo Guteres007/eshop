@@ -13,7 +13,7 @@
               <div class="mobilemenu__title">Menu</div>
               <button type="button" class="mobilemenu__close">
                   <svg width="20px" height="20px">
-                      <use xlink:href="images/sprite.svg#cross-20"></use>
+                      <use xlink:href="/theme-v1/images/sprite.svg#cross-20"></use>
                   </svg>
               </button>
           </div>
