@@ -68,7 +68,7 @@
                                     </div>
                                 </td>
                                 <td class="cart-table__column cart-table__column--total" data-title="Total">
-                                    {{ \App\Helpers\PriceHelper::format_price($product->price->raw() * $product->quantity) }}
+                                    {{ \App\Helpers\PriceHelper::format_price_with_currency($product->price->raw() * $product->quantity) }}
 
                                 </td>
                                 <td class="cart-table__column cart-table__column--remove">
@@ -123,7 +123,7 @@
                                     <tfoot class="cart__totals-footer">
                                         <tr>
                                             <th>Celková cena</th>
-                                            <td>{{ \App\Helpers\PriceHelper::format_price($total_products_price->raw() + $delivery_price) }}
+                                            <td>{{ \App\Helpers\PriceHelper::format_price_with_currency($total_products_price->raw() + $delivery_price) }}
                                             </td>
                                         </tr>
                                     </tfoot>
