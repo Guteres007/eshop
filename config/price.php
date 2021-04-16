@@ -4,5 +4,7 @@ return [
     'tax' => 21,
     'tax_rate' => 1.21,
     'decimals' => 0,
-    'currency' => 'Kč'
+    'decimals_point' => ",",
+    'currency' => 'Kč',
+    'thousands_separator' => " ",
 ];

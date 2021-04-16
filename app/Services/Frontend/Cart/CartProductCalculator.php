@@ -4,6 +4,7 @@ namespace App\Services\Frontend\Cart;
 
 use App\Models\Cart;
 use Illuminate\Support\Facades\DB;
+use App\DataObjects\PriceDataObject;
 
 
 class CartProductCalculator
@@ -28,11 +29,8 @@ class CartProductCalculator
             $total_price = $cart_products->sum(function ($product) {
                 return $product->price * $product->quantity;
             });
-            //TODO: dataobject
-            return [
-                'formated' => number_format($total_price, config('price.decimals')),
-                'raw' => $total_price
-            ];
+
+            return new PriceDataObject($total_price);
         }
         return 0;
     }

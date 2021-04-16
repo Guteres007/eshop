@@ -105,7 +105,7 @@
                                     <thead class="cart__totals-header">
                                         <tr>
                                             <th>Cena bez dopravy</th>
-                                            <td>{{ $total_products_price['formated'] }}
+                                            <td>{{ $total_products_price->formated() }}
                                                 {{ config('price.currency') }}</td>
                                         </tr>
                                     </thead>
@@ -122,7 +122,7 @@
                                     <tfoot class="cart__totals-footer">
                                         <tr>
                                             <th>Celková cena</th>
-                                            <td>{{ number_format($total_products_price['raw'] + $delivery_price, config('price.decimals')) }}
+                                            <td>{{ number_format($total_products_price->raw() + $delivery_price, config('price.decimals')) }}
                                                 {{ config('price.currency') }}</td>
                                         </tr>
                                     </tfoot>
