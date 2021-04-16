@@ -60,13 +60,13 @@
                                     <div class="input-number">
                                         <input onchange="return changeProductQuantity(this,  {{ $product->id }})"
                                             class="form-control input-number__input" type="number" min="1"
-                                            value="{{ $product->total_products }}" max="10">
+                                            value="{{ $product->quantity }}" max="10">
                                         <div class="input-number__add"></div>
                                         <div class="input-number__sub"></div>
                                     </div>
                                 </td>
                                 <td class="cart-table__column cart-table__column--total" data-title="Total">
-                                    {{ $product->total_product_price }}
+                                    {{ $product->price * $product->quantity }}
                                     {{ config('price.currency') }}
                                 </td>
                                 <td class="cart-table__column cart-table__column--remove">

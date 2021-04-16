@@ -13,8 +13,8 @@ class CartController extends Controller
 {
     public function store(Request $request, CartBuilder $cartBuilder)
     {
-        $cartBuilder->createCart()
-            ->createProduct($request->input('product_id'));
+        $cartBuilder->getCurrentCart()
+            ->addProduct($request->input('product_id'));
         return redirect()->route('frontend.cart.index');
     }
 

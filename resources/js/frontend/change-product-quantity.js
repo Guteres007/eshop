@@ -10,8 +10,7 @@ export const changeProductQuantity = (element, product_id) => {
         clearTimeout(changeTimer);
         changeTimer = setTimeout(() => {
             axios.post("/cart-product", { ...form }).then((response) => {
-                console.log(response.data);
-                // window.location.href = "/cart";
+                window.location.href = "/cart";
             });
         }, doneTypingInterval);
     }

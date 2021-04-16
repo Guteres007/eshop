@@ -3,6 +3,7 @@
 namespace App\Builders\Frontend;
 
 use App\Models\Cart;
+use App\Models\CartProduct;
 use App\Factories\CartFactory;
 use App\Factories\CartProductFactory;
 
@@ -17,7 +18,7 @@ class CartBuilder
         $this->cartFactory = $cartFactory;
     }
 
-    public function createCart()
+    public function getCurrentCart()
     {
         $this->cart = Cart::where('session_id', session()->getId())->where('active', true)->first();
         if (!$this->cart) {
@@ -26,9 +27,18 @@ class CartBuilder
         return $this;
     }
 
-    public function createProduct($product_id)
+    public function addProduct($product_id, $quantity = 1)
     {
-        $this->cartProductFactory->make($this->cart, $product_id);
+        $cart_product = CartProduct::where(['product_id' => $product_id]);
+
+        if (!$cart_product->first()) {
+            $this->cartProductFactory->create($this->cart, $product_id, $quantity);
+        } else {
+            $cart_product->update(['quantity' => $quantity]);
+        }
+
+
+
         return $this;
     }
 }
