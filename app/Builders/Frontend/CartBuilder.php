@@ -3,7 +3,6 @@
 namespace App\Builders\Frontend;
 
 use App\Models\Cart;
-use App\Models\CartProduct;
 use App\Factories\CartFactory;
 use App\Factories\CartProductFactory;
 

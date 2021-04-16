@@ -68,8 +68,8 @@
                                     </div>
                                 </td>
                                 <td class="cart-table__column cart-table__column--total" data-title="Total">
-                                    {{ number_format($product->price->raw() * $product->quantity, config('price.decimals')) }}
-                                    {{ config('price.currency') }}
+                                    {{ \App\Helpers\PriceHelper::format_price($product->price->raw() * $product->quantity) }}
+
                                 </td>
                                 <td class="cart-table__column cart-table__column--remove">
                                     <form action="{{ route('frontend.cartproduct.destroy', $product->id) }}"
@@ -106,8 +106,8 @@
                                         <tr>
                                             <th>Cena bez dopravy</th>
 
-                                            <td>{{ $total_products_price->formated() }}
-                                                {{ config('price.currency') }}</td>
+                                            <td>{{ $total_products_price->price_with_currency() }}
+                                            </td>
                                         </tr>
                                     </thead>
                                     <tbody class="cart__totals-body">
@@ -123,8 +123,8 @@
                                     <tfoot class="cart__totals-footer">
                                         <tr>
                                             <th>Celková cena</th>
-                                            <td>{{ number_format($total_products_price->raw() + $delivery_price, config('price.decimals')) }}
-                                                {{ config('price.currency') }}</td>
+                                            <td>{{ \App\Helpers\PriceHelper::format_price($total_products_price->raw() + $delivery_price) }}
+                                            </td>
                                         </tr>
                                     </tfoot>
                                 </table>
