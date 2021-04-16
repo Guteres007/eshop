@@ -51,7 +51,8 @@
                                     </div>
                                 </td>
                                 <td class="cart-table__column cart-table__column--product">
-                                    <a href="" class="cart-table__product-name">{{ $product->name }}</a>
+                                    <a href="{{ route('frontend.product.show', $product->slug) }}"
+                                        class="cart-table__product-name">{{ $product->name }}</a>
 
                                 </td>
                                 <td class="cart-table__column cart-table__column--price" data-title="Price">

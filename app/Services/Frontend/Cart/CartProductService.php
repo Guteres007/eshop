@@ -21,7 +21,8 @@ class CartProductService
                 'products.price',
                 'products.name',
                 'product_images.path as product_image_path',
-                'cart_product.quantity'
+                'cart_product.quantity',
+                'products.slug',
             )
             ->get();
 
