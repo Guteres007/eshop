@@ -26,7 +26,7 @@ class CartController extends Controller
         return view('frontend.cart.index', [
             'cart_products' => $cart_products,
             'total_products_price' => $total_products_price,
-            'delivery_price' => Delivery::min('price')
+            'delivery_price' => number_format(Delivery::min('price'), config('price.decimals'))
         ]);
     }
 }

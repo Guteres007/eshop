@@ -36,6 +36,52 @@ class Product extends Model
             ]
         ];
     }
+    //Todo: Refaktorovat
+    public function setPriceAttribute($value)
+    {
+
+        $this->attributes['price'] = number_format($value, config('price.decimals'));
+    }
+
+    public function setPriceMarginAttribute($value)
+    {
+        $this->attributes['price_margin'] = number_format($value, config('price.decimals'));
+    }
+
+    public function setPriceWithoutVatAttribute($value)
+    {
+        $this->attributes['price_without_vat'] = number_format($value, config('price.decimals'));
+    }
+
+    public function setShoppingPriceAttribute($value)
+    {
+        $this->attributes['shopping_price'] = number_format($value, config('price.decimals'));
+    }
+
+
+    public function getPriceAttribute($value)
+    {
+        return  number_format($value, config('price.decimals'));
+    }
+
+
+    public function getPriceMarginAttribute($value)
+    {
+        return  number_format($value, config('price.decimals'));
+    }
+
+
+    public function getPriceWithoutVatAttribute($value)
+    {
+        return  number_format($value, config('price.decimals'));
+    }
+
+
+    public function getShoppingPriceAttribute($value)
+    {
+        return  number_format($value, config('price.decimals'));
+    }
+
 
     public function categories()
     {

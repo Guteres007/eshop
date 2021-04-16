@@ -28,7 +28,11 @@ class CartProductCalculator
             $total_price = $cart_products->sum(function ($product) {
                 return $product->price * $product->quantity;
             });
-            return $total_price;
+            //TODO: dataobject
+            return [
+                'formated' => number_format($total_price, config('price.decimals')),
+                'raw' => $total_price
+            ];
         }
         return 0;
     }

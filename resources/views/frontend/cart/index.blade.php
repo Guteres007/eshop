@@ -56,7 +56,8 @@
 
                                 </td>
                                 <td class="cart-table__column cart-table__column--price" data-title="Price">
-                                    {{ $product->price }} {{ config('price.currency') }}</td>
+                                    {{ number_format($product->price, config('price.decimals')) }}
+                                    {{ config('price.currency') }}</td>
                                 <td class="cart-table__column cart-table__column--quantity" data-title="Quantity">
                                     <div class="input-number">
                                         <input onchange="return changeProductQuantity(this,  {{ $product->id }})"
@@ -67,7 +68,7 @@
                                     </div>
                                 </td>
                                 <td class="cart-table__column cart-table__column--total" data-title="Total">
-                                    {{ $product->price * $product->quantity }}
+                                    {{ number_format($product->price * $product->quantity, config('price.decimals')) }}
                                     {{ config('price.currency') }}
                                 </td>
                                 <td class="cart-table__column cart-table__column--remove">
@@ -104,14 +105,16 @@
                                     <thead class="cart__totals-header">
                                         <tr>
                                             <th>Cena bez dopravy</th>
-                                            <td>{{ $total_products_price }} {{ config('price.currency') }}</td>
+                                            <td>{{ $total_products_price['formated'] }}
+                                                {{ config('price.currency') }}</td>
                                         </tr>
                                     </thead>
                                     <tbody class="cart__totals-body">
                                         <tr>
                                             <th>Doprava</th>
                                             <td>
-                                                od {{ $delivery_price }} {{ config('price.currency') }}
+                                                od {{ $delivery_price }}
+                                                {{ config('price.currency') }}
                                             </td>
                                         </tr>
 
@@ -119,7 +122,7 @@
                                     <tfoot class="cart__totals-footer">
                                         <tr>
                                             <th>Celková cena</th>
-                                            <td>{{ $total_products_price + $delivery_price }}
+                                            <td>{{ number_format($total_products_price['raw'] + $delivery_price, config('price.decimals')) }}
                                                 {{ config('price.currency') }}</td>
                                         </tr>
                                     </tfoot>

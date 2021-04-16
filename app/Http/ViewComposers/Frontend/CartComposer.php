@@ -21,6 +21,6 @@ class CartComposer
 
     public function compose(View $view)
     {
-        $view->with('cart_total_price', $this->cartCalculator->getTotalPrice(request()->session()->getId()));
+        $view->with('cart_total_price', $this->cartCalculator->getTotalPrice(request()->session()->getId())['formated']);
     }
 }
