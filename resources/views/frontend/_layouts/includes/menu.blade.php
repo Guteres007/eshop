@@ -385,7 +385,7 @@
                                 </a>
                             </div>
                             <div class="indicator indicator--trigger--click">
-                                <a href="cart.html" class="indicator__button">
+                                <a href="{{ route('frontend.cart.index') }}" class="indicator__button">
                                     <span class="indicator__area">
                                         <svg width="20px" height="20px">
                                             <use xlink:href="/theme-v1/images/sprite.svg#cart-20"></use>
@@ -400,102 +400,55 @@
                                     <div class="dropcart dropcart--style--dropdown">
                                         <div class="dropcart__body">
                                             <div class="dropcart__products-list">
-                                                <div class="dropcart__product">
-                                                    <div class="product-image dropcart__product-image">
-                                                        <a href="product.html" class="product-image__body">
-                                                            <img class="product-image__img"
-                                                                src="/theme-v1/images/products/product-1.jpg" alt="">
-                                                        </a>
-                                                    </div>
-                                                    <div class="dropcart__product-info">
-                                                        <div class="dropcart__product-name"><a
-                                                                href="product.html">Electric Planer Brandix KL370090G
-                                                                300 Watts</a></div>
-                                                        <ul class="dropcart__product-options">
-                                                            <li>Color: Yellow</li>
-                                                            <li>Material: Aluminium</li>
-                                                        </ul>
-                                                        <div class="dropcart__product-meta">
-                                                            <span class="dropcart__product-quantity">2</span> ×
-                                                            <span class="dropcart__product-price">$699.00</span>
+                                                @foreach ($cart_products as $product)
+                                                    <div class="dropcart__product">
+                                                        <div class="product-image dropcart__product-image">
+                                                            <a href="{{ route('frontend.product.show', $product->slug) }}"
+                                                                class="product-image__body">
+                                                                <img class="product-image__img"
+                                                                    src="{{ asset('storage/' . ($product->product_images->path ?? '')) }}"
+                                                                    alt="">
+                                                            </a>
                                                         </div>
-                                                    </div>
-                                                    <button type="button"
-                                                        class="dropcart__product-remove btn btn-light btn-sm btn-svg-icon">
-                                                        <svg width="10px" height="10px">
-                                                            <use xlink:href="/theme-v1/images/sprite.svg#cross-10">
-                                                            </use>
-                                                        </svg>
-                                                    </button>
-                                                </div>
-                                                <div class="dropcart__product">
-                                                    <div class="product-image dropcart__product-image">
-                                                        <a href="product.html" class="product-image__body">
-                                                            <img class="product-image__img"
-                                                                src="/theme-v1/images/products/product-2.jpg" alt="">
-                                                        </a>
-                                                    </div>
-                                                    <div class="dropcart__product-info">
-                                                        <div class="dropcart__product-name"><a
-                                                                href="product.html">Undefined Tool IRadix DPS3000SY 2700
-                                                                watts</a></div>
-                                                        <div class="dropcart__product-meta">
-                                                            <span class="dropcart__product-quantity">1</span> ×
-                                                            <span class="dropcart__product-price">$849.00</span>
+
+
+                                                        <div class="dropcart__product-info">
+                                                            <div class="dropcart__product-name"><a
+                                                                    href="{{ route('frontend.product.show', $product->slug) }}">{{ $product->name }}</a>
+                                                            </div>
+
+                                                            <div class="dropcart__product-meta">
+                                                                <span
+                                                                    class="dropcart__product-quantity">{{ $product->quantity }}</span>
+                                                                ×
+                                                                <span
+                                                                    class="dropcart__product-price">{{ $product->price->price_with_currency() }}</span>
+                                                            </div>
                                                         </div>
+
+                                                        <form
+                                                            action="{{ route('frontend.cartproduct.destroy', $product->id) }}"
+                                                            method="POST">
+                                                            @csrf
+                                                            @method('DELETE')
+                                                            <button type="submit"
+                                                                class="dropcart__product-remove btn btn-light btn-sm btn-svg-icon">
+                                                                <svg width="10px" height="10px">
+                                                                    <use
+                                                                        xlink:href="/theme-v1/images/sprite.svg#cross-10">
+                                                                    </use>
+                                                                </svg>
+                                                            </button>
+                                                        </form>
+
                                                     </div>
-                                                    <button type="button"
-                                                        class="dropcart__product-remove btn btn-light btn-sm btn-svg-icon">
-                                                        <svg width="10px" height="10px">
-                                                            <use xlink:href="/theme-v1/images/sprite.svg#cross-10">
-                                                            </use>
-                                                        </svg>
-                                                    </button>
-                                                </div>
-                                                <div class="dropcart__product">
-                                                    <div class="product-image dropcart__product-image">
-                                                        <a href="product.html" class="product-image__body">
-                                                            <img class="product-image__img"
-                                                                src="/theme-v1/images/products/product-5.jpg" alt="">
-                                                        </a>
-                                                    </div>
-                                                    <div class="dropcart__product-info">
-                                                        <div class="dropcart__product-name"><a
-                                                                href="product.html">Brandix Router Power Tool
-                                                                2017ERXPK</a></div>
-                                                        <ul class="dropcart__product-options">
-                                                            <li>Color: True Red</li>
-                                                        </ul>
-                                                        <div class="dropcart__product-meta">
-                                                            <span class="dropcart__product-quantity">4</span> ×
-                                                            <span class="dropcart__product-price">$1,210.00</span>
-                                                        </div>
-                                                    </div>
-                                                    <button type="button"
-                                                        class="dropcart__product-remove btn btn-light btn-sm btn-svg-icon">
-                                                        <svg width="10px" height="10px">
-                                                            <use xlink:href="/theme-v1/images/sprite.svg#cross-10">
-                                                            </use>
-                                                        </svg>
-                                                    </button>
-                                                </div>
+                                                @endforeach
                                             </div>
                                             <div class="dropcart__totals">
                                                 <table>
+
                                                     <tr>
-                                                        <th>Subtotal</th>
-                                                        <td>$5,877.00</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <th>Shipping</th>
-                                                        <td>$25.00</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <th>Tax</th>
-                                                        <td>$0.00</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <th>Total</th>
+                                                        <th>Cena celkem:</th>
                                                         <td>{{ $cart_total_price->price_with_currency() }}
                                                         </td>
                                                     </tr>

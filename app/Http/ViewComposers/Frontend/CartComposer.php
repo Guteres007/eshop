@@ -4,7 +4,6 @@ namespace App\Http\ViewComposers\Frontend;
 
 use App\Services\Frontend\Cart\CartProductCalculator;
 use Illuminate\Contracts\View\View;
-use Illuminate\Http\Request;
 
 
 class CartComposer
