@@ -40,7 +40,7 @@
                                     <div class="form-group col-md-6">
                                         <label for="checkout-last-name">Přijmení</label>
                                         <input type="text" class="form-control" id="checkout-last-name"
-                                            placeholder="Přijmení" name="second_name">
+                                            placeholder="Přijmení" name="last_name">
                                     </div>
                                 </div>
 
@@ -64,7 +64,7 @@
                                     <div class="form-group col-md-6">
                                         <label for="checkout-email">E-mail</label>
                                         <input type="email" class="form-control" id="checkout-email" placeholder="E-mail"
-                                            name="emial">
+                                            name="email">
                                     </div>
                                     <div class="form-group col-md-6">
                                         <label for="checkout-phone">Telefon</label>
