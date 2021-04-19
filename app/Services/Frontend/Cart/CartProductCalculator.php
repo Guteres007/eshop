@@ -11,6 +11,7 @@ class CartProductCalculator
 {
     public function getTotalPrice($user_session_id)
     {
+        $total_price = 0;
         $cart = Cart::where('session_id', $user_session_id)->first();
         if ($cart) {
 
@@ -29,8 +30,7 @@ class CartProductCalculator
             $total_price = $cart_products->sum(function ($product) {
                 return $product->price * $product->quantity;
             });
-            return new PriceDataObject($total_price);
         }
-        return 0;
+        return new PriceDataObject($total_price);
     }
 }

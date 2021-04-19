@@ -1914,23 +1914,30 @@ var changeProductQuantity = function changeProductQuantity(element, product_id) 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "getPayments": () => (/* binding */ getPayments),
-/* harmony export */   "setPayments": () => (/* binding */ setPayments)
+/* harmony export */   "getPayments": () => (/* binding */ getPayments)
 /* harmony export */ });
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_0__);
 
 var getPayments = function getPayments(el, delivery_id) {
-  el.querySelector("input[name=delivery_id]").checked = true;
+  var _el$nextElementSiblin, _el$previousElementSi;
+
+  //odstranení aktivních
+  (_el$nextElementSiblin = el.nextElementSibling) === null || _el$nextElementSiblin === void 0 ? void 0 : _el$nextElementSiblin.classList.remove("payment-methods__item--active");
+  (_el$previousElementSi = el.previousElementSibling) === null || _el$previousElementSi === void 0 ? void 0 : _el$previousElementSi.classList.remove("payment-methods__item--active"); //přidání aktivního
+
+  el.classList.add("payment-methods__item--active"); //stažení dat
+
   axios__WEBPACK_IMPORTED_MODULE_0___default().get("/delivery-payment/".concat(delivery_id)).then(function (response) {
     return response.data;
   }).then(function (data) {
-    document.querySelector("#payments").style.display = "table";
+    document.querySelector("#payments").style.display = "block";
     var payments = document.querySelectorAll(".payment");
     payments.forEach(function (payment) {
       payment.style.display = "none";
     });
     payments.forEach(function (payment) {
+      payment.querySelector("input.input-radio__input").checked = false;
       var payment_id = payment.getAttribute("data-payment-id");
       data.forEach(function (item) {
         console.log(item.payment_id == payment_id);
@@ -1938,14 +1945,11 @@ var getPayments = function getPayments(el, delivery_id) {
         if (item.payment_id == parseInt(payment_id)) {
           payment.querySelector(".payment-name").innerHTML = item.name;
           payment.querySelector(".payment-price").innerHTML = item.price;
-          payment.style.display = "table-row";
+          payment.style.display = "block";
         }
       });
     });
   });
-};
-var setPayments = function setPayments(el) {
-  el.querySelector("input[name=payment_id]").checked = true;
 };
 
 /***/ }),
@@ -19463,7 +19467,6 @@ __webpack_require__(/*! ../bootstrap */ "./resources/js/bootstrap.js");
 
 
 window.getPayments = _delivery_payment__WEBPACK_IMPORTED_MODULE_1__.getPayments;
-window.setPayments = _delivery_payment__WEBPACK_IMPORTED_MODULE_1__.setPayments;
 window.changeProductQuantity = _change_product_quantity__WEBPACK_IMPORTED_MODULE_0__.changeProductQuantity;
 })();
 
