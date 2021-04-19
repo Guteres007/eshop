@@ -2,24 +2,22 @@
 
 use Illuminate\Support\Facades\Route;
 
-use App\Http\Controllers\Admin\ProductController;
-use App\Http\Controllers\Admin\CategoryController;
-use App\Http\Controllers\Admin\DashboardController;
-use App\Http\Controllers\Admin\DeliveryController;
-use App\Http\Controllers\Admin\PaymentController;
-use App\Http\Controllers\Admin\DeliveryPaymentController as AdminDeliveryPaymentController;
-
 use App\Http\Controllers\HomepageController;
-use App\Http\Controllers\Frontend\CategoryController as FrontendCategoryController;
-use App\Http\Controllers\Frontend\ProductController as FrontendProductController;
-use App\Http\Controllers\Frontend\CartProductController;
+use App\Http\Controllers\Admin\PaymentController;
+use App\Http\Controllers\Admin\ProductController;
 use App\Http\Controllers\Frontend\CartController;
+use App\Http\Controllers\Admin\CategoryController;
+use App\Http\Controllers\Admin\DeliveryController;
+
+use App\Http\Controllers\Frontend\OrderController;
+use App\Http\Controllers\Admin\DashboardController;
+use App\Http\Controllers\Frontend\CheckoutController;
+use App\Http\Controllers\Frontend\CartProductController;
 use App\Http\Controllers\Frontend\DeliveryPaymentController;
-
-
-
-
-
+use App\Http\Controllers\Frontend\TermsConditionsController;
+use App\Http\Controllers\Frontend\ProductController as FrontendProductController;
+use App\Http\Controllers\Frontend\CategoryController as FrontendCategoryController;
+use App\Http\Controllers\Admin\DeliveryPaymentController as AdminDeliveryPaymentController;
 
 Route::name('frontend.')->group(function () {
     Route::get('/', [HomepageController::class, 'index'])->name('home');
@@ -32,6 +30,10 @@ Route::name('frontend.')->group(function () {
     Route::get('/delivery-payment', [DeliveryPaymentController::class, 'index'])->name('delivery-payment.index');
     Route::post('/delivery-payment', [DeliveryPaymentController::class, 'store'])->name('delivery-payment.store');
     Route::get('/delivery-payment/{id}', [DeliveryPaymentController::class, 'show'])->name('delivery-payment.show');
+    Route::post('/order', [OrderController::class, 'store'])->name('order.store');
+    Route::get('/checkout', [CheckoutController::class, 'index'])->name('checkout.index');
+
+    Route::get('/terms-and-conditions', [TermsConditionsController::class, 'index'])->name('terms-conditions');
 });
 
 Route::prefix('admin')->group(function () {

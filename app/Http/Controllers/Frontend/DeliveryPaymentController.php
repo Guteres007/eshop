@@ -25,6 +25,8 @@ class DeliveryPaymentController extends Controller
             'delivery_id' => $request->input('delivery_id'),
             'payment_id' => $request->input('payment_id')
         ]);
+
+        return redirect()->route('frontend.checkout.index');
     }
 
     public function show($delivery_id, DeliveryPaymentService $deliveryPaymentService)
