@@ -19,6 +19,7 @@ class CartProductCalculator
                 ->leftJoin('products', 'cart_product.product_id', '=', 'products.id')
                 ->leftJoin('carts', 'cart_product.cart_id', '=', 'carts.id')
                 ->where('carts.session_id', $user_session_id)
+                ->where('carts.active', true)
                 ->select(
                     'products.id',
                     'products.price',

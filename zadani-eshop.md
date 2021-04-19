@@ -86,6 +86,9 @@
 
 
 ## objednávky
+- cart id
+- form_id
+- 
 ## stavy objednavek 
 -  přijato
 -  zpracovává se

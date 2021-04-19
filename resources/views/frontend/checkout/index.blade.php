@@ -106,19 +106,14 @@
                                     </tbody>
                                     <tbody class="checkout__totals-subtotals">
                                         <tr>
-                                            <th>Cena bez dopravy a platby</th>
-                                            <td>{{ $total_products_price->price_with_currency() }}</td>
-                                        </tr>
-
-                                        <tr>
-                                            <th>{{ $delivery_payment_data['delivery_name'] }}</th>
+                                            <th>Doručení: {{ $delivery_payment_data['delivery_name'] }}</th>
                                             <td>{{ \App\Helpers\PriceHelper::format_price_with_currency($delivery_payment_data['delivery_price']) }}
                                             </td>
                                         </tr>
 
 
                                         <tr>
-                                            <th>{{ $delivery_payment_data['payment_name'] }}</th>
+                                            <th>Platba: {{ $delivery_payment_data['payment_name'] }}</th>
                                             <td>{{ \App\Helpers\PriceHelper::format_price_with_currency($delivery_payment_data['payment_price']) }}
                                             </td>
                                         </tr>

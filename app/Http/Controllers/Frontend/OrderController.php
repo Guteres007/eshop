@@ -10,6 +10,9 @@ class OrderController extends Controller
     public function store(Request $request)
     {
         //OrderService
+
+        //Musím košíl udělat neaktivní, (prodaný)
+
         dd($request);
     }
 }

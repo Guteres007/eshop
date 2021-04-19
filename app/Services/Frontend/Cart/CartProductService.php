@@ -18,6 +18,7 @@ class CartProductService
             ->leftJoin('carts', 'cart_product.cart_id', '=', 'carts.id')
             ->leftJoin('product_images', 'cart_product.product_id', '=', 'product_images.id')
             ->where('carts.session_id', $user_session_id)
+            ->where('carts.active', true)
             ->orderBy('id', 'desc')
             ->select(
                 'products.id',
