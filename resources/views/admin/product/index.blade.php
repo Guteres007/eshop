@@ -43,6 +43,10 @@
                                 <th>Nadpis</th>
                                 <th>Cena</th>
                                 <th>Akce</th>
+                                <th>Novinka</th>
+                                <th>Výprodej</th>
+                                <th>Viditelnost</th>
+                                <th>Akce</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -58,6 +62,18 @@
                                     </td>
                                     <td>{{ $product->name }}</td>
                                     <td> {{ $product->price->price_with_currency() }}</td>
+                                    <td> <a class="btn btn-success btn-sm" href="">Ano dodělat</a></td>
+                                    <td><a class="btn btn-success btn-sm" href="">Ano</a></td>
+                                    <td><a class="btn btn-success btn-sm" href="">Ano</a></td>
+                                    <td>
+                                        @if ($product->active)
+                                            <a class="btn btn-success btn-sm" href=""><i
+                                                    class="cil-check-circle c-icon"></i></a>
+                                        @else
+                                            <a class="btn btn-danger btn-sm" href=""><i class="cil-ban c-icon"></i></a>
+                                        @endif
+
+                                    </td>
                                     <td>
                                         <a class="btn btn-primary btn-sm"
                                             href="{{ route('admin.product.edit', $product->id) }}">Editovat</a>

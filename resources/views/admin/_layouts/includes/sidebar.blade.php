@@ -2,7 +2,7 @@
 
     <li class="c-sidebar-nav-dropdown">
         <a class="c-sidebar-nav-dropdown-toggle" href="#">
-            <i class="c-sidebar-nav-icon cil-speedometer">
+            <i class="c-sidebar-nav-icon cil-list-numbered">
             </i> Kategorie</a>
         <ul class="c-sidebar-nav-dropdown-items">
             <li class="c-sidebar-nav-item"><a class="c-sidebar-nav-link" href="{{ route('admin.category.index') }}">
@@ -15,7 +15,7 @@
 
     <li class="c-sidebar-nav-dropdown">
         <a class="c-sidebar-nav-dropdown-toggle" href="#">
-            <i class="c-sidebar-nav-icon cil-speedometer">
+            <i class="c-sidebar-nav-icon cil-couch">
             </i> Produkty</a>
         <ul class="c-sidebar-nav-dropdown-items">
             <li class="c-sidebar-nav-item"><a class="c-sidebar-nav-link" href="{{ route('admin.product.index') }}">
@@ -28,7 +28,8 @@
 
     <li class="c-sidebar-nav-dropdown">
         <a class="c-sidebar-nav-dropdown-toggle" href="#">
-            <i class="c-sidebar-nav-icon cil-speedometer">
+            <i class="c-sidebar-nav-icon cil-credit-card
+            ">
             </i> Platba</a>
         <ul class="c-sidebar-nav-dropdown-items">
             <li class="c-sidebar-nav-item"><a class="c-sidebar-nav-link" href="{{ route('admin.payment.index') }}">
@@ -41,7 +42,7 @@
 
     <li class="c-sidebar-nav-dropdown">
         <a class="c-sidebar-nav-dropdown-toggle" href="#">
-            <i class="c-sidebar-nav-icon cil-speedometer">
+            <i class="c-sidebar-nav-icon cil-bus-alt">
             </i> Doprava</a>
         <ul class="c-sidebar-nav-dropdown-items">
             <li class="c-sidebar-nav-item"><a class="c-sidebar-nav-link" href="{{ route('admin.delivery.index') }}">
@@ -55,7 +56,7 @@
 
     <li class="c-sidebar-nav-dropdown">
         <a class="c-sidebar-nav-dropdown-toggle" href="#">
-            <i class="c-sidebar-nav-icon cil-speedometer">
+            <i class="c-sidebar-nav-icon cil-car-alt">
             </i> Doprava a platba</a>
         <ul class="c-sidebar-nav-dropdown-items">
             <li class="c-sidebar-nav-item"><a class="c-sidebar-nav-link"
@@ -64,34 +65,44 @@
         </ul>
     </li>
 
-    <li class="c-sidebar-nav-title">Nav Title</li>
+    <li class="c-sidebar-nav-dropdown">
+        <a class="c-sidebar-nav-dropdown-toggle" href="#">
+            <i class="c-sidebar-nav-icon cil-cart
+            ">
+            </i> Objednávky <span class="badge badge-danger">2</span></a>
+        <ul class="c-sidebar-nav-dropdown-items">
+            <li class="c-sidebar-nav-item"><a class="c-sidebar-nav-link"
+                    href="{{ route('admin.delivery-payment.index') }}">
+                    Seznam </a> </li>
+            <li class="c-sidebar-nav-item"><a class="c-sidebar-nav-link"
+                    href="{{ route('admin.delivery-payment.index') }}">
+                    Stavy </a>
+            </li>
+        </ul>
+    </li>
+
+    <li class="c-sidebar-nav-title">Nastavení</li>
     <li class="c-sidebar-nav-item">
         <a class="c-sidebar-nav-link" href="#">
-            <i class="c-sidebar-nav-icon cil-speedometer"></i> Nav item
+            <i class="c-sidebar-nav-icon cil-speedometer"></i> Feedy
         </a>
     </li>
     <li class="c-sidebar-nav-item">
         <a class="c-sidebar-nav-link" href="#">
-            <i class="c-sidebar-nav-icon cil-speedometer"></i> With badge
-            <span class="badge badge-primary">NEW</span>
+            <i class="c-sidebar-nav-icon cil-speedometer"></i> Widgety
+            <span class="badge badge-primary">Novinka</span>
         </a>
     </li>
     <li class="c-sidebar-nav-item nav-dropdown">
         <a class="c-sidebar-nav-link nav-dropdown-toggle" href="#">
-            <i class="c-sidebar-nav-icon cil-puzzle"></i> Nav dropdown
+            <i class="c-sidebar-nav-icon cil-puzzle"></i> Menu
         </a>
-        <ul class="c-sidebar-nav-dropdown-items">
-            <li class="c-sidebar-nav-item">
-                <a class="c-sidebar-nav-link" href="#">
-                    <i class="c-sidebar-nav-icon cil-puzzle"></i> Nav dropdown item
-                </a>
-            </li>
-            <li class="c-sidebar-nav-item">
-                <a class="c-sidebar-nav-link" href="#">
-                    <i class="c-sidebar-nav-icon cil-puzzle"></i> Nav dropdown item
-                </a>
-            </li>
-        </ul>
+    </li>
+
+    <li class="c-sidebar-nav-item nav-dropdown">
+        <a class="c-sidebar-nav-link nav-dropdown-toggle" href="#">
+            <i class="c-sidebar-nav-icon cil-puzzle"></i> Konfigurace e-shopu
+        </a>
     </li>
 </ul>
 <button class="c-sidebar-minimizer c-brand-minimizer" type="button"></button>
