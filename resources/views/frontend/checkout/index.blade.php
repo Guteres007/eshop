@@ -14,12 +14,12 @@
                                     <use xlink:href="/theme-v1/images/sprite.svg#arrow-rounded-right-6x9"></use>
                                 </svg>
                             </li>
-                            <li class="breadcrumb-item active" aria-current="page">Souhrn</li>
+                            <li class="breadcrumb-item active" aria-current="page">Objednávka</li>
                         </ol>
                     </nav>
                 </div>
                 <div class="page-header__title">
-                    <h1>Checkout</h1>
+                    <h1>Objednávka</h1>
                 </div>
             </div>
         </div>

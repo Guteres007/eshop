@@ -126,8 +126,7 @@
                     <div class="site-footer__bottom">
                         <div class="site-footer__copyright">
                             <!-- copyright -->
-                            Tvorba webů a e-shopů na míru <a href="https://www.andrasi.cz" target="_blank">Martin
-                                Andráši</a>
+                            Tvorba e-shopů na míru <a href="https://www.shoply.cz" target="_blank">shoply.cz</a>
                             <!-- copyright / end -->
                         </div>
                         <div class="site-footer__payments">

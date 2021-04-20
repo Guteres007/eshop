@@ -123,36 +123,40 @@
                                     <span class="text-danger">Nedostupný</span>
                                 @endif
                             </div>
-                            <div class="product__prices">
-                                {{ $product->price->formated() }}
-                                {{ config('price.currency') }}
-                            </div>
-
-                            <form class="product__options" action="{{ route('frontend.cart.store') }}" method="POST">
-                                @csrf
-                                <div class="form-group product__option">
-                                    <label class="product__option-label" for="product-quantity">Počet</label>
-                                    <div class="product__actions">
-                                        <div class="product__actions-item">
-                                            <div class="input-number product__quantity">
-                                                <input id="product-quantity"
-                                                    class="input-number__input form-control form-control-lg" type="number"
-                                                    min="1" value="1" name="quantity">
-                                                <div class="input-number__add"></div>
-                                                <div class="input-number__sub"></div>
-                                            </div>
-                                        </div>
-
-                                        <input type="hidden" name="product_id" value="{{ $product->id }}">
-
-                                        <div class="product__actions-item product__actions-item--addtocart">
-                                            <button type="submit" class="btn btn-primary btn-lg">Koupit</button>
-                                        </div>
-
-
-                                    </div>
+                            @if ($product->quantity > 0)
+                                <div class="product__prices">
+                                    {{ $product->price->formated() }}
+                                    {{ config('price.currency') }}
                                 </div>
-                            </form>
+                            @endif
+
+                            @if ($product->quantity > 0)
+                                <form class="product__options" action="{{ route('frontend.cart.store') }}" method="POST">
+                                    @csrf
+                                    <div class="form-group product__option">
+                                        <label class="product__option-label" for="product-quantity">Počet</label>
+                                        <div class="product__actions">
+                                            <div class="product__actions-item">
+                                                <div class="input-number product__quantity">
+                                                    <input id="product-quantity"
+                                                        class="input-number__input form-control form-control-lg"
+                                                        type="number" min="1" value="1" name="quantity">
+                                                    <div class="input-number__add"></div>
+                                                    <div class="input-number__sub"></div>
+                                                </div>
+                                            </div>
+
+                                            <input type="hidden" name="product_id" value="{{ $product->id }}">
+
+                                            <div class="product__actions-item product__actions-item--addtocart">
+                                                <button type="submit" class="btn btn-primary btn-lg">Koupit</button>
+                                            </div>
+
+
+                                        </div>
+                                    </div>
+                                </form>
+                            @endif
                             <!-- .product__options / end -->
                         </div>
 
@@ -175,58 +179,16 @@
                         </div>
                         <div class="product-tabs__pane" id="tab-specification">
                             <div class="spec">
-                                <h3 class="spec__header">Specification</h3>
+                                <h3 class="spec__header">Specifikace</h3>
                                 <div class="spec__section">
-                                    <h4 class="spec__section-title">General</h4>
-                                    <div class="spec__row">
-                                        <div class="spec__name">Material</div>
-                                        <div class="spec__value">Aluminium, Plastic</div>
-                                    </div>
-                                    <div class="spec__row">
-                                        <div class="spec__name">Engine Type</div>
-                                        <div class="spec__value">Brushless</div>
-                                    </div>
-                                    <div class="spec__row">
-                                        <div class="spec__name">Battery Voltage</div>
-                                        <div class="spec__value">18 V</div>
-                                    </div>
-                                    <div class="spec__row">
-                                        <div class="spec__name">Battery Type</div>
-                                        <div class="spec__value">Li-lon</div>
-                                    </div>
-                                    <div class="spec__row">
-                                        <div class="spec__name">Number of Speeds</div>
-                                        <div class="spec__value">2</div>
-                                    </div>
-                                    <div class="spec__row">
-                                        <div class="spec__name">Charge Time</div>
-                                        <div class="spec__value">1.08 h</div>
-                                    </div>
-                                    <div class="spec__row">
-                                        <div class="spec__name">Weight</div>
-                                        <div class="spec__value">1.5 kg</div>
-                                    </div>
-                                </div>
-                                <div class="spec__section">
-                                    <h4 class="spec__section-title">Dimensions</h4>
-                                    <div class="spec__row">
-                                        <div class="spec__name">Length</div>
-                                        <div class="spec__value">99 mm</div>
-                                    </div>
-                                    <div class="spec__row">
-                                        <div class="spec__name">Width</div>
-                                        <div class="spec__value">207 mm</div>
-                                    </div>
-                                    <div class="spec__row">
-                                        <div class="spec__name">Height</div>
-                                        <div class="spec__value">208 mm</div>
-                                    </div>
-                                </div>
-                                <div class="spec__disclaimer">
-                                    Information on technical characteristics, the delivery set, the country of manufacture
-                                    and the appearance
-                                    of the goods is for reference only and is based on the latest information available at
-                                    the time of publication.
+                                    <h4 class="spec__section-title">Parametry</h4>
+                                    @foreach ($product->parameters as $parameter)
+                                        <div class="spec__row">
+                                            <div class="spec__name">{{ $parameter->name }}</div>
+                                            <div class="spec__value">{{ $parameter->value }}</div>
+                                        </div>
+                                    @endforeach
+
                                 </div>
                             </div>
                         </div>

@@ -12,10 +12,10 @@
                             <div class="owl-carousel">
                                 <a class="block-slideshow__slide" href="">
                                     <div class="block-slideshow__slide-image block-slideshow__slide-image--desktop"
-                                        style="background-image: url('/theme-v1//theme-v1/images/slides/slide-1-full.jpg')">
+                                        style="background-image: url('/theme-v1/images/slides/slide-1-full.jpg')">
                                     </div>
                                     <div class="block-slideshow__slide-image block-slideshow__slide-image--mobile"
-                                        style="background-image: url('/theme-v1//theme-v1/images/slides/slide-1-mobile.jpg')">
+                                        style="background-image: url('/theme-v1/images/slides/slide-1-mobile.jpg')">
                                     </div>
                                     <div class="block-slideshow__slide-content">
                                         <div class="block-slideshow__slide-title">Výprodej zásob</div>
@@ -28,10 +28,10 @@
                                 </a>
                                 <a class="block-slideshow__slide" href="">
                                     <div class="block-slideshow__slide-image block-slideshow__slide-image--desktop"
-                                        style="background-image: url('/theme-v1//theme-v1/images/slides/slide-2-full.jpg')">
+                                        style="background-image: url('/theme-v1/images/slides/slide-2-full.jpg')">
                                     </div>
                                     <div class="block-slideshow__slide-image block-slideshow__slide-image--mobile"
-                                        style="background-image: url('/theme-v1//theme-v1/images/slides/slide-2-mobile.jpg')">
+                                        style="background-image: url('/theme-v1/images/slides/slide-2-mobile.jpg')">
                                     </div>
                                     <div class="block-slideshow__slide-content">
                                         <div class="block-slideshow__slide-title">Screwdrivers<br>Professional Tools</div>
@@ -44,10 +44,10 @@
                                 </a>
                                 <a class="block-slideshow__slide" href="">
                                     <div class="block-slideshow__slide-image block-slideshow__slide-image--desktop"
-                                        style="background-image: url('/theme-v1//theme-v1/images/slides/slide-3-full.jpg')">
+                                        style="background-image: url('/theme-v1/images/slides/slide-3-full.jpg')">
                                     </div>
                                     <div class="block-slideshow__slide-image block-slideshow__slide-image--mobile"
-                                        style="background-image: url('/theme-v1//theme-v1/images/slides/slide-3-mobile.jpg')">
+                                        style="background-image: url('/theme-v1/images/slides/slide-3-mobile.jpg')">
                                     </div>
                                     <div class="block-slideshow__slide-content">
                                         <div class="block-slideshow__slide-title">One more<br>Unique header</div>
@@ -72,7 +72,7 @@
                     <div class="block-features__item">
                         <div class="block-features__icon">
                             <svg width="48px" height="48px">
-                                <use xlink:href="/theme-v1//theme-v1/images/sprite.svg#fi-free-delivery-48"></use>
+                                <use xlink:href="/theme-v1/images/sprite.svg#fi-free-delivery-48"></use>
                             </svg>
                         </div>
                         <div class="block-features__content">
@@ -85,7 +85,7 @@
                     <div class="block-features__item">
                         <div class="block-features__icon">
                             <svg width="48px" height="48px">
-                                <use xlink:href="/theme-v1//theme-v1/images/sprite.svg#fi-payment-security-48"></use>
+                                <use xlink:href="/theme-v1/images/sprite.svg#fi-payment-security-48"></use>
                             </svg>
                         </div>
                         <div class="block-features__content">
@@ -97,7 +97,7 @@
                     <div class="block-features__item">
                         <div class="block-features__icon">
                             <svg width="48px" height="48px">
-                                <use xlink:href="/theme-v1//theme-v1/images/sprite.svg#fi-tag-48"></use>
+                                <use xlink:href="/theme-v1/images/sprite.svg#fi-tag-48"></use>
                             </svg>
                         </div>
                         <div class="block-features__content">
