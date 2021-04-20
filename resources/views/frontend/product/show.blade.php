@@ -181,14 +181,15 @@
                             <div class="spec">
                                 <h3 class="spec__header">Specifikace</h3>
                                 <div class="spec__section">
-                                    <h4 class="spec__section-title">Parametry</h4>
-                                    @foreach ($product->parameters as $parameter)
-                                        <div class="spec__row">
-                                            <div class="spec__name">{{ $parameter->name }}</div>
-                                            <div class="spec__value">{{ $parameter->value }}</div>
-                                        </div>
-                                    @endforeach
-
+                                    @if ($product->parameters->count() > 0)
+                                        <h4 class="spec__section-title">Parametry</h4>
+                                        @foreach ($product->parameters as $parameter)
+                                            <div class="spec__row">
+                                                <div class="spec__name">{{ $parameter->name }}</div>
+                                                <div class="spec__value">{{ $parameter->value }}</div>
+                                            </div>
+                                        @endforeach
+                                    @endif
                                 </div>
                             </div>
                         </div>

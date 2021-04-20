@@ -9,7 +9,6 @@ class HomepageController extends Controller
 {
     public function index(CategoryRepository $categoryRepository)
     {
-        $categoryRepository->all();
         return view('frontend.homepage', ['categories' => $categoryRepository->all()]);
     }
 }

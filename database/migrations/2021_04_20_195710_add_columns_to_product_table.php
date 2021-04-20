@@ -17,6 +17,7 @@ class AddColumnsToProductTable extends Migration
             $table->boolean('sale')->nullable()->default(false);
             $table->boolean('new')->nullable()->default(false);
             $table->boolean('action')->nullable()->default(false);
+            $table->boolean('homepage')->nullable()->default(false);
         });
     }
 
@@ -31,6 +32,7 @@ class AddColumnsToProductTable extends Migration
             $table->dropColumn('sale');
             $table->dropColumn('new');
             $table->dropColumn('action');
+            $table->dropColumn('homepage');
         });
     }
 }

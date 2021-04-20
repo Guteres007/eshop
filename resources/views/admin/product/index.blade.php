@@ -46,6 +46,7 @@
                                 <th>Novinka</th>
                                 <th>Výprodej</th>
                                 <th>Viditelnost</th>
+                                <th>Homepage</th>
                                 <th>Akce</th>
                             </tr>
                         </thead>
@@ -62,11 +63,24 @@
                                     </td>
                                     <td>{{ $product->name }}</td>
                                     <td> {{ $product->price->price_with_currency() }}</td>
-                                    <td> <a class="btn btn-success btn-sm" href="">Ano dodělat</a></td>
-                                    <td><a class="btn btn-success btn-sm" href="">Ano</a></td>
-                                    <td><a class="btn btn-success btn-sm" href="">Ano</a></td>
+                                    <td> <a class="btn {{ $product->action ? 'btn-success' : 'btn-danger' }} btn-sm"
+                                            onclick="return productLabel(event)"
+                                            href="{{ route('admin.product-label.store', ['id' => $product->id, 'label' => 'action']) }}">
+                                            <i class="{{ $product->action ? 'cil-check-circle' : 'cil-ban' }} c-icon"></i>
+                                        </a></td>
+                                    <td> <a class="btn {{ $product->new ? 'btn-success' : 'btn-danger' }} btn-sm"
+                                            onclick="return productLabel(event)"
+                                            href="{{ route('admin.product-label.store', ['id' => $product->id, 'label' => 'new']) }}">
+                                            <i class="{{ $product->new ? 'cil-check-circle' : 'cil-ban' }} c-icon"></i>
+                                        </a></td>
+                                    <td> <a class="btn {{ $product->sale ? 'btn-success' : 'btn-danger' }} btn-sm"
+                                            onclick="return productLabel(event)"
+                                            href="{{ route('admin.product-label.store', ['id' => $product->id, 'label' => 'sale']) }}">
+                                            <i class="{{ $product->sale ? 'cil-check-circle' : 'cil-ban' }} c-icon"></i>
+                                        </a></td>
                                     <td>
                                         @if ($product->active)
+
                                             <a class="btn btn-success btn-sm" href=""><i
                                                     class="cil-check-circle c-icon"></i></a>
                                         @else
@@ -74,6 +88,7 @@
                                         @endif
 
                                     </td>
+                                    <td><a class="btn btn-danger btn-sm" href="">Ne</a></td>
                                     <td>
                                         <a class="btn btn-primary btn-sm"
                                             href="{{ route('admin.product.edit', $product->id) }}">Editovat</a>

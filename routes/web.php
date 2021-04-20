@@ -12,6 +12,7 @@ use App\Http\Controllers\Admin\DeliveryController;
 use App\Http\Controllers\Frontend\OrderController;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Frontend\CheckoutController;
+use App\Http\Controllers\Admin\ProductLabelController;
 use App\Http\Controllers\Frontend\CartProductController;
 use App\Http\Controllers\Frontend\DeliveryPaymentController;
 use App\Http\Controllers\Frontend\TermsConditionsController;
@@ -44,6 +45,7 @@ Route::prefix('admin')->group(function () {
         Route::resource('payment', PaymentController::class)->except(['show']);
         Route::resource('product', ProductController::class)->except(['show']);
         Route::get('delivery-payment', [AdminDeliveryPaymentController::class, 'index'])->name('delivery-payment.index');
+        Route::get('product/{id}/label/{label}', [ProductLabelController::class, 'store'])->name('product-label.store');
         Route::post('delivery-payment', [AdminDeliveryPaymentController::class, 'store'])->name('delivery-payment.store');
     });
 });
