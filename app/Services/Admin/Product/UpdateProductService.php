@@ -3,13 +3,16 @@
 namespace App\Services\Admin\Product;
 
 use App\Repositories\Product\ProductRepository;
+use App\Services\Admin\Parameter\ParameterService;
 
 class UpdateProductService
 {
     private $productRepository;
+    private $parameterService;
 
-    public function __construct(ProductRepository $productRepository)
+    public function __construct(ProductRepository $productRepository, ParameterService $parameterService)
     {
+        $this->parameterService = $parameterService;
         $this->productRepository = $productRepository;
     }
 
@@ -30,6 +33,13 @@ class UpdateProductService
         $array_of_category_ids = $attributes['category_id'];
 
         $product = $this->productRepository->find($id);
+
+        //update parametrů pokud bude v databázi
+        if ($product->parameters()->count() > 0) {
+            $this->parameterService->removeParametersByProduct($product);
+        }
+
+        $this->parameterService->saveParametersToProduct($product, $attributes['parameters']);
         $product->update($attributes);
         $product->categories()->sync($array_of_category_ids);
 

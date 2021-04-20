@@ -141,6 +141,38 @@
                                 alt="{{ $image->name ?? '' }}">
                         @endforeach
 
+
+
+
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label for="name">Parametry <span
+                                        class="color-red">{{ $errors->first('parameters') }}</span></label>
+
+                                @if ($product->parameters->count() > 0)
+
+                                    @foreach ($product->parameters as $parameter)
+                                        <input class="form-control" name="parameters[name][]" type="text"
+                                            placeholder="Název" value="{{ $parameter->name }}">
+                                        <input class="form-control" name="parameters[value][]" type="text"
+                                            placeholder="Hodnota" value="{{ $parameter->value }}">
+                                    @endforeach
+                                @else
+
+                                    <input class="form-control" name="parameters[name][]" type="text" placeholder="Název">
+                                    <input class="form-control" name="parameters[value][]" type="text"
+                                        placeholder="Hodnota">
+
+                                    <input class="form-control" name="parameters[name][]" type="text" placeholder="Název">
+                                    <input class="form-control" name="parameters[value][]" type="text"
+                                        placeholder="Hodnota">
+
+                                @endif
+                            </div>
+                        </div>
+
+
+
                         <div class="col-sm-12">
                             <div class="form-group">
                                 <button class="btn btn-success" type="submit">Editovat</button>

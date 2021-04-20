@@ -114,6 +114,20 @@
 
                         <div class="col-sm-6">
                             <div class="form-group">
+                                <label for="name">Parametry <span
+                                        class="color-red">{{ $errors->first('parameters') }}</span></label>
+                                <input class="form-control" name="parameters[name][]" type="text" placeholder="Název">
+                                <input class="form-control" name="parameters[value][]" type="text" placeholder="Hodnota">
+
+                                <input class="form-control" name="parameters[name][]" type="text" placeholder="Název">
+                                <input class="form-control" name="parameters[value][]" type="text" placeholder="Hodnota">
+                            </div>
+                        </div>
+
+
+
+                        <div class="col-sm-6">
+                            <div class="form-group">
                                 <div class="form-check checkbox">
                                     <input class="form-check-input" name="active" id="check1" type="checkbox" checked>
                                     <label class="form-check-label" for="check1">Aktivní</label>
