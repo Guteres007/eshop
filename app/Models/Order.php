@@ -17,6 +17,8 @@ class Order extends Model
         'postcode',
         'street',
         'comment',
+        'delivery_id',
+        'payment_id',
     ];
 
     public function cart()
