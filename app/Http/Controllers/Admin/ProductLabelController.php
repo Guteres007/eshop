@@ -10,6 +10,8 @@ class ProductLabelController extends Controller
 {
     public function store($product_id, $label)
     {
+
+        //Service Předělat na ProductSignals
         $product = Product::find($product_id);
         switch ($label) {
             case 'new':
@@ -26,10 +28,6 @@ class ProductLabelController extends Controller
                 break;
         }
 
-
         return $product->save();
-        //http: //localhost:8000/admin/product-label/new
-        //parametr jestli to je AKCE nebo Sleva atd....
-
     }
 }

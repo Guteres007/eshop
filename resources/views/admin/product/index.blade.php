@@ -78,18 +78,19 @@
                                             href="{{ route('admin.product-label.store', ['id' => $product->id, 'label' => 'sale']) }}">
                                             <i class="{{ $product->sale ? 'cil-check-circle' : 'cil-ban' }} c-icon"></i>
                                         </a></td>
+                                    <td> <a class="btn {{ $product->active ? 'btn-success' : 'btn-danger' }} btn-sm"
+                                            href="{{ route('admin.product-status.store', ['id' => $product->id]) }}">
+                                            <i
+                                                class="{{ $product->active ? 'cil-check-circle' : 'cil-ban' }} c-icon"></i>
+                                        </a></td>
                                     <td>
-                                        @if ($product->active)
-
-                                            <a class="btn btn-success btn-sm" href=""><i
-                                                    class="cil-check-circle c-icon"></i></a>
-                                        @else
-                                            <a class="btn btn-danger btn-sm" href=""><i class="cil-ban c-icon"></i></a>
-                                        @endif
-
-                                    </td>
-                                    <td><a class="btn btn-danger btn-sm" href="">Ne</a></td>
+                                    <td> <a class="btn {{ $product->homepage ? 'btn-success' : 'btn-danger' }} btn-sm"
+                                            href="{{ route('admin.product-homepage.store', ['id' => $product->id]) }}">
+                                            <i
+                                                class="{{ $product->homepage ? 'cil-check-circle' : 'cil-ban' }} c-icon"></i>
+                                        </a></td>
                                     <td>
+
                                         <a class="btn btn-primary btn-sm"
                                             href="{{ route('admin.product.edit', $product->id) }}">Editovat</a>
                                         <form class="d-inline-block" onsubmit="return confirm('Určitě smazat?');"
