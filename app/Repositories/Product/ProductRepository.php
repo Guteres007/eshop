@@ -15,4 +15,9 @@ class ProductRepository extends BaseRepository
         $this->model = $model;
         parent::__construct($model);
     }
+
+    public function homepageProducts()
+    {
+        return  $this->model->where('active', true)->where('homepage', true)->limit(7)->get();
+    }
 }

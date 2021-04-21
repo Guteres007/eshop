@@ -1,5 +1,5 @@
 import axios from "axios";
-export const productLabel = (event) => {
+export const productSignal = (event) => {
     event.preventDefault();
     if (event.currentTarget.classList.contains("btn-success")) {
         event.currentTarget.classList.remove("btn-success");

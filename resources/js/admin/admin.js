@@ -1,5 +1,5 @@
 require("./../bootstrap");
 import "@coreui/coreui";
 
-import { productLabel } from "./product-label";
-window.productLabel = productLabel;
+import { productSignal } from "./product-signal";
+window.productSignal = productSignal;

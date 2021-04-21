@@ -18,7 +18,7 @@ class CategoryController extends Controller
                 ->find($category->id)
                 ->products()
                 ->where('active', true)
-                ->paginate($request->query('products_per_page') ?? 10),
+                ->paginate(20),
             'category' => $category
         ]);
     }

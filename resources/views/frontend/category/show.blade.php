@@ -73,7 +73,7 @@
                                                                     <svg class="filter-categories__arrow" width="6px"
                                                                         height="9px">
                                                                         <use
-                                                                            xlink:href="/theme-v1/sprite.svg#arrow-rounded-left-6x9">
+                                                                            xlink:href="/theme-v1/images/sprite.svg#arrow-rounded-left-6x9">
                                                                         </use>
                                                                     </svg>
                                                                     <a href="">Instruments</a>
@@ -1141,7 +1141,7 @@
                                         <!-- list -->
                                         <a href="{{ route('frontend.product.show', $product->slug) }}"
                                             class="products-list__item">
-                                            <div class="product-card product-card--hidden-actions ">
+                                            <div class="product-card product-card--hidden-actions">
 
                                                 <div class="product-card__badges-list">
                                                     @if ($product->new)
@@ -1306,25 +1306,25 @@
 
 
                                                         <!--
-                                                                                                                                                                                                <button
-                                                                                                                                                                                                    class="btn btn-light btn-svg-icon btn-svg-icon--fake-svg product-card__wishlist"
-                                                                                                                                                                                                    type="button">
-                                                                                                                                                                                                    <svg width="16px" height="16px">
-                                                                                                                                                                                                        <use xlink:href="/theme-v1/images/sprite.svg#wishlist-16">
-                                                                                                                                                                                                        </use>
-                                                                                                                                                                                                    </svg>
-                                                                                                                                                                                                    <span class="fake-svg-icon fake-svg-icon--wishlist-16"></span>
-                                                                                                                                                                                                </button>
-                                                                                                                                                                                                <button
-                                                                                                                                                                                                    class="btn btn-light btn-svg-icon btn-svg-icon--fake-svg product-card__compare"
-                                                                                                                                                                                                    type="button">
-                                                                                                                                                                                                    <svg width="16px" height="16px">
-                                                                                                                                                                                                        <use xlink:href="/theme-v1/images/sprite.svg#compare-16">
-                                                                                                                                                                                                        </use>
-                                                                                                                                                                                                    </svg>
-                                                                                                                                                                                                    <span class="fake-svg-icon fake-svg-icon--compare-16"></span>
-                                                                                                                                                                                                </button>
-                                                                                                                                                                                         -->
+                                                                                                                                                                                                        <button
+                                                                                                                                                                                                            class="btn btn-light btn-svg-icon btn-svg-icon--fake-svg product-card__wishlist"
+                                                                                                                                                                                                            type="button">
+                                                                                                                                                                                                            <svg width="16px" height="16px">
+                                                                                                                                                                                                                <use xlink:href="/theme-v1/images/sprite.svg#wishlist-16">
+                                                                                                                                                                                                                </use>
+                                                                                                                                                                                                            </svg>
+                                                                                                                                                                                                            <span class="fake-svg-icon fake-svg-icon--wishlist-16"></span>
+                                                                                                                                                                                                        </button>
+                                                                                                                                                                                                        <button
+                                                                                                                                                                                                            class="btn btn-light btn-svg-icon btn-svg-icon--fake-svg product-card__compare"
+                                                                                                                                                                                                            type="button">
+                                                                                                                                                                                                            <svg width="16px" height="16px">
+                                                                                                                                                                                                                <use xlink:href="/theme-v1/images/sprite.svg#compare-16">
+                                                                                                                                                                                                                </use>
+                                                                                                                                                                                                            </svg>
+                                                                                                                                                                                                            <span class="fake-svg-icon fake-svg-icon--compare-16"></span>
+                                                                                                                                                                                                        </button>
+                                                                                                                                                                                                 -->
                                                     </div>
                                                 </div>
                                             </div>

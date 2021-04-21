@@ -102,7 +102,7 @@
 
                             <ul class="product__meta">
                                 <li class="product__meta-availability">Dostupnost:
-                                    @if ($product->quantity > 0)
+                                    @if ($product->quantity > 0 && $product->active)
                                         <span class="text-success">Dostupný</span>
                                     @else
                                         <span class="text-danger">Nedostupný</span>
@@ -117,20 +117,20 @@
                         <div class="product__sidebar">
                             <div class="product__availability">
                                 Dostupnost:
-                                @if ($product->quantity > 0)
+                                @if ($product->quantity > 0 && $product->active)
                                     <span class="text-success">Dostupný</span>
                                 @else
                                     <span class="text-danger">Nedostupný</span>
                                 @endif
                             </div>
-                            @if ($product->quantity > 0)
+                            @if ($product->quantity > 0 && $product->active)
                                 <div class="product__prices">
                                     {{ $product->price->formated() }}
                                     {{ config('price.currency') }}
                                 </div>
                             @endif
 
-                            @if ($product->quantity > 0)
+                            @if ($product->quantity > 0 && $product->active)
                                 <form class="product__options" action="{{ route('frontend.cart.store') }}" method="POST">
                                     @csrf
                                     <div class="form-group product__option">

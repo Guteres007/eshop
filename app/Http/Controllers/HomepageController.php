@@ -2,13 +2,13 @@
 
 namespace App\Http\Controllers;
 
-use App\Repositories\Category\CategoryRepository;
+use App\Repositories\Product\ProductRepository;
 use Illuminate\Http\Request;
 
 class HomepageController extends Controller
 {
-    public function index(CategoryRepository $categoryRepository)
+    public function index(ProductRepository $productRepository)
     {
-        return view('frontend.homepage', ['categories' => $categoryRepository->all()]);
+        return view('frontend.homepage', ['homepage_products' => $productRepository->homepageProducts()]);
     }
 }

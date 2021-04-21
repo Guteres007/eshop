@@ -64,28 +64,31 @@
                                     <td>{{ $product->name }}</td>
                                     <td> {{ $product->price->price_with_currency() }}</td>
                                     <td> <a class="btn {{ $product->action ? 'btn-success' : 'btn-danger' }} btn-sm"
-                                            onclick="return productLabel(event)"
-                                            href="{{ route('admin.product-label.store', ['id' => $product->id, 'label' => 'action']) }}">
+                                            onclick="return productSignal(event)"
+                                            href="{{ route('admin.product-signal.store', ['id' => $product->id, 'signal' => 'action']) }}">
                                             <i class="{{ $product->action ? 'cil-check-circle' : 'cil-ban' }} c-icon"></i>
                                         </a></td>
                                     <td> <a class="btn {{ $product->new ? 'btn-success' : 'btn-danger' }} btn-sm"
-                                            onclick="return productLabel(event)"
-                                            href="{{ route('admin.product-label.store', ['id' => $product->id, 'label' => 'new']) }}">
+                                            onclick="return productSignal(event)"
+                                            href="{{ route('admin.product-signal.store', ['id' => $product->id, 'signal' => 'new']) }}">
                                             <i class="{{ $product->new ? 'cil-check-circle' : 'cil-ban' }} c-icon"></i>
                                         </a></td>
                                     <td> <a class="btn {{ $product->sale ? 'btn-success' : 'btn-danger' }} btn-sm"
-                                            onclick="return productLabel(event)"
-                                            href="{{ route('admin.product-label.store', ['id' => $product->id, 'label' => 'sale']) }}">
+                                            onclick="return productSignal(event)"
+                                            href="{{ route('admin.product-signal.store', ['id' => $product->id, 'signal' => 'sale']) }}">
                                             <i class="{{ $product->sale ? 'cil-check-circle' : 'cil-ban' }} c-icon"></i>
-                                        </a></td>
+                                        </a>
+                                    </td>
                                     <td> <a class="btn {{ $product->active ? 'btn-success' : 'btn-danger' }} btn-sm"
-                                            href="{{ route('admin.product-status.store', ['id' => $product->id]) }}">
+                                            onclick="return productSignal(event)"
+                                            href="{{ route('admin.product-signal.store', ['id' => $product->id, 'signal' => 'active']) }}">
                                             <i
                                                 class="{{ $product->active ? 'cil-check-circle' : 'cil-ban' }} c-icon"></i>
-                                        </a></td>
-                                    <td>
+                                        </a>
+                                    </td>
                                     <td> <a class="btn {{ $product->homepage ? 'btn-success' : 'btn-danger' }} btn-sm"
-                                            href="{{ route('admin.product-homepage.store', ['id' => $product->id]) }}">
+                                            onclick="return productSignal(event)"
+                                            href="{{ route('admin.product-signal.store', ['id' => $product->id, 'signal' => 'homepage']) }}">
                                             <i
                                                 class="{{ $product->homepage ? 'cil-check-circle' : 'cil-ban' }} c-icon"></i>
                                         </a></td>

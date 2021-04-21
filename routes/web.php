@@ -8,14 +8,11 @@ use App\Http\Controllers\Admin\ProductController;
 use App\Http\Controllers\Frontend\CartController;
 use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\DeliveryController;
-
 use App\Http\Controllers\Frontend\OrderController;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Frontend\CheckoutController;
-use App\Http\Controllers\Admin\ProductLabelController;
-use App\Http\Controllers\Admin\ProductStatusController;
 use App\Http\Controllers\Frontend\CartProductController;
-use App\Http\Controllers\Admin\ProductHomepageController;
+use App\Http\Controllers\Admin\ProductSignalController;
 use App\Http\Controllers\Frontend\DeliveryPaymentController;
 use App\Http\Controllers\Frontend\TermsConditionsController;
 use App\Http\Controllers\Frontend\ProductController as FrontendProductController;
@@ -48,8 +45,6 @@ Route::prefix('admin')->group(function () {
         Route::resource('product', ProductController::class)->except(['show']);
         Route::get('delivery-payment', [AdminDeliveryPaymentController::class, 'index'])->name('delivery-payment.index');
         Route::post('delivery-payment', [AdminDeliveryPaymentController::class, 'store'])->name('delivery-payment.store');
-        Route::get('product/{id}/label/{label}', [ProductLabelController::class, 'store'])->name('product-label.store');
-        Route::get('product/{id}/homepage', [ProductHomepageController::class, 'store'])->name('product-homepage.store');
-        Route::get('product/{id}/status/{label}', [ProductStatusController::class, 'store'])->name('product-status.store');
+        Route::get('product/{id}/signal/{signal}', [ProductSignalController::class, 'store'])->name('product-signal.store');
     });
 });
