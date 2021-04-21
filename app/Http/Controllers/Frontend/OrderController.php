@@ -3,19 +3,21 @@
 namespace App\Http\Controllers\Frontend;
 
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Log;
+use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
-use App\Services\Frontend\OrderService;
+use App\Builders\Frontend\OrderBuilder;
 
 class OrderController extends Controller
 {
-    public function store(Request $request, OrderService $orderService)
+    public function store(Request $request, OrderBuilder $orderBuilder)
     {
-        $orderService->makeOrder($request);
-        try {
-        } catch (\Throwable $th) {
-            Log::alert($th);
-        }
+
+        DB::transaction(function () use ($orderBuilder, $request) {
+            $orderBuilder->setOrder($request)
+                ->setOrderItem()
+                ->setStockQuantity();
+        });
+
         return redirect('/');
     }
 }
