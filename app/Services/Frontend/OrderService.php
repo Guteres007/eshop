@@ -65,7 +65,6 @@ class OrderService
                     'shopping_price' => $cart_product->shopping_price->raw(),
                     'tax' => $cart_product->tax,
                     'quantity' => $cart_product->quantity,
-                    "slug" => $cart_product->slug,
                     'ean' => $cart_product->ean,
                 ]);
                 $order->order_items()->save($order_item);

@@ -28,7 +28,6 @@ class CreateOrderItemsTable extends Migration
             $table->decimal('shopping_price')->nullable();
             $table->decimal('tax');
             $table->integer('quantity');
-            $table->string("slug")->unique();
             $table->string('ean')->nullable();
             $table->timestamps();
         });
