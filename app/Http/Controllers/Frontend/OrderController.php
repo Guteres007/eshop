@@ -11,8 +11,8 @@ class OrderController extends Controller
 {
     public function store(Request $request, OrderService $orderService)
     {
+        $orderService->makeOrder($request);
         try {
-            $orderService->makeOrder($request);
         } catch (\Throwable $th) {
             Log::alert($th);
         }

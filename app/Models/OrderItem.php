@@ -9,6 +9,7 @@ class OrderItem extends Model
 {
     use HasFactory;
 
+    protected $table = 'order_item';
     protected $fillable = [
         'internal_id',
         'name',
@@ -24,4 +25,9 @@ class OrderItem extends Model
         "slug",
         'ean',
     ];
+
+    public function order()
+    {
+        return $this->belongsTo(Order::class);
+    }
 }
