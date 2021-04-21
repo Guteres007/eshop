@@ -16,6 +16,6 @@ class OrderController extends Controller
         } catch (\Throwable $th) {
             Log::alert($th);
         }
-        return redirect('/');
+        return redirect()->back();
     }
 }

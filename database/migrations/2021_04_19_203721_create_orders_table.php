@@ -18,6 +18,10 @@ class CreateOrdersTable extends Migration
             $table->foreignId('cart_id')->unsigned()->constrained()->onDelete('cascade');
             $table->foreignId('delivery_id')->unsigned();
             $table->foreignId('payment_id')->unsigned();
+            $table->string('payment_name');
+            $table->decimal('payment_price');
+            $table->string('delivery_name');
+            $table->decimal('delivery_price');
             $table->string('first_name');
             $table->string('last_name');
             $table->string('email');

@@ -19,6 +19,10 @@ class Order extends Model
         'comment',
         'delivery_id',
         'payment_id',
+        'delivery_name',
+        'delivery_price',
+        'payment_name',
+        'payment_price',
     ];
 
     public function cart()

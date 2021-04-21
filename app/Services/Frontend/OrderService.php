@@ -3,8 +3,12 @@
 namespace App\Services\Frontend;
 
 use App\Models\Cart;
+use App\Models\Payment;
 use App\Models\Product;
+use App\Models\Delivery;
 use Illuminate\Http\Request;
+use App\Models\DeliveryPayment;
+use Illuminate\Support\Facades\DB;
 
 class OrderService
 {
@@ -18,7 +22,13 @@ class OrderService
             $product_original->save();
         });
 
-        $newCart = $cart->first()->order()->create([
+        $delivery =  Delivery::find(session('delivery_id'));
+        $payment = DB::table('delivery_payment')->join('payments', 'payments.id', '=', 'delivery_payment.payment_id')
+            ->where('delivery_payment.payment_id', session('payment_id'))
+            ->where('delivery_payment.delivery_id', session('delivery_id'))
+            ->first();
+
+        $order = $cart->first()->order()->create([
             'first_name' => $attributes->input('first_name'),
             'last_name' => $attributes->input('last_name'),
             'street' => $attributes->input('street'),
@@ -28,10 +38,13 @@ class OrderService
             'phone' => $attributes->input('phone'),
             'comment' => $attributes->input('comment'),
             'delivery_id' => session('delivery_id'),
-            'payment_id' => session('payment_id')
+            'payment_id' => session('payment_id'),
+            'delivery_name' => $delivery->name,
+            'delivery_price' => $delivery->price,
+            'payment_name' => $payment->name,
+            'payment_price' => $payment->price
         ]);
-
-        if ($newCart->id) {
+        if ($order->id) {
             $cart->update(['active' => false]);
             return true;
         }
