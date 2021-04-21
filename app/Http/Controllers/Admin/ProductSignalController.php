@@ -30,7 +30,7 @@ class ProductSignalController extends Controller
                 $product->homepage = !$product->homepage;
                 break;
             default:
-                # code...
+                return false;
                 break;
         }
 
