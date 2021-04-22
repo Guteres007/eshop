@@ -41,114 +41,13 @@
                             <div class="block-sidebar__item">
                                 <div class="widget-filters widget widget-filters--offcanvas--mobile" data-collapse
                                     data-collapse-opened-class="filter--opened">
-                                    <h4 class="widget-filters__title widget__title">Filters</h4>
+                                    <h4 class="widget-filters__title widget__title">Filtrace</h4>
                                     <div class="widget-filters__list">
+
                                         <div class="widget-filters__item">
-                                            <div class="filter filter--opened" data-collapse-item>
+                                            <div class="filter" data-collapse-item>
                                                 <button type="button" class="filter__title" data-collapse-trigger>
-                                                    Categories
-                                                    <svg class="filter__arrow" width="12px" height="7px">
-                                                        <use
-                                                            xlink:href="/theme-v1/images/sprite.svg#arrow-rounded-down-12x7">
-                                                        </use>
-                                                    </svg>
-                                                </button>
-                                                <div class="filter__body" data-collapse-content>
-                                                    <div class="filter__container">
-                                                        <div class="filter-categories">
-                                                            <ul class="filter-categories__list">
-                                                                <li
-                                                                    class="filter-categories__item filter-categories__item--parent">
-                                                                    <svg class="filter-categories__arrow" width="6px"
-                                                                        height="9px">
-                                                                        <use
-                                                                            xlink:href="/theme-v1/images/sprite.svg#arrow-rounded-left-6x9">
-                                                                        </use>
-                                                                    </svg>
-                                                                    <a href="">Construction & Repair</a>
-                                                                    <div class="filter-categories__counter">254</div>
-                                                                </li>
-                                                                <li
-                                                                    class="filter-categories__item filter-categories__item--parent">
-                                                                    <svg class="filter-categories__arrow" width="6px"
-                                                                        height="9px">
-                                                                        <use
-                                                                            xlink:href="/theme-v1/images/sprite.svg#arrow-rounded-left-6x9">
-                                                                        </use>
-                                                                    </svg>
-                                                                    <a href="">Instruments</a>
-                                                                    <div class="filter-categories__counter">75</div>
-                                                                </li>
-                                                                <li
-                                                                    class="filter-categories__item filter-categories__item--current">
-                                                                    <a href="">Power Tools</a>
-                                                                    <div class="filter-categories__counter">21</div>
-                                                                </li>
-                                                                <li
-                                                                    class="filter-categories__item filter-categories__item--child">
-                                                                    <a href="">Drills & Mixers</a>
-                                                                    <div class="filter-categories__counter">15</div>
-                                                                </li>
-                                                                <li
-                                                                    class="filter-categories__item filter-categories__item--child">
-                                                                    <a href="">Cordless Screwdrivers</a>
-                                                                    <div class="filter-categories__counter">2</div>
-                                                                </li>
-                                                                <li
-                                                                    class="filter-categories__item filter-categories__item--child">
-                                                                    <a href="">Screwdrivers</a>
-                                                                    <div class="filter-categories__counter">30</div>
-                                                                </li>
-                                                                <li
-                                                                    class="filter-categories__item filter-categories__item--child">
-                                                                    <a href="">Wrenches</a>
-                                                                    <div class="filter-categories__counter">7</div>
-                                                                </li>
-                                                                <li
-                                                                    class="filter-categories__item filter-categories__item--child">
-                                                                    <a href="">Grinding Machines</a>
-                                                                    <div class="filter-categories__counter">5</div>
-                                                                </li>
-                                                                <li
-                                                                    class="filter-categories__item filter-categories__item--child">
-                                                                    <a href="">Milling Cutters</a>
-                                                                    <div class="filter-categories__counter">2</div>
-                                                                </li>
-                                                                <li
-                                                                    class="filter-categories__item filter-categories__item--child">
-                                                                    <a href="">Electric Spray Guns</a>
-                                                                    <div class="filter-categories__counter">9</div>
-                                                                </li>
-                                                                <li
-                                                                    class="filter-categories__item filter-categories__item--child">
-                                                                    <a href="">Jigsaws</a>
-                                                                    <div class="filter-categories__counter">4</div>
-                                                                </li>
-                                                                <li
-                                                                    class="filter-categories__item filter-categories__item--child">
-                                                                    <a href="">Jackhammers</a>
-                                                                    <div class="filter-categories__counter">0</div>
-                                                                </li>
-                                                                <li
-                                                                    class="filter-categories__item filter-categories__item--child">
-                                                                    <a href="">Planers</a>
-                                                                    <div class="filter-categories__counter">12</div>
-                                                                </li>
-                                                                <li
-                                                                    class="filter-categories__item filter-categories__item--child">
-                                                                    <a href="">Glue Guns</a>
-                                                                    <div class="filter-categories__counter">7</div>
-                                                                </li>
-                                                            </ul>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="widget-filters__item">
-                                            <div class="filter filter--opened" data-collapse-item>
-                                                <button type="button" class="filter__title" data-collapse-trigger>
-                                                    Categories Alt
+                                                    Kategorie
                                                     <svg class="filter__arrow" width="12px" height="7px">
                                                         <use
                                                             xlink:href="/theme-v1/images/sprite.svg#arrow-rounded-down-12x7">
@@ -158,188 +57,37 @@
                                                 <div class="filter__body" data-collapse-content>
                                                     <div class="filter__container">
                                                         <div class="filter-categories-alt">
+
                                                             <ul class="filter-categories-alt__list filter-categories-alt__list--level--1"
                                                                 data-collapse-opened-class="filter-categories-alt__item--open">
-                                                                <li class="filter-categories-alt__item" data-collapse-item>
-                                                                    <a href="">Clothes & PPE</a>
-                                                                </li>
-                                                                <li class="filter-categories-alt__item" data-collapse-item>
-                                                                    <button class="filter-categories-alt__expander"
-                                                                        data-collapse-trigger></button>
-                                                                    <a href="">Power Tools</a>
-                                                                    <div class="filter-categories-alt__children"
-                                                                        data-collapse-content>
-                                                                        <ul
-                                                                            class="filter-categories-alt__list filter-categories-alt__list--level--2">
-                                                                            <li class="filter-categories-alt__item"
-                                                                                data-collapse-item>
-                                                                                <a href="">Engravers</a>
-                                                                            </li>
-                                                                            <li class="filter-categories-alt__item"
-                                                                                data-collapse-item>
-                                                                                <a href="">Drills</a>
-                                                                            </li>
-                                                                            <li class="filter-categories-alt__item"
-                                                                                data-collapse-item>
-                                                                                <a href="">Wrenches</a>
-                                                                            </li>
-                                                                            <li class="filter-categories-alt__item"
-                                                                                data-collapse-item>
-                                                                                <a href="">Plumbing</a>
-                                                                            </li>
-                                                                            <li class="filter-categories-alt__item"
-                                                                                data-collapse-item>
-                                                                                <a href="">Wall Chaser</a>
-                                                                            </li>
-                                                                            <li class="filter-categories-alt__item"
-                                                                                data-collapse-item>
-                                                                                <a href="">Pneumatic Tools</a>
-                                                                            </li>
-                                                                            <li class="filter-categories-alt__item"
-                                                                                data-collapse-item>
-                                                                                <a href="">Milling Cutters</a>
-                                                                            </li>
-                                                                        </ul>
-                                                                    </div>
-                                                                </li>
-                                                                <li class="filter-categories-alt__item filter-categories-alt__item--open filter-categories-alt__item--current"
-                                                                    data-collapse-item>
-                                                                    <button class="filter-categories-alt__expander"
-                                                                        data-collapse-trigger></button>
-                                                                    <a href="">Hand Tools</a>
-                                                                    <div class="filter-categories-alt__children"
-                                                                        data-collapse-content>
-                                                                        <ul
-                                                                            class="filter-categories-alt__list filter-categories-alt__list--level--2">
-                                                                            <li class="filter-categories-alt__item"
-                                                                                data-collapse-item>
-                                                                                <a href="">Screwdrivers</a>
-                                                                            </li>
-                                                                            <li class="filter-categories-alt__item filter-categories-alt__item--current"
-                                                                                data-collapse-item>
-                                                                                <button
-                                                                                    class="filter-categories-alt__expander"
-                                                                                    data-collapse-trigger></button>
-                                                                                <a href="">Handsaws</a>
-                                                                                <div class="filter-categories-alt__children"
-                                                                                    data-collapse-content>
-                                                                                    <ul
-                                                                                        class="filter-categories-alt__list filter-categories-alt__list--level--3">
-                                                                                        <li class="filter-categories-alt__item"
-                                                                                            data-collapse-item>
-                                                                                            <a href="">Power Saws</a>
-                                                                                        </li>
-                                                                                        <li class="filter-categories-alt__item"
-                                                                                            data-collapse-item>
-                                                                                            <a href="">Hacksaws</a>
-                                                                                        </li>
-                                                                                        <li class="filter-categories-alt__item filter-categories-alt__item--current"
-                                                                                            data-collapse-item>
-                                                                                            <button
-                                                                                                class="filter-categories-alt__expander"
-                                                                                                data-collapse-trigger></button>
-                                                                                            <a href="">Deep Dive</a>
-                                                                                            <div class="filter-categories-alt__children"
-                                                                                                data-collapse-content>
-                                                                                                <ul
-                                                                                                    class="filter-categories-alt__list filter-categories-alt__list--level--4">
-                                                                                                    <li class="filter-categories-alt__item"
-                                                                                                        data-collapse-item>
-                                                                                                        <a
-                                                                                                            href="">Submarines</a>
-                                                                                                    </li>
-                                                                                                    <li class="filter-categories-alt__item"
-                                                                                                        data-collapse-item>
-                                                                                                        <a href="">Silt In
-                                                                                                            Bags</a>
-                                                                                                    </li>
-                                                                                                    <li class="filter-categories-alt__item"
-                                                                                                        data-collapse-item>
-                                                                                                        <a href="">Black
-                                                                                                            Pearl</a>
-                                                                                                    </li>
-                                                                                                    <li class="filter-categories-alt__item"
-                                                                                                        data-collapse-item>
-                                                                                                        <a
-                                                                                                            href="">Krakens</a>
-                                                                                                    </li>
-                                                                                                    <li class="filter-categories-alt__item"
-                                                                                                        data-collapse-item>
-                                                                                                        <a
-                                                                                                            href="">Nautilus</a>
-                                                                                                    </li>
-                                                                                                    <li class="filter-categories-alt__item"
-                                                                                                        data-collapse-item>
-                                                                                                        <a href="">Mariana
-                                                                                                            Trench</a>
-                                                                                                    </li>
-                                                                                                </ul>
-                                                                                            </div>
-                                                                                        </li>
-                                                                                        <li class="filter-categories-alt__item"
-                                                                                            data-collapse-item>
-                                                                                            <a href="">Chain Saws</a>
-                                                                                        </li>
-                                                                                        <li class="filter-categories-alt__item"
-                                                                                            data-collapse-item>
-                                                                                            <a href="">Two-handed Saws</a>
-                                                                                        </li>
-                                                                                        <li class="filter-categories-alt__item"
-                                                                                            data-collapse-item>
-                                                                                            <a href="">Other</a>
-                                                                                        </li>
-                                                                                    </ul>
-                                                                                </div>
-                                                                            </li>
-                                                                            <li class="filter-categories-alt__item"
-                                                                                data-collapse-item>
-                                                                                <a href="">Knives</a>
-                                                                            </li>
-                                                                            <li class="filter-categories-alt__item"
-                                                                                data-collapse-item>
-                                                                                <a href="">Axes</a>
-                                                                            </li>
-                                                                            <li class="filter-categories-alt__item"
-                                                                                data-collapse-item>
-                                                                                <a href="">Multitools</a>
-                                                                            </li>
-                                                                            <li class="filter-categories-alt__item"
-                                                                                data-collapse-item>
-                                                                                <a href="">Paint Tools</a>
-                                                                            </li>
-                                                                        </ul>
-                                                                    </div>
-                                                                </li>
-                                                                <li class="filter-categories-alt__item" data-collapse-item>
-                                                                    <a href="">Measurement</a>
-                                                                </li>
-                                                                <li class="filter-categories-alt__item" data-collapse-item>
-                                                                    <button class="filter-categories-alt__expander"
-                                                                        data-collapse-trigger></button>
-                                                                    <a href="">Garden Equipment</a>
-                                                                    <div class="filter-categories-alt__children"
-                                                                        data-collapse-content>
-                                                                        <ul
-                                                                            class="filter-categories-alt__list filter-categories-alt__list--level--2">
-                                                                            <li class="filter-categories-alt__item"
-                                                                                data-collapse-item>
-                                                                                <a href="">Motor Pumps</a>
-                                                                            </li>
-                                                                            <li class="filter-categories-alt__item"
-                                                                                data-collapse-item>
-                                                                                <a href="">Chainsaws</a>
-                                                                            </li>
-                                                                            <li class="filter-categories-alt__item"
-                                                                                data-collapse-item>
-                                                                                <a href="">Electric Saws</a>
-                                                                            </li>
-                                                                            <li class="filter-categories-alt__item"
-                                                                                data-collapse-item>
-                                                                                <a href="">Brush Cutters</a>
-                                                                            </li>
-                                                                        </ul>
-                                                                    </div>
-                                                                </li>
+
+                                                                @foreach ($cartegories as $category)
+                                                                    <li class="filter-categories-alt__item"
+                                                                        data-collapse-item>
+                                                                        <a
+                                                                            href="{{ route('frontend.category.show', $category->slug) }}">{{ $category->name }}</a>
+                                                                    </li>
+                                                                    @if (false)
+
+                                                                        <li class="filter-categories-alt__item"
+                                                                            data-collapse-item>
+                                                                            <button class="filter-categories-alt__expander"
+                                                                                data-collapse-trigger></button>
+                                                                            <a href="">Power Tools</a>
+                                                                            <div class="filter-categories-alt__children"
+                                                                                data-collapse-content>
+                                                                                <ul
+                                                                                    class="filter-categories-alt__list filter-categories-alt__list--level--2">
+                                                                                    <li class="filter-categories-alt__item"
+                                                                                        data-collapse-item>
+                                                                                        <a href="">Engravers</a>
+                                                                                    </li>
+
+                                                                                </ul>
+                                                                            </div>
+                                                                        </li>
+                                                                    @endif
+                                                                @endforeach
                                                             </ul>
                                                         </div>
                                                     </div>
@@ -349,7 +97,7 @@
                                         <div class="widget-filters__item">
                                             <div class="filter filter--opened" data-collapse-item>
                                                 <button type="button" class="filter__title" data-collapse-trigger>
-                                                    Price
+                                                    Cena
                                                     <svg class="filter__arrow" width="12px" height="7px">
                                                         <use
                                                             xlink:href="/theme-v1/images/sprite.svg#arrow-rounded-down-12x7">
@@ -357,13 +105,18 @@
                                                     </svg>
                                                 </button>
                                                 <div class="filter__body" data-collapse-content>
+
                                                     <div class="filter__container">
-                                                        <div class="filter-price" data-min="500" data-max="1500"
-                                                            data-from="590" data-to="1130">
+
+                                                        <div class="filter-price" data-min="{{ (int) $price_min }}"
+                                                            data-max="{{ (int) $price_max }}"
+                                                            data-from="{{ (int) request()->query('price-from') > 0 ? (int) request()->query('price-from') : (int) $price_min }}"
+                                                            data-to="{{ (int) request()->query('price-to') > 0 ? (int) request()->query('price-to') : (int) $price_max }}">
+
                                                             <div class="filter-price__slider"></div>
-                                                            <div class="filter-price__title">Price: $<span
-                                                                    class="filter-price__min-value"></span> – $<span
-                                                                    class="filter-price__max-value"></span></div>
+                                                            <div class="filter-price__title">Cena: <span
+                                                                    class="filter-price__min-value"></span> Kč – <span
+                                                                    class="filter-price__max-value"></span> Kč</div>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -973,104 +726,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="block-sidebar__item d-none d-lg-block">
-                                <div class="widget-products widget">
-                                    <h4 class="widget__title">Latest Products</h4>
-                                    <div class="widget-products__list">
-                                        <div class="widget-products__item">
-                                            <div class="widget-products__image">
-                                                <div class="product-image">
-                                                    <a href="product.html" class="product-image__body">
-                                                        <img class="product-image__img"
-                                                            src="/theme-v1/images/products/product-1.jpg" alt="">
-                                                    </a>
-                                                </div>
-                                            </div>
-                                            <div class="widget-products__info">
-                                                <div class="widget-products__name">
-                                                    <a href="product.html">Electric Planer Brandix KL370090G 300 Watts</a>
-                                                </div>
-                                                <div class="widget-products__prices">
-                                                    $749.00
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="widget-products__item">
-                                            <div class="widget-products__image">
-                                                <div class="product-image">
-                                                    <a href="product.html" class="product-image__body">
-                                                        <img class="product-image__img"
-                                                            src="/theme-v1/images/products/product-2.jpg" alt="">
-                                                    </a>
-                                                </div>
-                                            </div>
-                                            <div class="widget-products__info">
-                                                <div class="widget-products__name">
-                                                    <a href="product.html">Undefined Tool IRadix DPS3000SY 2700 Watts</a>
-                                                </div>
-                                                <div class="widget-products__prices">
-                                                    $1,019.00
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="widget-products__item">
-                                            <div class="widget-products__image">
-                                                <div class="product-image">
-                                                    <a href="product.html" class="product-image__body">
-                                                        <img class="product-image__img"
-                                                            src="/theme-v1/images/products/product-3.jpg" alt="">
-                                                    </a>
-                                                </div>
-                                            </div>
-                                            <div class="widget-products__info">
-                                                <div class="widget-products__name">
-                                                    <a href="product.html">Drill Screwdriver Brandix ALX7054 200 Watts</a>
-                                                </div>
-                                                <div class="widget-products__prices">
-                                                    $850.00
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="widget-products__item">
-                                            <div class="widget-products__image">
-                                                <div class="product-image">
-                                                    <a href="product.html" class="product-image__body">
-                                                        <img class="product-image__img"
-                                                            src="/theme-v1/images/products/product-4.jpg" alt="">
-                                                    </a>
-                                                </div>
-                                            </div>
-                                            <div class="widget-products__info">
-                                                <div class="widget-products__name">
-                                                    <a href="product.html">Drill Series 3 Brandix KSR4590PQS 1500 Watts</a>
-                                                </div>
-                                                <div class="widget-products__prices">
-                                                    <span class="widget-products__new-price">$949.00</span>
-                                                    <span class="widget-products__old-price">$1189.00</span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="widget-products__item">
-                                            <div class="widget-products__image">
-                                                <div class="product-image">
-                                                    <a href="product.html" class="product-image__body">
-                                                        <img class="product-image__img"
-                                                            src="/theme-v1/images/products/product-5.jpg" alt="">
-                                                    </a>
-                                                </div>
-                                            </div>
-                                            <div class="widget-products__info">
-                                                <div class="widget-products__name">
-                                                    <a href="product.html">Brandix Router Power Tool 2017ERXPK</a>
-                                                </div>
-                                                <div class="widget-products__prices">
-                                                    $1,700.00
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
+
                         </div>
                     </div>
                 </div>
@@ -1306,25 +962,25 @@
 
 
                                                         <!--
-                                                                                                                                                                                                        <button
-                                                                                                                                                                                                            class="btn btn-light btn-svg-icon btn-svg-icon--fake-svg product-card__wishlist"
-                                                                                                                                                                                                            type="button">
-                                                                                                                                                                                                            <svg width="16px" height="16px">
-                                                                                                                                                                                                                <use xlink:href="/theme-v1/images/sprite.svg#wishlist-16">
-                                                                                                                                                                                                                </use>
-                                                                                                                                                                                                            </svg>
-                                                                                                                                                                                                            <span class="fake-svg-icon fake-svg-icon--wishlist-16"></span>
-                                                                                                                                                                                                        </button>
-                                                                                                                                                                                                        <button
-                                                                                                                                                                                                            class="btn btn-light btn-svg-icon btn-svg-icon--fake-svg product-card__compare"
-                                                                                                                                                                                                            type="button">
-                                                                                                                                                                                                            <svg width="16px" height="16px">
-                                                                                                                                                                                                                <use xlink:href="/theme-v1/images/sprite.svg#compare-16">
-                                                                                                                                                                                                                </use>
-                                                                                                                                                                                                            </svg>
-                                                                                                                                                                                                            <span class="fake-svg-icon fake-svg-icon--compare-16"></span>
-                                                                                                                                                                                                        </button>
-                                                                                                                                                                                                 -->
+                                                                                                                                                                                                                                                                                                                                                                                            <button
+                                                                                                                                                                                                                                                                                                                                                                                                class="btn btn-light btn-svg-icon btn-svg-icon--fake-svg product-card__wishlist"
+                                                                                                                                                                                                                                                                                                                                                                                                type="button">
+                                                                                                                                                                                                                                                                                                                                                                                                <svg width="16px" height="16px">
+                                                                                                                                                                                                                                                                                                                                                                                                    <use xlink:href="/theme-v1/images/sprite.svg#wishlist-16">
+                                                                                                                                                                                                                                                                                                                                                                                                    </use>
+                                                                                                                                                                                                                                                                                                                                                                                                </svg>
+                                                                                                                                                                                                                                                                                                                                                                                                <span class="fake-svg-icon fake-svg-icon--wishlist-16"></span>
+                                                                                                                                                                                                                                                                                                                                                                                            </button>
+                                                                                                                                                                                                                                                                                                                                                                                            <button
+                                                                                                                                                                                                                                                                                                                                                                                                class="btn btn-light btn-svg-icon btn-svg-icon--fake-svg product-card__compare"
+                                                                                                                                                                                                                                                                                                                                                                                                type="button">
+                                                                                                                                                                                                                                                                                                                                                                                                <svg width="16px" height="16px">
+                                                                                                                                                                                                                                                                                                                                                                                                    <use xlink:href="/theme-v1/images/sprite.svg#compare-16">
+                                                                                                                                                                                                                                                                                                                                                                                                    </use>
+                                                                                                                                                                                                                                                                                                                                                                                                </svg>
+                                                                                                                                                                                                                                                                                                                                                                                                <span class="fake-svg-icon fake-svg-icon--compare-16"></span>
+                                                                                                                                                                                                                                                                                                                                                                                            </button>
+                                                                                                                                                                                                                                                                                                                                                                                     -->
                                                     </div>
                                                 </div>
                                             </div>

@@ -11,15 +11,18 @@ class CategoryController extends Controller
 {
     public function show(Category $category, Request $request, CategoryRepository $categoryRepository)
     {
+        $products = $categoryRepository
+            ->getModel()
+            ->find($category->id)
+            ->products()
+            ->where('active', true);
 
         return view('frontend.category.show', [
-            'products' => $categoryRepository
-                ->getModel()
-                ->find($category->id)
-                ->products()
-                ->where('active', true)
-                ->paginate(20),
-            'category' => $category
+            'products' => $products->paginate(20),
+            'category' => $category,
+            'cartegories' => $categoryRepository->all(),
+            'price_max' => $products->max('price'),
+            'price_min' => $products->min('price')
         ]);
     }
 }
