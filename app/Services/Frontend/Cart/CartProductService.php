@@ -11,8 +11,6 @@ class CartProductService
 
     public function getProducts($user_session_id)
     {
-
-
         $cart_products = DB::table('cart_product')
             ->leftJoin('products', 'cart_product.product_id', '=', 'products.id')
             ->leftJoin('carts', 'cart_product.cart_id', '=', 'carts.id')

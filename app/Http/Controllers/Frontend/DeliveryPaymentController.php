@@ -6,6 +6,7 @@ use App\Models\Payment;
 use App\Models\Delivery;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Services\Frontend\Cart\CartProductService;
 use App\Services\Frontend\DeliveryPaymentService;
 
 class DeliveryPaymentController extends Controller
@@ -18,7 +19,6 @@ class DeliveryPaymentController extends Controller
 
     public function store(Request $request)
     {
-        //dd(session()->get('delivery_id'), session()->get('payment_id'));
 
         session([
             'delivery_id' => $request->input('delivery_id'),

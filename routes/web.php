@@ -27,11 +27,11 @@ Route::name('frontend.')->group(function () {
     Route::get('/cart/{cart:hash}', [CartController::class, 'show'])->name('cart.show');
     Route::delete('/cart-product/{id}', [CartProductController::class, 'destroy'])->name('cartproduct.destroy');
     Route::post('/cart-product', [CartProductController::class, 'store'])->name('cartproduct.store');
-    Route::get('/delivery-payment', [DeliveryPaymentController::class, 'index'])->name('delivery-payment.index');
+    Route::get('/delivery-payment', [DeliveryPaymentController::class, 'index'])->name('delivery-payment.index')->middleware('IsCartProduct');
     Route::post('/delivery-payment', [DeliveryPaymentController::class, 'store'])->name('delivery-payment.store');
-    Route::get('/delivery-payment/{id}', [DeliveryPaymentController::class, 'show'])->name('delivery-payment.show');
+    Route::get('/delivery-payment/{id}', [DeliveryPaymentController::class, 'show'])->name('delivery-payment.show')->middleware('IsCartProduct');
     Route::post('/order', [OrderController::class, 'store'])->name('order.store');
-    Route::get('/checkout', [CheckoutController::class, 'index'])->name('checkout.index');
+    Route::get('/checkout', [CheckoutController::class, 'index'])->name('checkout.index')->middleware('IsCartProduct');
 
     Route::get('/terms-and-conditions', [TermsConditionsController::class, 'index'])->name('terms-conditions');
 });
