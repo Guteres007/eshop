@@ -10,7 +10,6 @@ class Parameter extends Model
     use HasFactory;
 
     protected $fillable = [
-        'value',
         'name',
         'product_id'
     ];
@@ -18,5 +17,10 @@ class Parameter extends Model
     public function product()
     {
         return $this->belongsTo(Product::class);
+    }
+
+    public function values()
+    {
+        return $this->hasMany(ParameterValue::class);
     }
 }
