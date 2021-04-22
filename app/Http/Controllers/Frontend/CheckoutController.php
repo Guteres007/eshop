@@ -12,10 +12,12 @@ class CheckoutController extends Controller
 {
     public function index(Request $request, CheckoutService $checkoutService, CartProductService $cartProductService, CartProductCalculator $cartProductCalculator)
     {
-        $delivery_payment_data = $checkoutService->getDeliveryPaymentData();
-        $cart_products = $cartProductService->getProducts($request->session()->getId());
-        $total_products_price = $cartProductCalculator->getTotalPrice($request->session()->getId());
-
-        return view('frontend.checkout.index', compact('delivery_payment_data', 'cart_products', 'total_products_price'));
+        if (session('delivery_id') && session('payment_id')) {
+            $delivery_payment_data = $checkoutService->getDeliveryPaymentData();
+            $cart_products = $cartProductService->getProducts($request->session()->getId());
+            $total_products_price = $cartProductCalculator->getTotalPrice($request->session()->getId());
+            return view('frontend.checkout.index', compact('delivery_payment_data', 'cart_products', 'total_products_price'));
+        }
+        return redirect()->route('frontend.delivery-payment.index');
     }
 }

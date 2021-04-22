@@ -19,13 +19,18 @@ class DeliveryPaymentController extends Controller
 
     public function store(Request $request)
     {
+        $payment_id = $request->input('payment_id');
+        $delivery_id = $request->input('delivery_id');
 
-        session([
-            'delivery_id' => $request->input('delivery_id'),
-            'payment_id' => $request->input('payment_id')
-        ]);
+        if ($payment_id && $delivery_id) {
+            session([
+                'delivery_id' => $delivery_id,
+                'payment_id' => $payment_id
+            ]);
+            return redirect()->route('frontend.checkout.index');
+        }
 
-        return redirect()->route('frontend.checkout.index');
+        return redirect()->back()->with('error', 'Doprava a platba jsou povinné');
     }
 
     public function show($delivery_id, DeliveryPaymentService $deliveryPaymentService)
