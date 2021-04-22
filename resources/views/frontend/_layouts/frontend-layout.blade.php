@@ -27,6 +27,12 @@
 <body>
     <div class="site">
         @include('frontend._layouts.includes.menu')
+
+        @if (session('error'))
+            <div class="alert alert-danger mb-3">
+                {{ session('error') }}
+            </div>
+        @endif
         @yield("container")
         @include('frontend._layouts.includes.footer')
         @include('frontend._layouts.includes.others')

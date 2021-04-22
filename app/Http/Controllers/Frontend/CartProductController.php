@@ -2,10 +2,11 @@
 
 namespace App\Http\Controllers\Frontend;
 
+use App\Models\CartProduct;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Builders\Frontend\CartBuilder;
-use App\Models\CartProduct;
+use App\Services\StockQuantityService;
 
 class CartProductController extends Controller
 {
@@ -15,12 +16,20 @@ class CartProductController extends Controller
         return redirect()->back();
     }
 
-    public function store(Request $request, CartBuilder $cartBuilder)
+    public function store(Request $request, CartBuilder $cartBuilder, StockQuantityService $stockQuantityService)
     {
-        $cartBuilder
-            ->getCurrentCart()
-            ->addProduct($request->input('product_id'), $request->input('quantity'));
+        $product_id = $request->input('product_id');
+        $quantity = $request->input('quantity');
 
-        return true;
+        if ($stockQuantityService->productHasQuantity($product_id, $quantity)) {
+            $cartBuilder
+                ->getCurrentCart()
+                ->addProduct($product_id, $quantity);
+
+            return true;
+        }
+
+        $request->session()->flash('error', 'Požadovaný počet kusů není na skladě.');
+        return false;
     }
 }
