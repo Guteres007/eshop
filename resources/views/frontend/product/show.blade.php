@@ -186,7 +186,7 @@
                                         @foreach ($product->parameters as $parameter)
                                             <div class="spec__row">
                                                 <div class="spec__name">{{ $parameter->name }}</div>
-                                                <div class="spec__value">{{ $parameter->value }}</div>
+                                                <div class="spec__value">{{ $parameter->values()->first()->value }}</div>
                                             </div>
                                         @endforeach
                                     @endif
