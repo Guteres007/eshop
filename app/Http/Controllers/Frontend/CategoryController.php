@@ -10,6 +10,8 @@ use App\Models\CategoryProduct;
 use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
 use App\Repositories\Category\CategoryRepository;
+use Illuminate\Support\Collection;
+
 
 class CategoryController extends Controller
 {
@@ -21,23 +23,27 @@ class CategoryController extends Controller
         if ($request->query()) {
             //service
 
-            $products =
-                DB::table('category_product')
-                ->rightJoin('parameters', 'parameters.product_id', '=', 'category_product.product_id')
-                ->rightJoin('parameter_value', 'parameters.id', '=', 'parameter_value.parameter_id')
-                ->rightJoin('products', 'parameters.product_id', '=', 'products.id')
-                ->leftJoin('product_images', 'product_images.product_id', '=', 'products.id')
-                ->where('category_product.category_id', $category->id)
-                ->where('product_images.rank', 1)
-                ->where('products.active', true);
-
-            foreach ($query as  $row) {
+            $products_array = [];
+            foreach ($query as  $key => $row) {
                 $newParameters = explode(':', $row);
-                $products->where('parameters.name', 'like',  ucfirst($newParameters[0]))
-                    ->where('parameter_value.value', 'like', ucfirst($newParameters[1]));
+                $products_array[] =
+                    DB::table('parameters')
+                    ->rightJoin('category_product', 'category_product.product_id', '=', 'parameters.product_id')
+                    ->rightJoin('parameter_value', 'parameters.id', '=', 'parameter_value.parameter_id')
+                    ->rightJoin('products', 'parameters.product_id', '=', 'products.id')
+                    ->leftJoin('product_images', 'product_images.product_id', '=', 'products.id')
+                    ->where('category_product.category_id', $category->id)
+                    ->where('product_images.rank', 1)
+                    ->where('products.active', true)
+                    ->where('parameters.name', 'like',  ucfirst($newParameters[0]))
+                    ->where('parameter_value.value', 'like', ucfirst($newParameters[1]))
+                    ->select('products.*', DB::raw('product_images.path AS image_path'), DB::raw('product_images.name AS image_name'));
             }
+            //tady to potřebuji opravit
+            $products = (new Collection($products_array))->flatten()->unique('id');
 
-            $products->select('products.*', DB::raw('product_images.path AS image_path'), DB::raw('product_images.name AS image_name'));
+            //wherein pro price
+
         } else {
             //Repository
             $products = DB::table('category_product')
