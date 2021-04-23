@@ -18,4 +18,9 @@ class ParameterValue extends Model
     {
         return $this->belongsTo(Parameter::class);
     }
+
+    public function setValueAttribute($value)
+    {
+        $this->attributes['value'] = trim(ucfirst($value));
+    }
 }
