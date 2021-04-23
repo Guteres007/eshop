@@ -11,7 +11,8 @@ class Parameter extends Model
 
     protected $fillable = [
         'name',
-        'product_id'
+        'product_id',
+        'value'
     ];
 
     public function product()
@@ -24,9 +25,8 @@ class Parameter extends Model
         $this->attributes['name'] = trim(ucfirst($value));
     }
 
-
-    public function parameter_values()
+    public function setValueAttribute($value)
     {
-        return $this->hasMany(ParameterValue::class);
+        $this->attributes['value'] = trim(ucfirst($value));
     }
 }

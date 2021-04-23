@@ -19,37 +19,56 @@ class CategoryController extends Controller
     {
         //http://localhost:8000/category/pocitace?materi%C3%A1l=k%C5%AF%C5%BEe
 
+
         $query = explode(";", $request->query('parameters'));
         if ($request->query()) {
             //service
 
-            $products_array = [];
+            $products =
+                DB::table('category_product')
+                ->leftJoin(
+                    'parameters',
+                    function ($join) {
+                        $join->on('category_product.product_id', '=', 'parameters.product_id')
+                            ->where(function ($q) {
+                                $q->where('parameters.name', 'Barva')
+                                    ->where('parameters.value', 'Fialová');
+                            })
+                            ->orWhere(function ($q) {
+                                $q->where('parameters.name', 'Barva')
+                                    ->where('parameters.value', 'Červená');
+                            })
+                            ->orWhere(function ($q) {
+                                $q->where('parameters.name', 'Material')
+                                    ->where('parameters.value', 'Kožešina');
+                            });
+                    }
+                )
+
+                ->leftJoin('products', 'parameters.product_id', '=', 'products.id')
+                ->leftJoin('product_images', 'product_images.product_id', '=', 'products.id')
+                ->where('category_product.category_id', $category->id)
+                ->where('product_images.rank', 1)
+                ->where('products.active', true)
+                ->distinct()
+
+                ->select('products.*', DB::raw('product_images.path AS image_path'), DB::raw('product_images.name AS image_name'));
+            //dd($products->toSql());
+            /*
             foreach ($query as  $key => $row) {
                 $newParameters = explode(':', $row);
-                $products_array[] =
-                    DB::table('parameters')
-                    ->rightJoin('category_product', 'category_product.product_id', '=', 'parameters.product_id')
-                    ->rightJoin('parameter_value', 'parameters.id', '=', 'parameter_value.parameter_id')
-                    ->rightJoin('products', 'parameters.product_id', '=', 'products.id')
-                    ->leftJoin('product_images', 'product_images.product_id', '=', 'products.id')
-                    ->where('category_product.category_id', $category->id)
-                    ->where('product_images.rank', 1)
-                    ->where('products.active', true)
-                    ->where('parameters.name', 'like',  ucfirst($newParameters[0]))
-                    ->where('parameter_value.value', 'like', ucfirst($newParameters[1]))
-                    ->select('products.*', DB::raw('product_images.path AS image_path'), DB::raw('product_images.name AS image_name'));
-            }
+                ->where('parameters.name', 'like',  ucfirst($newParameters[0]))
+                ->where('parameter_value.value', 'like', ucfirst($newParameters[1]))
+            }*/
             //tady to potřebuji opravit
-            $products = (new Collection($products_array))->flatten()->unique('id');
+            //$products = (new Collection($products_array))->flatten()->unique('id');
 
             //wherein pro price
 
         } else {
             //Repository
             $products = DB::table('category_product')
-                ->rightJoin('parameters', 'parameters.product_id', '=', 'category_product.product_id')
-                ->rightJoin('parameter_value', 'parameters.id', '=', 'parameter_value.parameter_id')
-                ->rightJoin('products', 'parameters.product_id', '=', 'products.id')
+                ->leftJoin('products', 'products.id', '=', 'category_product.product_id')
                 ->leftJoin('product_images', 'product_images.product_id', '=', 'products.id')
                 ->where('category_product.category_id', $category->id)
                 ->where('product_images.rank', 1)
@@ -60,9 +79,8 @@ class CategoryController extends Controller
         //services
         $parameters_name = DB::table('category_product')
             ->rightJoin('parameters', 'parameters.product_id', '=', 'category_product.product_id')
-            ->rightJoin('parameter_value', 'parameters.id', '=', 'parameter_value.parameter_id')
             ->where('category_product.category_id', $category->id)
-            ->select('parameters.name', 'parameter_value.value')
+            ->select('parameters.name', 'parameters.value')
             ->get();
 
 

@@ -17,10 +17,8 @@ class ParameterService
 
         for ($i = 0; $i < count($parameters['name']); $i++) {
             if (strlen($parameters['name'][$i]) && strlen($parameters['name'][$i])) {
-                $parameterModel = new Parameter(['name' => $parameters['name'][$i]]);
-                $parameterValueModel = new ParameterValue(['value' => $parameters['value'][$i]]);
-                $newPaprameter = $product->parameters()->save($parameterModel);
-                $newPaprameter->parameter_values()->save($parameterValueModel);
+                $parameterModel = new Parameter(['name' => $parameters['name'][$i], 'value' => $parameters['value'][$i]]);
+                $product->parameters()->save($parameterModel);
             }
         }
     }

@@ -17,6 +17,7 @@ class CreateParametersTable extends Migration
             $table->id();
             $table->foreignId('product_id')->unsigned()->constrained()->onDelete('cascade');
             $table->string('name');
+            $table->string('value');
             $table->timestamps();
         });
     }
