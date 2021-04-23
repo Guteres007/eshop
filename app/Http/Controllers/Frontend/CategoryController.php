@@ -19,9 +19,8 @@ class CategoryController extends Controller
 
         $query = explode(";", $request->query('parameters'));
         if ($request->query()) {
+            //service
 
-
-            //dd($where_array);
             $products =
                 DB::table('category_product')
                 ->rightJoin('parameters', 'parameters.product_id', '=', 'category_product.product_id')
@@ -40,6 +39,7 @@ class CategoryController extends Controller
 
             $products->select('products.*', DB::raw('product_images.path AS image_path'), DB::raw('product_images.name AS image_name'));
         } else {
+            //Repository
             $products = DB::table('category_product')
                 ->rightJoin('parameters', 'parameters.product_id', '=', 'category_product.product_id')
                 ->rightJoin('parameter_value', 'parameters.id', '=', 'parameter_value.parameter_id')
@@ -51,9 +51,7 @@ class CategoryController extends Controller
                 ->select('products.*', DB::raw('product_images.path AS image_path'), DB::raw('product_images.name AS image_name'));
         }
 
-        //dd($product_query_filter);
-
-
+        //services
         $parameters_name = DB::table('category_product')
             ->rightJoin('parameters', 'parameters.product_id', '=', 'category_product.product_id')
             ->rightJoin('parameter_value', 'parameters.id', '=', 'parameter_value.parameter_id')
