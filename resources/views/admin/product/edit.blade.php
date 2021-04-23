@@ -155,7 +155,8 @@
                                         <input class="form-control" name="parameters[name][]" type="text"
                                             placeholder="Název" value="{{ $parameter->name }}">
                                         <input class="form-control" name="parameters[value][]" type="text"
-                                            placeholder="Hodnota" value="{{ $parameter->values->first()->value }}">
+                                            placeholder="Hodnota"
+                                            value="{{ $parameter->parameter_values->first()->value }}">
                                     @endforeach
                                 @else
 

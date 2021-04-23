@@ -19,7 +19,7 @@ class Parameter extends Model
         return $this->belongsTo(Product::class);
     }
 
-    public function values()
+    public function parameter_values()
     {
         return $this->hasMany(ParameterValue::class);
     }
