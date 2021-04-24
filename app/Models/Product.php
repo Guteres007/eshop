@@ -81,6 +81,6 @@ class Product extends Model
 
     public function parameters()
     {
-        return $this->hasMany(Parameter::class);
+        return $this->belongsToMany(Parameter::class, 'product_parameter');
     }
 }

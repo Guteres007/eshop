@@ -15,10 +15,6 @@ class Parameter extends Model
         'value'
     ];
 
-    public function product()
-    {
-        return $this->belongsTo(Product::class);
-    }
 
     public function setNameAttribute($value)
     {
@@ -28,5 +24,10 @@ class Parameter extends Model
     public function setValueAttribute($value)
     {
         $this->attributes['value'] = trim(ucfirst($value));
+    }
+
+    public function products()
+    {
+        return $this->belongsToMany(Product::class, 'product_parameter');
     }
 }

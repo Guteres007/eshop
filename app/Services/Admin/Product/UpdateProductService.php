@@ -34,11 +34,6 @@ class UpdateProductService
 
         $product = $this->productRepository->find($id);
 
-        //update parametrů pokud bude v databázi
-        if ($product->parameters()->count() > 0) {
-            $this->parameterService->removeParametersByProduct($product);
-        }
-
         $this->parameterService->saveParametersToProduct($product, $attributes['parameters']);
         $product->update($attributes);
         $product->categories()->sync($array_of_category_ids);

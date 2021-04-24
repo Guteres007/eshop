@@ -12,6 +12,7 @@ use App\Services\Admin\Product\DeleteProductService;
 use App\Services\Admin\Product\UpdateProductService;
 use App\Http\Requests\Admin\Product\ProductCreateRequest;
 use App\Http\Requests\Admin\Product\ProductUpdateRequest;
+use App\Models\Parameter;
 use App\Models\Product;
 
 class ProductController extends Controller
@@ -40,8 +41,9 @@ class ProductController extends Controller
     public function create()
     {
         $categories = $this->categoryRepository->all();
+        $parameters = Parameter::all();
 
-        return view('admin.product.create', ['categories' => $categories]);
+        return view('admin.product.create', ['categories' => $categories, 'parameters' => $parameters]);
     }
 
     public function store(ProductCreateRequest $request, ProductBuilder $productBuilder)
@@ -65,6 +67,7 @@ class ProductController extends Controller
     {
         $product = $this->productRepository->find($id);
         $categories = $this->categoryRepository->all();
+        $parameters = Parameter::all();
 
         //helper nebo tak něco udělat, budu asi používat častěji
         $selected_category = $this->selectedCategory($product);
@@ -72,7 +75,8 @@ class ProductController extends Controller
         return view('admin.product.edit', [
             'product' => $product,
             'categories' =>  $categories,
-            'selected_category' => $selected_category
+            'selected_category' => $selected_category,
+            'parameters' => $parameters
         ]);
     }
 

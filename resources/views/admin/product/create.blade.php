@@ -116,11 +116,18 @@
                             <div class="form-group">
                                 <label for="name">Parametry <span
                                         class="color-red">{{ $errors->first('parameters') }}</span></label>
-                                <input class="form-control" name="parameters[name][]" type="text" placeholder="Název">
-                                <input class="form-control" name="parameters[value][]" type="text" placeholder="Hodnota">
+                                <select name="parameters[id][]">
+                                    @foreach ($parameters as $parameter)
+                                        <option value="{{ $parameter->id }}">{{ $parameter->value }}</option>
+                                    @endforeach
+                                </select>
 
-                                <input class="form-control" name="parameters[name][]" type="text" placeholder="Název">
-                                <input class="form-control" name="parameters[value][]" type="text" placeholder="Hodnota">
+                                <select name="parameters[id][]">
+                                    @foreach ($parameters as $parameter)
+                                        <option value="{{ $parameter->id }}">{{ $parameter->value }}</option>
+                                    @endforeach
+                                </select>
+
                             </div>
                         </div>
 

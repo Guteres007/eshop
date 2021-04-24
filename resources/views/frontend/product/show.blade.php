@@ -181,6 +181,7 @@
                             <div class="spec">
                                 <h3 class="spec__header">Specifikace</h3>
                                 <div class="spec__section">
+
                                     @if ($product->parameters->count() > 0)
                                         <h4 class="spec__section-title">Parametry</h4>
                                         @foreach ($product->parameters as $parameter)

@@ -11,16 +11,7 @@ class ParameterService
 
     public function saveParametersToProduct(Product $product, $parameters)
     {
-
-
-
-
-        for ($i = 0; $i < count($parameters['name']); $i++) {
-            if (strlen($parameters['name'][$i]) && strlen($parameters['name'][$i])) {
-                $parameterModel = new Parameter(['name' => $parameters['name'][$i], 'value' => $parameters['value'][$i]]);
-                $product->parameters()->save($parameterModel);
-            }
-        }
+        $product->parameters()->sync($parameters['id']);
     }
 
     public function removeParametersByProduct($product)
