@@ -21,6 +21,7 @@ class ProductController extends Controller
     private $categoryRepository;
     public function __construct(ProductRepository $productRepository, CategoryRepository $categoryRepository)
     {
+        $this->middleware('optimizeImages')->only(['store', 'update']);
         $this->productRepository = $productRepository;
         $this->categoryRepository = $categoryRepository;
     }

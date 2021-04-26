@@ -23,6 +23,7 @@ class Order extends Model
         'delivery_price',
         'payment_name',
         'payment_price',
+        'phone'
     ];
 
     public function cart()

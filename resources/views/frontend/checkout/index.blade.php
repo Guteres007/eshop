@@ -33,43 +33,84 @@
                                 <h3 class="card-title">Kontaktní údaje</h3>
                                 <div class="form-row">
                                     <div class="form-group col-md-6">
-                                        <label for="checkout-first-name">Jméno</label>
-                                        <input type="text" class="form-control" id="checkout-first-name" placeholder="Jméno"
-                                            name="first_name">
+                                        <label for="checkout-first-name">Jméno
+                                        </label>
+                                        <input type="text"
+                                            class="form-control {{ $errors->first('first_name') ? 'is-invalid' : '' }}"
+                                            id="checkout-first-name" placeholder="Jméno" name="first_name"
+                                            value="{{ old('first_name') }}">
+                                        @if ($errors->first('first_name'))
+                                            <div class="invalid-feedback"> {{ $errors->first('first_name') }}</div>
+                                        @endif
+
                                     </div>
                                     <div class="form-group col-md-6">
                                         <label for="checkout-last-name">Přijmení</label>
-                                        <input type="text" class="form-control" id="checkout-last-name"
-                                            placeholder="Přijmení" name="last_name">
+                                        <input type="text"
+                                            class="form-control {{ $errors->first('last_name') ? 'is-invalid' : '' }}"
+                                            id="checkout-last-name" placeholder="Přijmení" name="last_name"
+                                            value="{{ old('last_name') }}">
+                                        @if ($errors->first('last_name'))
+                                            <div class="invalid-feedback"> {{ $errors->first('last_name') }}</div>
+                                        @endif
                                     </div>
                                 </div>
 
                                 <div class="form-group">
                                     <label for="checkout-street-address">Ulice a čp</label>
-                                    <input type="text" class="form-control" id="checkout-street-address"
-                                        placeholder="Ulice a čp" name="street">
+                                    <input type="text"
+                                        class="form-control {{ $errors->first('street') ? 'is-invalid' : '' }}"
+                                        id="checkout-street-address" placeholder="Ulice a čp" name="street"
+                                        value="{{ old('street') }}">
+
+                                    @if ($errors->first('street'))
+                                        <div class="invalid-feedback"> {{ $errors->first('street') }}</div>
+                                    @endif
                                 </div>
 
                                 <div class="form-row">
                                     <div class="form-group col-md-6">
                                         <label for="checkout-city">Město</label>
-                                        <input type="text" class="form-control" id="checkout-city" name="city">
+                                        <input type="text"
+                                            class="form-control {{ $errors->first('city') ? 'is-invalid' : '' }}"
+                                            id="checkout-city" name="city" value="{{ old('city') }}">
+
+                                        @if ($errors->first('city'))
+                                            <div class="invalid-feedback"> {{ $errors->first('city') }}</div>
+                                        @endif
                                     </div>
                                     <div class="form-group col-md-6">
                                         <label for="checkout-postcode">PSČ</label>
-                                        <input type="text" class="form-control" id="checkout-postcode" name="postcode">
+                                        <input type="text"
+                                            class="form-control  {{ $errors->first('postcode') ? 'is-invalid' : '' }}"
+                                            id="checkout-postcode" name="postcode" value="{{ old('postcode') }}">
+                                        @if ($errors->first('postcode'))
+                                            <div class="invalid-feedback"> {{ $errors->first('postcode') }}</div>
+                                        @endif
                                     </div>
                                 </div>
                                 <div class="form-row">
                                     <div class="form-group col-md-6">
                                         <label for="checkout-email">E-mail</label>
-                                        <input type="email" class="form-control" id="checkout-email" placeholder="E-mail"
-                                            name="email">
+                                        <input type="email"
+                                            class="form-control {{ $errors->first('email') ? 'is-invalid' : '' }}"
+                                            id="checkout-email" placeholder="E-mail" name="email"
+                                            value="{{ old('email') }}">
+
+                                        @if ($errors->first('email'))
+                                            <div class="invalid-feedback"> {{ $errors->first('email') }}</div>
+                                        @endif
                                     </div>
                                     <div class="form-group col-md-6">
                                         <label for="checkout-phone">Telefon</label>
-                                        <input type="text" class="form-control" id="checkout-phone" placeholder="Telefon"
-                                            name="phone">
+                                        <input type="text"
+                                            class="form-control {{ $errors->first('phone') ? 'is-invalid' : '' }}"
+                                            id="checkout-phone" placeholder="Telefon ve formátu 777777777" name="phone"
+                                            value="{{ old('phone') }}">
+
+                                        @if ($errors->first('phone'))
+                                            <div class="invalid-feedback"> {{ $errors->first('phone') }}</div>
+                                        @endif
                                     </div>
                                 </div>
                             </div>
