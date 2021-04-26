@@ -31,6 +31,7 @@ class OrderRequest extends FormRequest
             'postcode' => 'required|numeric',
             'email' => 'required|email',
             'phone' => 'required|regex:/^[0-9]{9,11}\z/',
+            'terms' => 'required'
         ];
     }
 
@@ -51,6 +52,7 @@ class OrderRequest extends FormRequest
             'email.email' => 'Špatný fotmát emailu',
             'phone.required' => 'Musíte vyplnit',
             'phone.numeric' =>  'Musí být jen číslo',
+            'terms.required' =>  'Musíte udělit souhlas',
         ];
     }
 }

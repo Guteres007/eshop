@@ -92,7 +92,7 @@
                     <div class="cart__actions">
 
 
-                        <a href="/" class="btn btn-light">Pokračovat v nákupu</a>
+                        <a href="/" class="btn btn-secondary">Pokračovat v nákupu</a>
                         <a class="btn btn-primary" href="{{ route('frontend.delivery-payment.index') }}">Doprava a
                             platba</a>
 

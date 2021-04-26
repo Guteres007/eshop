@@ -105,7 +105,7 @@
                                         <label for="checkout-phone">Telefon</label>
                                         <input type="text"
                                             class="form-control {{ $errors->first('phone') ? 'is-invalid' : '' }}"
-                                            id="checkout-phone" placeholder="Telefon ve formátu 777777777" name="phone"
+                                            id="checkout-phone" placeholder="Telefon ve formátu 123456789" name="phone"
                                             value="{{ old('phone') }}">
 
                                         @if ($errors->first('phone'))
@@ -173,7 +173,8 @@
                                     <div class="form-check">
                                         <span class="form-check-input input-check">
                                             <span class="input-check__body">
-                                                <input class="input-check__input" type="checkbox" id="checkout-terms">
+                                                <input class="input-check__input" type="checkbox" name="terms" value="1"
+                                                    id="checkout-terms">
                                                 <span class="input-check__box"></span>
                                                 <svg class="input-check__icon" width="9px" height="7px">
                                                     <use xlink:href="/theme-v1/images/sprite.svg#check-9x7"></use>
@@ -184,7 +185,12 @@
                                             Souhlas s <a target="_blank" href="{{ route('frontend.terms-conditions') }}">
                                                 obchodními podmínkami.</a>
                                         </label>
+
+                                        @if ($errors->first('terms'))
+                                            <div class="text-danger"> {{ $errors->first('terms') }}</div>
+                                        @endif
                                     </div>
+
                                 </div>
                                 <button type="submit" class="btn btn-primary btn-xl btn-block">Odeslat objednávku</button>
                                 <a class="btn btn-secondary btn-xl btn-block"
