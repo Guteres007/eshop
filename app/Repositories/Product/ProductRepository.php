@@ -20,4 +20,15 @@ class ProductRepository extends BaseRepository
     {
         return  $this->model->where('active', true)->where('homepage', true)->limit(7)->get();
     }
+
+    public function getProductsByCategory($category_id)
+    {
+        return DB::table('category_product')
+            ->leftJoin('products', 'products.id', '=', 'category_product.product_id')
+            ->leftJoin('product_images', 'product_images.product_id', '=', 'products.id')
+            ->where('category_product.category_id', $category_id)
+            ->where('product_images.rank', 1)
+            ->where('products.active', true)
+            ->select('products.*', DB::raw('product_images.path AS image_path'), DB::raw('product_images.name AS image_name'));
+    }
 }
