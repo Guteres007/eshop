@@ -67,13 +67,12 @@ class ProductFilterService
                     return $id;
                 };
             });
-            //Min - max
+
             if (isset($this->price[0]) && $this->price[1]) {
                 $this->price = ['min' => $this->price[0], 'max' => $this->price[1]];
             } else {
                 $this->price = [];
             }
-
 
             if (count($this->price)) {
                 $this->sql_query = $this->sql_query->whereBetween(
@@ -83,6 +82,7 @@ class ProductFilterService
             }
         }
     }
+
     public function execute()
     {
         return $this->sql_query
@@ -98,10 +98,8 @@ class ProductFilterService
         return $this->parameter_ids ? $this->parameter_ids->toArray() : [];
     }
 
-
     public function getPrice(): array
     {
-
         return $this->price ?
             $this->price : ['min' => 0, "max" => 0];
     }
