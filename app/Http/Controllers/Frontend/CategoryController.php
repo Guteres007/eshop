@@ -19,8 +19,8 @@ class CategoryController extends Controller
         ParameterRepository $parameterRepository
     ) {
 
-
-        $products = $productFilterService->filter($request, $category->id);
+        $productFilterService->setCategory_id($category->id);
+        $products = $productFilterService->filter($request);
         $active_parameters = $productFilterService->getParameter_ids();
         $filtered_price = $productFilterService->getPrice();
         $parameter_names = $parameterRepository->getParameterNamesByCategory($category->id);

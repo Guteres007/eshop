@@ -32,3 +32,7 @@ const priceFilter = () => {
 
     return `filter[price]=${min}:${max}`;
 };
+
+export const productFilteringReset = () => {
+    window.location.href = window.location.origin + window.location.pathname;
+};
