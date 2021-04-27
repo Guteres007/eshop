@@ -19,10 +19,12 @@ class CategoryController extends Controller
         ParameterRepository $parameterRepository
     ) {
 
-        $products = $productFilterService->filter($request, $category->id);
-        $parameter_names = $parameterRepository->getParameterNamesByCategory($category->id);
-        $parameter_value = $parameterRepository->getParameterValuesByCategory($category->id);
 
+        $products = $productFilterService->filter($request, $category->id);
+        $active_parameters = $productFilterService->getParameter_ids();
+        $filtered_price = $productFilterService->getPrice();
+        $parameter_names = $parameterRepository->getParameterNamesByCategory($category->id);
+        $parameter_values = $parameterRepository->getParameterValuesByCategory($category->id);
         return view('frontend.category.show', [
             'products' => $products->paginate(20),
             'category' => $category,
@@ -30,7 +32,9 @@ class CategoryController extends Controller
             'price_max' => $products->max('price'),
             'price_min' => $products->min('price'),
             'parameters' => $parameter_names,
-            'parameter_values' => $parameter_value
+            'parameter_values' => $parameter_values,
+            'active_parameters' => $active_parameters,
+            'filtered_price' => $filtered_price
         ]);
     }
 }

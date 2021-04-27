@@ -27,6 +27,7 @@ class ProductRepository extends BaseRepository
             ->leftJoin('products', 'products.id', '=', 'category_product.product_id')
             ->leftJoin('product_images', 'product_images.product_id', '=', 'products.id')
             ->where('category_product.category_id', $category_id)
+            //orderby rank?
             ->where('product_images.rank', 1)
             ->where('products.active', true)
             ->select('products.*', DB::raw('product_images.path AS image_path'), DB::raw('product_images.name AS image_name'));

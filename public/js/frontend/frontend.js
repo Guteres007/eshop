@@ -1955,6 +1955,54 @@ var getPayments = function getPayments(el, delivery_id) {
 
 /***/ }),
 
+/***/ "./resources/js/frontend/product-filtering.js":
+/*!****************************************************!*\
+  !*** ./resources/js/frontend/product-filtering.js ***!
+  \****************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "productFiltering": () => (/* binding */ productFiltering)
+/* harmony export */ });
+var productFiltering = function productFiltering() {
+  var queryBuild = "";
+  queryBuild += parameterFilter();
+
+  if (queryBuild !== "?") {
+    queryBuild += "&" + priceFilter();
+  } else {
+    queryBuild += priceFilter();
+  }
+
+  window.location.href = window.location.origin + window.location.pathname + queryBuild;
+};
+
+var parameterFilter = function parameterFilter() {
+  var parameters = document.querySelectorAll("[type=checkbox]");
+  var paramaters_values_array = [];
+  parameters.forEach(function (parameter) {
+    if (parameter.checked) {
+      paramaters_values_array.push(parameter.value);
+    }
+  });
+
+  if (paramaters_values_array.length > 0) {
+    return "?filter[parameters]=" + paramaters_values_array.join();
+  }
+
+  return "?";
+};
+
+var priceFilter = function priceFilter() {
+  var max = document.querySelector(".filter-price__max-value").innerHTML;
+  var min = document.querySelector(".filter-price__min-value").innerHTML;
+  return "filter[price]=".concat(min, ":").concat(max);
+};
+
+/***/ }),
+
 /***/ "./node_modules/lodash/lodash.js":
 /*!***************************************!*\
   !*** ./node_modules/lodash/lodash.js ***!
@@ -19463,10 +19511,13 @@ var __webpack_exports__ = {};
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _change_product_quantity__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./change-product-quantity */ "./resources/js/frontend/change-product-quantity.js");
 /* harmony import */ var _delivery_payment__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./delivery-payment */ "./resources/js/frontend/delivery-payment.js");
+/* harmony import */ var _product_filtering__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./product-filtering */ "./resources/js/frontend/product-filtering.js");
 __webpack_require__(/*! ../bootstrap */ "./resources/js/bootstrap.js");
 
 
 
+
+window.productFiltering = _product_filtering__WEBPACK_IMPORTED_MODULE_2__.productFiltering;
 window.getPayments = _delivery_payment__WEBPACK_IMPORTED_MODULE_1__.getPayments;
 window.changeProductQuantity = _change_product_quantity__WEBPACK_IMPORTED_MODULE_0__.changeProductQuantity;
 })();
