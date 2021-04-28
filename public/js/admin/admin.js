@@ -11286,9 +11286,13 @@ __webpack_require__(/*! ./../bootstrap */ "./resources/js/bootstrap.js");
 
 
 
-axios__WEBPACK_IMPORTED_MODULE_1___default().get("/admin/product-parameters").then(function (response) {
+axios__WEBPACK_IMPORTED_MODULE_1___default().get("/admin/product-parameters-name").then(function (response) {
   var parameters = response.data;
-  (0,_autocomplete__WEBPACK_IMPORTED_MODULE_3__.autocomplete)(document.getElementById("myInput"), parameters);
+  (0,_autocomplete__WEBPACK_IMPORTED_MODULE_3__.autocomplete)(document.getElementById("parameters_name"), parameters);
+});
+axios__WEBPACK_IMPORTED_MODULE_1___default().get("/admin/product-parameters-value").then(function (response) {
+  var parameters = response.data;
+  (0,_autocomplete__WEBPACK_IMPORTED_MODULE_3__.autocomplete)(document.getElementById("parameters_value"), parameters);
 });
 window.productSignal = _product_signal__WEBPACK_IMPORTED_MODULE_2__.productSignal;
 

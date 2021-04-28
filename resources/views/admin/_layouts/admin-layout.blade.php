@@ -8,8 +8,6 @@
     <title>Administrace</title>
     <link href="{{ mix('/css/admin/admin.css') }}" rel="stylesheet">
     <link rel="stylesheet" href="https://unpkg.com/@coreui/icons@2.0.0-beta.3/css/all.min.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tarekraafat/autocomplete.js@9.0.5/dist/css/autoComplete.min.css">
-
 
 </head>
 

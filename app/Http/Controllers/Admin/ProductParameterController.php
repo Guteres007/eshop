@@ -13,8 +13,8 @@ class ProductParameterController extends Controller
         return Parameter::all()->pluck('name')->unique()->values();
     }
 
-    public function value($name)
+    public function value()
     {
-        return Parameter::where('name', $name)->pluck('value')->unique()->values();
+        return Parameter::all()->pluck('value')->unique()->values();
     }
 }

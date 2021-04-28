@@ -47,8 +47,8 @@ Route::prefix('admin')->group(function () {
         Route::get('delivery-payment', [AdminDeliveryPaymentController::class, 'index'])->name('delivery-payment.index');
         Route::post('delivery-payment', [AdminDeliveryPaymentController::class, 'store'])->name('delivery-payment.store');
         Route::get('product/{id}/signal/{signal}', [ProductSignalController::class, 'store'])->name('product-signal.store');
-        Route::get('/product-parameters', [ProductParameterController::class, 'name']);
-        Route::get('/product-parameters/{name}', [ProductParameterController::class, 'value']);
+        Route::get('/product-parameters-name', [ProductParameterController::class, 'name']);
+        Route::get('/product-parameters-value', [ProductParameterController::class, 'value']);
 
 
     });

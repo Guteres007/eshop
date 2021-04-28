@@ -111,27 +111,14 @@
                             </div>
                         </div>
 
-                        //Url pro parametry a url pro value
-                        <div class="col-sm-6">
-                            <div class="form-group">
-                                     <input id="myInput" class="form-control" type="text" name="myCountry" placeholder="Country">
-                            </div>
-                        </div>
+
                         <div class="col-sm-6">
                             <div class="form-group">
                                 <label for="name">Parametry <span
                                         class="color-red">{{ $errors->first('parameters') }}</span></label>
-                                <select name="parameters[id][]">
-                                    @foreach ($parameters as $parameter)
-                                        <option value="{{ $parameter->id }}">{{ $parameter->value }}</option>
-                                    @endforeach
-                                </select>
+                                        <input id="parameters_name" class="form-control" type="text" name="parameters[name][]" placeholder="Parametry" >
 
-                                <select name="parameters[id][]">
-                                    @foreach ($parameters as $parameter)
-                                        <option value="{{ $parameter->id }}">{{ $parameter->value }}</option>
-                                    @endforeach
-                                </select>
+                                        <input id="parameters_value" class="form-control" type="text" name="parameters[value][]" placeholder="Parametry hodnoty" >
 
 
                             </div>
