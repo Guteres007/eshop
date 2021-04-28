@@ -11300,21 +11300,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_0__);
 
 var productSignal = function productSignal(event) {
-  event.preventDefault();
-
-  if (event.currentTarget.classList.contains("btn-success")) {
-    event.currentTarget.classList.remove("btn-success");
-    event.currentTarget.classList.add("btn-danger");
-    event.currentTarget.querySelector("i").classList.remove("cil-check-circle");
-    event.currentTarget.querySelector("i").classList.add("cil-ban");
-  } else {
-    event.currentTarget.classList.remove("btn-danger");
-    event.currentTarget.classList.add("btn-success");
-    event.currentTarget.querySelector("i").classList.remove("cil-ban");
-    event.currentTarget.querySelector("i").classList.add("cil-check-circle");
-  }
-
-  axios__WEBPACK_IMPORTED_MODULE_0___default().get(event.currentTarget.href);
+  var url = event.currentTarget.getAttribute("data-url");
+  axios__WEBPACK_IMPORTED_MODULE_0___default().get(url);
 };
 
 /***/ }),

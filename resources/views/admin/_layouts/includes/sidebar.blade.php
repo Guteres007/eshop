@@ -1,3 +1,9 @@
+
+<div class="c-sidebar-brand d-lg-down-none">
+    <img class="c-sidebar-brand-full" style="width: 120px;" src="{{asset('images/admin/logo.svg')}}" alt="logo">
+    <img class="c-sidebar-brand-minimized" style="width: 120px;" src="{{asset('images/admin/logo.svg')}}" alt="logo">
+</div>
+
 <ul class="c-sidebar-nav">
 
     <li class="c-sidebar-nav-dropdown">

@@ -12,7 +12,7 @@
 </head>
 
 <body class="c-app">
-    <div class="c-sidebar c-sidebar-dark c-sidebar-show">
+    <div class="c-sidebar c-sidebar-dark c-sidebar-show" id="sidebar">
         @include('admin._layouts.includes.sidebar')
     </div>
 

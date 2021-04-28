@@ -19,7 +19,7 @@ class CategoryController extends Controller
         ProductFilterService $productFilterService,
         ParameterRepository $parameterRepository
     ) {
-
+        //Předělat na builder pattern
         $productFilterService->setCategory_id($category->id);
         $products = $productFilterService->filter($request);
         $active_parameters = $productFilterService->getParameter_ids();

@@ -7,8 +7,8 @@
             <div class="card">
                 <div class="card-header"><i class="fa fa-align-justify"></i> Kategorie</div>
                 <div class="card-body">
-                    <table class="table table-responsive-sm table-bordered">
-                        <thead>
+                    <table class="table table-responsive-sm table-hover table-outline mb-0">
+                        <thead class="thead-light">
                             <tr>
                                 <th>Id</th>
                                 <th>Nadpis kategorie</th>

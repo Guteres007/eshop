@@ -8,8 +8,8 @@
                 <div class="card-header"><i class="fa fa-align-justify"></i> Párování dopravy a platby</div>
                 <form class="card-body" method="POST" action="{{ route('admin.delivery-payment.store') }}">
                     @csrf
-                    <table class="table table-responsive-sm table-bordered">
-                        <thead>
+                    <table class="table table-responsive-sm table-hover table-outline mb-0">
+                        <thead class="thead-light">
                             <tr>
                                 @foreach ($deliveries as $delivery)
                                     <th>{{ $delivery->name }}</th>
