@@ -11,8 +11,9 @@ use App\Http\Controllers\Admin\DeliveryController;
 use App\Http\Controllers\Frontend\OrderController;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Frontend\CheckoutController;
-use App\Http\Controllers\Frontend\CartProductController;
 use App\Http\Controllers\Admin\ProductSignalController;
+use App\Http\Controllers\Frontend\CartProductController;
+use App\Http\Controllers\Admin\ProductParameterController;
 use App\Http\Controllers\Frontend\DeliveryPaymentController;
 use App\Http\Controllers\Frontend\TermsConditionsController;
 use App\Http\Controllers\Frontend\ProductController as FrontendProductController;
@@ -46,5 +47,9 @@ Route::prefix('admin')->group(function () {
         Route::get('delivery-payment', [AdminDeliveryPaymentController::class, 'index'])->name('delivery-payment.index');
         Route::post('delivery-payment', [AdminDeliveryPaymentController::class, 'store'])->name('delivery-payment.store');
         Route::get('product/{id}/signal/{signal}', [ProductSignalController::class, 'store'])->name('product-signal.store');
+        Route::get('/product-parameters', [ProductParameterController::class, 'name']);
+        Route::get('/product-parameters/{name}', [ProductParameterController::class, 'value']);
+
+
     });
 });

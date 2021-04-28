@@ -7,7 +7,7 @@
             <div class="card">
                 <div class="card-header"><strong>Produkt</strong></div>
                 <div class="card-body">
-                    <form class="row" action="{{ route('admin.product.store') }}" method="POST"
+                    <form class="row" action="{{ route('admin.product.store') }}" autocomplete="off" method="POST"
                         enctype="multipart/form-data">
                         @csrf
                         <div class="col-sm-6">
@@ -111,7 +111,12 @@
                             </div>
                         </div>
 
-
+                        //Url pro parametry a url pro value
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                     <input id="myInput" class="form-control" type="text" name="myCountry" placeholder="Country">
+                            </div>
+                        </div>
                         <div class="col-sm-6">
                             <div class="form-group">
                                 <label for="name">Parametry <span
@@ -127,6 +132,7 @@
                                         <option value="{{ $parameter->id }}">{{ $parameter->value }}</option>
                                     @endforeach
                                 </select>
+
 
                             </div>
                         </div>
