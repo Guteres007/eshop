@@ -35,7 +35,6 @@ class ProductController extends Controller
         } else {
             $products = $this->productRepository->allPaginate();
         }
-
         return view('admin.product.index', ['products' => $products]);
     }
 

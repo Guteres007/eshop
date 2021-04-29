@@ -146,6 +146,7 @@
                         <div class="col-sm-12">
                             <div class="form-group">
                                 <input type="hidden" name="product_id" value="{{$product->id}}">
+                                <input type="hidden" name="temporary" value="false">
                                 <button class="btn btn-success" type="submit">Vytvořit</button>
                             </div>
                         </div>

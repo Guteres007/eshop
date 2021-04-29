@@ -27,6 +27,7 @@ class Product extends Model
         "slug",
         'active',
         'ean',
+        'temporary'
     ];
 
     public function sluggable(): array

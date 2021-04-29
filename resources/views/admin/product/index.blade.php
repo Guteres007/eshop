@@ -74,41 +74,59 @@
                                     <td>{{ $product->price->price_with_currency() }}</td>
                                     <td>{{$product->quantity}}</td>
                                     <td>
+                                        @if (!$product->temporary)
                                         <label class="c-switch c-switch-label c-switch-success">
                                             <input onclick="return productSignal(event)" data-url="{{ route('admin.product-signal.store', ['id' => $product->id, 'signal' => 'action']) }}" class="c-switch-input" type="checkbox" {{$product->action ? 'checked' : ''}}>
                                             <span class="c-switch-slider" data-checked="✓" data-unchecked="✕"></span>
                                         </label>
+                                        @endif
                                     </td>
                                     <td>
+                                        @if (!$product->temporary)
                                         <label class="c-switch c-switch-label c-switch-success">
                                             <input onclick="return productSignal(event)" data-url="{{ route('admin.product-signal.store', ['id' => $product->id, 'signal' => 'new']) }}" class="c-switch-input" type="checkbox" {{$product->new ? 'checked' : ''}}>
                                             <span class="c-switch-slider" data-checked="✓" data-unchecked="✕"></span>
                                         </label>
+                                        @endif
 
                                     </td>
                                     <td>
-
+                                        @if (!$product->temporary)
                                         <label class="c-switch c-switch-label c-switch-success">
                                             <input onclick="return productSignal(event)" data-url="{{ route('admin.product-signal.store', ['id' => $product->id, 'signal' => 'sale']) }}" class="c-switch-input" type="checkbox" {{$product->sale ? 'checked' : ''}}>
                                             <span class="c-switch-slider" data-checked="✓" data-unchecked="✕"></span>
                                         </label>
+                                        @endif
                                     </td>
                                     <td>
+                                        @if (!$product->temporary)
                                         <label class="c-switch c-switch-label c-switch-success">
                                             <input onclick="return productSignal(event)" data-url="{{ route('admin.product-signal.store', ['id' => $product->id, 'signal' => 'active']) }}" class="c-switch-input" type="checkbox" {{$product->active ? 'checked' : ''}}>
                                             <span class="c-switch-slider" data-checked="✓" data-unchecked="✕"></span>
                                         </label>
+                                        @endif
                                     </td>
                                     <td>
+                                        @if (!$product->temporary)
                                         <label class="c-switch c-switch-label c-switch-success">
                                             <input onclick="return productSignal(event)" data-url="{{ route('admin.product-signal.store', ['id' => $product->id, 'signal' => 'homepage']) }}" class="c-switch-input" type="checkbox" {{$product->homepage ? 'checked' : ''}}>
                                             <span class="c-switch-slider" data-checked="✓" data-unchecked="✕"></span>
                                         </label>
+                                        @endif
                                     </td>
                                     <td>
 
-                                        <a class="btn btn-primary btn-sm"
+
+                                            @if (!$product->temporary)
+                                            <a class="btn btn-primary btn-sm"
                                             href="{{ route('admin.product.edit', $product->id) }}"> <i class="cil-pen c-icon"></i></a>
+
+                                                @else
+                                                <a class="btn btn-primary btn-sm"
+                                            href="{{ route('admin.product.create', $product->id) }}"> <i class="cil-pen c-icon"></i></a>
+                                            @endif
+
+
                                         <form class="d-inline-block" onsubmit="return confirm('Určitě smazat?');"
                                             action="{{ route('admin.product.destroy', $product) }}" method="POST">
                                             @csrf
