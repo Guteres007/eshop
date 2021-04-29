@@ -26,7 +26,9 @@
         <ul class="c-sidebar-nav-dropdown-items">
             <li class="c-sidebar-nav-item"><a class="c-sidebar-nav-link" href="{{ route('admin.product.index') }}">
                     Seznam </a> </li>
-            <li class="c-sidebar-nav-item"><a class="c-sidebar-nav-link" href="{{ route('admin.product.create') }}">
+            <li class="c-sidebar-nav-item">
+
+                <a class="c-sidebar-nav-link" data-toggle="modal" data-target="#add-product" href="#">
                     Přidat
                 </a></li>
         </ul>
@@ -112,3 +114,5 @@
     </li>
 </ul>
 <button class="c-sidebar-minimizer c-brand-minimizer" type="button"></button>
+
+

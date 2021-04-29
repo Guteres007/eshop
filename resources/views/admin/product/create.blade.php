@@ -14,7 +14,7 @@
                             <div class="form-group">
                                 <label for="name">Jméno produktu <span
                                         class="color-red">{{ $errors->first('name') }}</span></label>
-                                <input class="form-control" name="name" type="text" value="{{ old('name') }}">
+                                <input class="form-control" name="name" type="text" value="{{ $product->name }}">
                             </div>
                         </div>
 
@@ -145,6 +145,7 @@
 
                         <div class="col-sm-12">
                             <div class="form-group">
+                                <input type="hidden" name="product_id" value="{{$product->id}}">
                                 <button class="btn btn-success" type="submit">Vytvořit</button>
                             </div>
                         </div>

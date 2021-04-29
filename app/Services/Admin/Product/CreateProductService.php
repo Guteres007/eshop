@@ -2,6 +2,7 @@
 
 namespace App\Services\Admin\Product;
 
+use App\Models\Product;
 use App\Repositories\Product\ProductRepository;
 
 class CreateProductService
@@ -29,7 +30,8 @@ class CreateProductService
 
         $array_of_category_ids = $attributes['category_id'];
 
-        $product = $this->productRepository->create($attributes);
+        $product = Product::find($attributes['product_id']);
+        $product->update($attributes);
         $product->categories()->attach($array_of_category_ids);
 
         return $product;

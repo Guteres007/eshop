@@ -2,10 +2,11 @@
 
 namespace App\Builders\Admin;
 
+use App\Models\Product;
 use App\Services\Images\ImageSaver;
 use App\Services\Files\FolderCreator;
-use App\Services\Admin\Product\CreateProductService;
 use App\Services\Admin\Parameter\ParameterService;
+use App\Services\Admin\Product\CreateProductService;
 
 class ProductBuilder
 {

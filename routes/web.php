@@ -14,6 +14,7 @@ use App\Http\Controllers\Frontend\CheckoutController;
 use App\Http\Controllers\Admin\ProductSignalController;
 use App\Http\Controllers\Frontend\CartProductController;
 use App\Http\Controllers\Admin\ProductParameterController;
+use App\Http\Controllers\Admin\ProductTemporaryController;
 use App\Http\Controllers\Frontend\DeliveryPaymentController;
 use App\Http\Controllers\Frontend\TermsConditionsController;
 use App\Http\Controllers\Frontend\ProductController as FrontendProductController;
@@ -43,13 +44,13 @@ Route::prefix('admin')->group(function () {
         Route::resource('category', CategoryController::class)->except(['show']);
         Route::resource('delivery', DeliveryController::class)->except(['show']);
         Route::resource('payment', PaymentController::class)->except(['show']);
-        Route::resource('product', ProductController::class)->except(['show']);
+        Route::resource('product', ProductController::class)->except(['show', 'create']);
+        Route::get('/product/{id}', [ProductController::class, 'create'])->name('product.create');
         Route::get('delivery-payment', [AdminDeliveryPaymentController::class, 'index'])->name('delivery-payment.index');
         Route::post('delivery-payment', [AdminDeliveryPaymentController::class, 'store'])->name('delivery-payment.store');
         Route::get('product/{id}/signal/{signal}', [ProductSignalController::class, 'store'])->name('product-signal.store');
         Route::get('/product-parameters-name', [ProductParameterController::class, 'name']);
         Route::get('/product-parameters-value', [ProductParameterController::class, 'value']);
-
-
+        Route::post('/product-temporary', [ProductTemporaryController::class, 'store'])->name('product-temporary.store');
     });
 });

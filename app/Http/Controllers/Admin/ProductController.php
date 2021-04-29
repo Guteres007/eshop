@@ -3,17 +3,17 @@
 namespace App\Http\Controllers\Admin;
 
 
+use App\Models\Product;
+use App\Models\Parameter;
+use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Builders\Admin\ProductBuilder;
-use Illuminate\Http\Request;
 use App\Repositories\Product\ProductRepository;
 use App\Repositories\Category\CategoryRepository;
 use App\Services\Admin\Product\DeleteProductService;
 use App\Services\Admin\Product\UpdateProductService;
 use App\Http\Requests\Admin\Product\ProductCreateRequest;
 use App\Http\Requests\Admin\Product\ProductUpdateRequest;
-use App\Models\Parameter;
-use App\Models\Product;
 
 class ProductController extends Controller
 {
@@ -39,16 +39,18 @@ class ProductController extends Controller
         return view('admin.product.index', ['products' => $products]);
     }
 
-    public function create()
+    public function create($id)
     {
+        $product = Product::find($id);
         $categories = $this->categoryRepository->all();
         $parameters = Parameter::all();
 
-        return view('admin.product.create', ['categories' => $categories, 'parameters' => $parameters]);
+        return view('admin.product.create', ['categories' => $categories, 'parameters' => $parameters, 'product' => $product]);
     }
 
     public function store(ProductCreateRequest $request, ProductBuilder $productBuilder)
     {
+
         // dd($request->input('parameters'));
         $productBuilder
             ->createProduct($request->all())
