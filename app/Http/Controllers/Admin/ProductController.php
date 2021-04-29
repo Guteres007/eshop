@@ -53,7 +53,6 @@ class ProductController extends Controller
         // dd($request->input('parameters'));
         $productBuilder
             ->createProduct($request->all())
-            ->createImages($request->file('images'))
             ->createParameters($request->all());
 
         return redirect()->route('admin.product.index')->withSuccess("Produkt přidán");

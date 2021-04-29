@@ -23,6 +23,7 @@
         "@coreui/icons": "^1.0.1",
         "@popperjs/core": "^2.9.1",
         "bootstrap": "^5.0.0-beta3",
+        "dropzone": "^5.9.2",
         "perfect-scrollbar": "^1.5.0"
     }
 }

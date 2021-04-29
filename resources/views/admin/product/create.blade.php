@@ -140,16 +140,24 @@
                                 <label for="file-multiple-input">Obrázky <span
                                         class="color-red">{{ $errors->first('images') }}{{ $errors->first('images.*') }}</span></label>
                                 <input id="file-multiple-input" type="file" name="images[]" multiple>
+
+
                             </div>
                         </div>
 
                         <div class="col-sm-12">
                             <div class="form-group">
-                                <input type="hidden" name="product_id" value="{{$product->id}}">
+                                <input type="hidden" name="product_id" id="product_id" value="{{$product->id}}">
                                 <input type="hidden" name="temporary" value="false">
                                 <button class="btn btn-success" type="submit">Vytvořit</button>
                             </div>
                         </div>
+
+                    </form>
+
+                    <form action="{{route('admin.product-image-upload.store', ['id' => $product->id])}}" id="image_uploader" class="dropzone">
+                     @csrf
+                     <div class="dz-message" data-dz-message><span>Přetáhněte obrázky</span></div>
 
                     </form>
                 </div>

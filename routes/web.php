@@ -15,6 +15,7 @@ use App\Http\Controllers\Admin\ProductSignalController;
 use App\Http\Controllers\Frontend\CartProductController;
 use App\Http\Controllers\Admin\ProductParameterController;
 use App\Http\Controllers\Admin\ProductTemporaryController;
+use App\Http\Controllers\Admin\ProductImageUploadController;
 use App\Http\Controllers\Frontend\DeliveryPaymentController;
 use App\Http\Controllers\Frontend\TermsConditionsController;
 use App\Http\Controllers\Frontend\ProductController as FrontendProductController;
@@ -46,6 +47,9 @@ Route::prefix('admin')->group(function () {
         Route::resource('payment', PaymentController::class)->except(['show']);
         Route::resource('product', ProductController::class)->except(['show', 'create']);
         Route::get('/product/{id}', [ProductController::class, 'create'])->name('product.create');
+        Route::post('/product/{id}/image-upload', [ProductImageUploadController::class, 'store'])->name('product-image-upload.store');
+        Route::post('/product/{id}/image-remove', [ProductImageUploadController::class, 'destroy'])->name('product-image-upload.destroy');
+
         Route::get('delivery-payment', [AdminDeliveryPaymentController::class, 'index'])->name('delivery-payment.index');
         Route::post('delivery-payment', [AdminDeliveryPaymentController::class, 'store'])->name('delivery-payment.store');
         Route::get('product/{id}/signal/{signal}', [ProductSignalController::class, 'store'])->name('product-signal.store');
