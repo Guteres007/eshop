@@ -23,12 +23,17 @@ class CartProductCalculator
                 ->select(
                     'products.id',
                     'products.price',
+                    'products.action',
+                    'products.action_price',
                     'products.name',
                     'cart_product.quantity'
                 )
                 ->get();
 
             $total_price = $cart_products->sum(function ($product) {
+                if ($product->action) {
+                    return $product->action_price * $product->quantity;
+                }
                 return $product->price * $product->quantity;
             });
         }

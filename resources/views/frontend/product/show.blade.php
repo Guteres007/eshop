@@ -124,10 +124,18 @@
                                 @endif
                             </div>
                             @if ($product->quantity > 0 && $product->active)
-                                <div class="product__prices">
-                                    {{ $product->price->formated() }}
-                                    {{ config('price.currency') }}
-                                </div>
+                                @if ($product->action && $product->action_price->raw())
+                                    <div class="product__prices">
+                                        <span class="product__new-price">
+                                            {{ $product->action_price->price_with_currency() }}</span>
+                                        <span class="product__old-price">
+                                            {{ $product->price->price_with_currency() }}</span>
+                                    </div>
+                                @else
+                                    <div class="product__prices">
+                                        {{ $product->price->price_with_currency() }}
+                                    </div>
+                                @endif
                             @endif
 
                             @if ($product->quantity > 0 && $product->active)

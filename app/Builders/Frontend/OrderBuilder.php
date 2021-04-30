@@ -38,6 +38,8 @@ class OrderBuilder
                 'products.description',
                 'products.price_without_vat',
                 'products.price',
+                'products.action',
+                'products.action_price',
                 'products.shopping_price',
                 'products.price_margin',
                 'products.tax',
@@ -46,15 +48,19 @@ class OrderBuilder
             )
             ->get();
         foreach ($products as $product) {
+            $price = $product->price;
+            if ($product->action) {
+                $price = $product->action_price;
+            }
             $order_item = new OrderItem([
                 'internal_id' => $product->name,
                 'name' => $product->name,
                 'description' => $product->description,
                 'short_description' => $product->short_description,
                 'long_description' => $product->long_description,
-                'price_without_vat' => $product->price_without_vat,
-                'price' => $product->price,
-                'price_margin' => $product->price_margin,
+                'price_without_vat' => $price / config('price.tax_rate'),
+                'price' => $price,
+                'price_margin' =>  $price -  $product->shopping_price,
                 'shopping_price' => $product->shopping_price,
                 'tax' => $product->tax,
                 'quantity' => $product->quantity,
@@ -75,5 +81,10 @@ class OrderBuilder
             $product_original->save();
         });
         return $this;
+    }
+
+    public function getOrder()
+    {
+        return $this->order;
     }
 }

@@ -158,10 +158,20 @@
 
                                     </div>
                                     <div class="product-card__actions">
+                                        @if ($product->action && $product->action_price->raw())
+                                            <div class="product-card__prices">
+                                                <span class="product-card__new-price">
+                                                    {{ $product->action_price->price_with_currency() }}</span>
+                                                <span class="product-card__old-price">
+                                                    {{ $product->price->price_with_currency() }}</span>
+                                            </div>
+                                        @else
+                                            <div class="product-card__prices">
+                                                {{ $product->price->price_with_currency() }}
+                                            </div>
+                                        @endif
 
-                                        <div class="product-card__prices">
-                                            {{ $product->price->price_with_currency() }}
-                                        </div>
+
                                         <div class="product-card__buttons">
                                             <span class="btn btn-primary product-card__addtocart"
                                                 type="button">Detail</span>
@@ -217,10 +227,18 @@
                                             </div>
                                         </div>
                                         <div class="product-card__actions">
-
-                                            <div class="product-card__prices">
-                                                {{ $product->price->price_with_currency() }}
-                                            </div>
+                                            @if ($product->action && $product->action_price->raw())
+                                                <div class="product-card__prices">
+                                                    <span class="product-card__new-price">
+                                                        {{ $product->action_price->price_with_currency() }}</span>
+                                                    <span class="product-card__old-price">
+                                                        {{ $product->price->price_with_currency() }}</span>
+                                                </div>
+                                            @else
+                                                <div class="product-card__prices">
+                                                    {{ $product->price->price_with_currency() }}
+                                                </div>
+                                            @endif
                                             <div class="product-card__buttons">
                                                 <span class="btn btn-primary product-card__addtocart">Detail</span>
                                                 <span

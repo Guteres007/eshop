@@ -27,7 +27,8 @@ class Product extends Model
         "slug",
         'active',
         'ean',
-        'temporary'
+        'temporary',
+        'action_price'
     ];
 
     public function sluggable(): array
@@ -60,6 +61,11 @@ class Product extends Model
 
 
     public function getShoppingPriceAttribute($value)
+    {
+        return new PriceDataObject($value);
+    }
+
+    public function getActionPriceAttribute($value)
     {
         return new PriceDataObject($value);
     }

@@ -139,6 +139,16 @@
                                                 </div>
                                             </div>
 
+
+                                            <div class="col-sm-6">
+                                                <div class="form-group">
+                                                    <label for="name">Akční cena <span
+                                                            class="color-red">{{ $errors->first('action_price') }}</span></label>
+                                                    <input form="product_form" class="form-control" name="action_price"
+                                                        type="text" value="{{ old('action_price') }}">
+                                                </div>
+                                            </div>
+
                                             <div class="col-sm-6">
                                                 <div class="form-group">
                                                     <label for="name">Počet kusů skladem <span

@@ -18,6 +18,11 @@ class OrderController extends Controller
                 ->setStockQuantity();
         });
 
-        return redirect('/');
+        return redirect()->route('frontend.order.show',  $orderBuilder->getOrder()->id);
+    }
+
+    public function show($id)
+    {
+        dd($id + "prevent multiple submit");
     }
 }

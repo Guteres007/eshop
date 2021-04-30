@@ -34,6 +34,7 @@ Route::name('frontend.')->group(function () {
     Route::post('/delivery-payment', [DeliveryPaymentController::class, 'store'])->name('delivery-payment.store');
     Route::get('/delivery-payment/{id}', [DeliveryPaymentController::class, 'show'])->name('delivery-payment.show')->middleware('IsCartProduct');
     Route::post('/order', [OrderController::class, 'store'])->name('order.store');
+    Route::get('/order/{id}', [OrderController::class, 'show'])->name('order.show');
     Route::get('/checkout', [CheckoutController::class, 'index'])->name('checkout.index')->middleware('IsCartProduct');
 
     Route::get('/terms-and-conditions', [TermsConditionsController::class, 'index'])->name('terms-conditions');
