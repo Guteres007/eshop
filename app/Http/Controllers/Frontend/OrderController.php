@@ -23,6 +23,6 @@ class OrderController extends Controller
 
     public function show($id)
     {
-        dd($id + "prevent multiple submit");
+        dd($id . " " .  "prevent multiple submit");
     }
 }
