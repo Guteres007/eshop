@@ -144,7 +144,7 @@
                                                     <label for="name">Počet kusů skladem <span
                                                             class="color-red">{{ $errors->first('quantity') }}</span></label>
                                                     <input form="product_form" class="form-control" name="quantity"
-                                                        type="text" value="{{ old('quantity') }}">
+                                                        type="text" value="{{ old('quantity') ? old('quantity') : 1 }}">
                                                 </div>
                                             </div>
 
@@ -166,19 +166,31 @@
                                     </div>
                                     <div class="tab-pane" id="parameters" role="tabpanel">
                                         <div class="row">
-                                            <div class="col-sm-6">
-                                                <div class="form-group">
-                                                    <label for="name">Parametry <span
-                                                            class="color-red">{{ $errors->first('parameters') }}</span></label>
-                                                    <input form="product_form" id="parameters_name" class="form-control"
-                                                        type="text" name="parameters[name][]" placeholder="Parametry">
+                                            <div class="col-sm-12" id="parameters-container">
+                                                <div class="row">
+                                                    <div class="col-5">
+                                                        <span class="color-red">{{ $errors->first('parameters') }}</span>
+                                                        <input form="product_form" class="parameters_name form-control"
+                                                            type="text" name="parameters[name][]"
+                                                            placeholder="Parametr název">
+                                                    </div>
+                                                    <div class="col-5">
 
-                                                    <input form="product_form" id="parameters_value" class="form-control"
-                                                        type="text" name="parameters[value][]"
-                                                        placeholder="Parametry hodnoty">
+                                                        <input form="product_form" class="parameters_value form-control"
+                                                            type="text" name="parameters[value][]"
+                                                            placeholder="Parametr hodnota">
+                                                    </div>
+
+                                                    <div class="col-2">
+
+                                                        <button onclick="return addParameter()" type="button"
+                                                            class="btn btn-outline-success">Další
+                                                            parametr</button>
+                                                    </div>
 
 
                                                 </div>
+
                                             </div>
                                         </div>
                                     </div>

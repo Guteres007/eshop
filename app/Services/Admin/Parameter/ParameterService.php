@@ -21,19 +21,19 @@ class ParameterService
                 $is_existing_value = Parameter::where('value',  $parameters['value'][$i])->first();
 
                 if ($is_existing_parameter && $is_existing_value) {
-                    $product->parameters()->sync($is_existing_value->id);
+                    $product->parameters()->sync($is_existing_value->id, false);
                 } else if ($is_existing_parameter) {
                     $parameter = Parameter::create([
                         'name' => $is_existing_parameter->name,
                         'value' => $parameters['value'][$i]
                     ]);
-                    $product->parameters()->sync($parameter->id);
+                    $product->parameters()->sync($parameter->id, false);
                 } else {
                     $parameter = Parameter::create([
                         'name' => $parameters['name'][$i],
                         'value' => $parameters['value'][$i]
                     ]);
-                    $product->parameters()->sync($parameter->id);
+                    $product->parameters()->attach($parameter->id);
                 }
             }
         }

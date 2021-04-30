@@ -16,6 +16,10 @@ export const fetchParameters = async () => {
             return response.data;
         });
 
-    autocomplete(document.getElementById("parameters_name"), parameters_name);
-    autocomplete(document.getElementById("parameters_value"), parameters_value);
+    document.querySelectorAll(".parameters_name").forEach((element) => {
+        autocomplete(element, parameters_name);
+    });
+    document.querySelectorAll(".parameters_value").forEach((element) => {
+        autocomplete(element, parameters_value);
+    });
 };

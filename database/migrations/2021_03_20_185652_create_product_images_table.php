@@ -17,7 +17,7 @@ class CreateProductImagesTable extends Migration
             $table->id();
             $table->integer('rank')->nullable()->default(1);
             $table->string('name');
-            $table->string('path');
+            $table->string('path')->nullable();
             $table->foreignId('product_id')->unsigned()->constrained()
                 ->onDelete('cascade');
             $table->timestamps();

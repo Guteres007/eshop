@@ -11289,47 +11289,18 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _coreui_coreui__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @coreui/coreui */ "./node_modules/@coreui/coreui/dist/js/coreui.esm.js");
 /* harmony import */ var _services_autocompleteservice__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./services/autocompleteservice */ "./resources/js/admin/services/autocompleteservice.js");
 /* harmony import */ var _product_signal__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./product-signal */ "./resources/js/admin/product-signal.js");
-/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
-/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_3__);
-/* harmony import */ var dropzone__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! dropzone */ "./node_modules/dropzone/dist/dropzone.js");
-/* harmony import */ var dropzone__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(dropzone__WEBPACK_IMPORTED_MODULE_4__);
-function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
-
-function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
-
-function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
-
+/* harmony import */ var _services_images__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./services/images */ "./resources/js/admin/services/images.js");
+/* harmony import */ var _services_add_parameter__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./services/add-parameter */ "./resources/js/admin/services/add-parameter.js");
 __webpack_require__(/*! ./../bootstrap */ "./resources/js/bootstrap.js");
 
 
 
 
 
- // Make sure Dropzone doesn't try to attach itself to the
-// element automatically.
-// This behaviour will change in future versions.
 
-(dropzone__WEBPACK_IMPORTED_MODULE_4___default().autoDiscover) = false;
-var myDropzone = new (dropzone__WEBPACK_IMPORTED_MODULE_4___default())("#image_uploader", {
-  previewTemplate: "\n\n\n  <div id=\"template\" class=\"file-row\" style=\"max-width: 200px;\">\n    <!-- This is used as the file preview template -->\n    <div>\n        <span class=\"preview\"><img data-dz-thumbnail /></span>\n    </div>\n    <div>\n        <p class=\"name\" data-dz-name></p>\n        <strong class=\"error text-danger\" data-dz-errormessage></strong>\n    </div>\n    <div>\n        <p class=\"size\" data-dz-size></p>\n        <div class=\"progress progress-striped active\" role=\"progressbar\" aria-valuemin=\"0\" aria-valuemax=\"100\" aria-valuenow=\"0\">\n          <div class=\"progress-bar progress-bar-success\" style=\"width:0%;\" data-dz-uploadprogress></div>\n        </div>\n    </div>\n    <div>\n\n      <button data-dz-remove class=\"btn btn-danger delete\">\n        <i class=\"glyphicon glyphicon-trash\"></i>\n        <span>Delete</span>\n      </button>\n    </div>\n  </div>\n\n\n",
-  removedfile: function removedfile(file) {
-    var productId = document.querySelector("#product_id").value;
-    var image_name = file.name;
-    var form = new FormData();
-    form.image_name = image_name;
-    axios__WEBPACK_IMPORTED_MODULE_3___default().post("/admin/product/".concat(productId, "/image-remove"), _objectSpread({}, form));
-  }
-});
-myDropzone.on("removedfile", function (file) {
-  file.previewElement.remove();
-});
-myDropzone.on("addedfile", function (file) {
-  console.log("File added: ".concat(file.name));
-});
-myDropzone.on("success", function (file, serverFileName) {
-  console.log(file, serverFileName);
-});
+(0,_services_images__WEBPACK_IMPORTED_MODULE_3__.imageResolver)();
 (0,_services_autocompleteservice__WEBPACK_IMPORTED_MODULE_1__.fetchParameters)();
+window.addParameter = _services_add_parameter__WEBPACK_IMPORTED_MODULE_4__.addParameter;
 window.productSignal = _product_signal__WEBPACK_IMPORTED_MODULE_2__.productSignal;
 
 /***/ }),
@@ -11496,6 +11467,34 @@ var productSignal = function productSignal(event) {
 
 /***/ }),
 
+/***/ "./resources/js/admin/services/add-parameter.js":
+/*!******************************************************!*\
+  !*** ./resources/js/admin/services/add-parameter.js ***!
+  \******************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "addParameter": () => (/* binding */ addParameter)
+/* harmony export */ });
+/* harmony import */ var _autocompleteservice__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./autocompleteservice */ "./resources/js/admin/services/autocompleteservice.js");
+
+var container = document.querySelector("#parameters-container");
+var html = "\n\n    <div class=\"col-5 mt-3\">\n\n        <input form=\"product_form\" class=\"parameters_name form-control\"\n            type=\"text\" name=\"parameters[name][]\"\n            placeholder=\"Parametr n\xE1zev\">\n    </div>\n    <div class=\"col-5 mt-3\">\n\n        <input form=\"product_form\"\n            class=\"parameters_value form-control\" type=\"text\" name=\"parameters[value][]\"\n            placeholder=\"Parametr hodnota\">\n    </div>\n\n    <div class=\"col-2\">\n\n\n    </div>\n\n\n";
+var addParameter = function addParameter() {
+  var row = document.createElement("div");
+  console.log(row);
+  row.classList.add("row");
+  row.innerHTML = html;
+  container.appendChild(row);
+  setTimeout(function () {
+    (0,_autocompleteservice__WEBPACK_IMPORTED_MODULE_0__.fetchParameters)();
+  }, 200);
+};
+
+/***/ }),
+
 /***/ "./resources/js/admin/services/autocompleteservice.js":
 /*!************************************************************!*\
   !*** ./resources/js/admin/services/autocompleteservice.js ***!
@@ -11542,8 +11541,12 @@ var fetchParameters = /*#__PURE__*/function () {
 
           case 5:
             parameters_value = _context.sent;
-            (0,_autocomplete__WEBPACK_IMPORTED_MODULE_2__.autocomplete)(document.getElementById("parameters_name"), parameters_name);
-            (0,_autocomplete__WEBPACK_IMPORTED_MODULE_2__.autocomplete)(document.getElementById("parameters_value"), parameters_value);
+            document.querySelectorAll(".parameters_name").forEach(function (element) {
+              (0,_autocomplete__WEBPACK_IMPORTED_MODULE_2__.autocomplete)(element, parameters_name);
+            });
+            document.querySelectorAll(".parameters_value").forEach(function (element) {
+              (0,_autocomplete__WEBPACK_IMPORTED_MODULE_2__.autocomplete)(element, parameters_value);
+            });
 
           case 8:
           case "end":
@@ -11557,6 +11560,54 @@ var fetchParameters = /*#__PURE__*/function () {
     return _ref.apply(this, arguments);
   };
 }();
+
+/***/ }),
+
+/***/ "./resources/js/admin/services/images.js":
+/*!***********************************************!*\
+  !*** ./resources/js/admin/services/images.js ***!
+  \***********************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "imageResolver": () => (/* binding */ imageResolver)
+/* harmony export */ });
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var dropzone__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! dropzone */ "./node_modules/dropzone/dist/dropzone.js");
+/* harmony import */ var dropzone__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(dropzone__WEBPACK_IMPORTED_MODULE_1__);
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
+
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+
+
+var imageResolver = function imageResolver() {
+  (dropzone__WEBPACK_IMPORTED_MODULE_1___default().autoDiscover) = false;
+  var myDropzone = new (dropzone__WEBPACK_IMPORTED_MODULE_1___default())("#image_uploader", {
+    previewTemplate: "\n\n\n      <div id=\"template\" class=\"file-row\" style=\"max-width: 200px;\">\n        <!-- This is used as the file preview template -->\n        <div>\n            <span class=\"preview\"><img data-dz-thumbnail /></span>\n        </div>\n        <div>\n            <p class=\"name\" data-dz-name></p>\n            <strong class=\"error text-danger\" data-dz-errormessage></strong>\n        </div>\n        <div>\n            <p class=\"size\" data-dz-size></p>\n            <div class=\"progress progress-striped active\" role=\"progressbar\" aria-valuemin=\"0\" aria-valuemax=\"100\" aria-valuenow=\"0\">\n              <div class=\"progress-bar progress-bar-success\" style=\"width:0%;\" data-dz-uploadprogress></div>\n            </div>\n        </div>\n        <div>\n\n          <button data-dz-remove class=\"btn btn-danger delete\">\n            <i class=\"glyphicon glyphicon-trash\"></i>\n            <span>Delete</span>\n          </button>\n        </div>\n      </div>\n\n\n    ",
+    removedfile: function removedfile(file) {
+      var productId = document.querySelector("#product_id").value;
+      var image_name = file.name;
+      var form = new FormData();
+      form.image_name = image_name;
+      axios__WEBPACK_IMPORTED_MODULE_0___default().post("/admin/product/".concat(productId, "/image-remove"), _objectSpread({}, form));
+    }
+  });
+  myDropzone.on("removedfile", function (file) {
+    file.previewElement.remove();
+  });
+  myDropzone.on("addedfile", function (file) {
+    console.log("File added: ".concat(file.name));
+  });
+  myDropzone.on("success", function (file, serverFileName) {
+    console.log(file, serverFileName);
+  });
+};
 
 /***/ }),
 

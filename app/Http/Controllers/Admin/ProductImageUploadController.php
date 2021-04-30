@@ -19,14 +19,19 @@ class ProductImageUploadController extends Controller
         //Service ProductImageSaveService?
         $product = Product::find($id);
         $image = $request->file('file');
+        $saved_image = $product->images()->create(['name' => $image->getClientOriginalName()]);
+        $image_count = $product->images()->count();
+
+        if ($image_count > 1) {
+            $saved_image->increment('rank', $product->images()->max('rank'));
+        }
+
+
         $folderCreator->make($product->id);
         $imageSaver->setDestionation("/product-images/" . $product->id);
         $image_path =  $imageSaver->make($image);
-        $saved_image = $product->images()->create(['name' => $image->getClientOriginalName(), 'path' => $image_path]);
-        $image_count = $product->images()->count();
-        if ($image_count > 1) {
-            $saved_image->increment('rank');
-        }
+        $saved_image->path = $image_path;
+        $saved_image->save();
     }
 
     public function destroy($product_id, Request $request, ImageRemover $imageRemover)
