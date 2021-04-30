@@ -11298,7 +11298,11 @@ __webpack_require__(/*! ./../bootstrap */ "./resources/js/bootstrap.js");
 
 
 
-(0,_services_images__WEBPACK_IMPORTED_MODULE_3__.imageResolver)();
+
+try {
+  (0,_services_images__WEBPACK_IMPORTED_MODULE_3__.imageResolver)();
+} catch (error) {}
+
 (0,_services_autocompleteservice__WEBPACK_IMPORTED_MODULE_1__.fetchParameters)();
 window.addParameter = _services_add_parameter__WEBPACK_IMPORTED_MODULE_4__.addParameter;
 window.productSignal = _product_signal__WEBPACK_IMPORTED_MODULE_2__.productSignal;

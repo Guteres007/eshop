@@ -22,7 +22,9 @@ class ParameterRepository extends BaseRepository
         return DB::table('category_product')
             ->join('product_parameter', 'category_product.product_id', 'product_parameter.product_id')
             ->join('parameters', 'product_parameter.parameter_id', 'parameters.id')
+            ->join('products', 'product_parameter.product_id', 'products.id')
             ->where('category_product.category_id', $category_id)
+            ->where('active', true)
             ->select('parameters.name')
             ->groupBy('parameters.name')
             ->get();
@@ -33,7 +35,9 @@ class ParameterRepository extends BaseRepository
         return DB::table('category_product')
             ->join('product_parameter', 'category_product.product_id', 'product_parameter.product_id')
             ->join('parameters', 'product_parameter.parameter_id', 'parameters.id')
+            ->join('products', 'product_parameter.product_id', 'products.id')
             ->where('category_product.category_id', $category_id)
+            ->where('active', true)
             ->select('parameters.value', 'parameters.id', 'parameters.name')
             ->groupBy('parameters.value', 'parameters.id', 'parameters.name')
             ->get();

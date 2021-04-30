@@ -5,7 +5,10 @@ import { productSignal } from "./product-signal";
 import { imageResolver } from "./services/images";
 import { addParameter } from "./services/add-parameter";
 
-imageResolver();
+try {
+    imageResolver();
+} catch (error) {}
+
 fetchParameters();
 window.addParameter = addParameter;
 window.productSignal = productSignal;
