@@ -14,6 +14,7 @@ use App\Services\Admin\Product\DeleteProductService;
 use App\Services\Admin\Product\UpdateProductService;
 use App\Http\Requests\Admin\Product\ProductCreateRequest;
 use App\Http\Requests\Admin\Product\ProductUpdateRequest;
+use App\Services\Files\FolderRemover;
 
 class ProductController extends Controller
 {
@@ -38,9 +39,12 @@ class ProductController extends Controller
         return view('admin.product.index', ['products' => $products]);
     }
 
-    public function create($id)
+    public function create($id, FolderRemover $folderRemover)
     {
         $product = Product::find($id);
+        $folderRemover->setDestionation('/product-images/');
+        $folderRemover->make($id);
+        $product->images()->delete();
         $categories = $this->categoryRepository->all();
         $parameters = Parameter::all();
 
