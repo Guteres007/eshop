@@ -44,7 +44,8 @@ class OrderBuilder
                 'products.price_margin',
                 'products.tax',
                 'cart_product.quantity',
-                'products.ean'
+                'products.ean',
+                'products.id'
             )
             ->get();
         foreach ($products as $product) {
@@ -53,6 +54,7 @@ class OrderBuilder
                 $price = $product->action_price;
             }
             $order_item = new OrderItem([
+                'product_id' => $product->id,
                 'internal_id' => $product->name,
                 'name' => $product->name,
                 'description' => $product->description,

@@ -2,8 +2,9 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
+use App\DataObjects\PriceDataObject;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Order extends Model
 {
@@ -23,8 +24,15 @@ class Order extends Model
         'delivery_price',
         'payment_name',
         'payment_price',
-        'phone'
+        'phone',
+        'hash'
     ];
+
+
+    public function getPriceAttribute($value)
+    {
+        return new PriceDataObject($value);
+    }
 
     public function cart()
     {

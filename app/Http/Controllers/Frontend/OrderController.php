@@ -2,10 +2,13 @@
 
 namespace App\Http\Controllers\Frontend;
 
+use App\Models\Order;
 use Illuminate\Support\Facades\DB;
+use App\DataObjects\PriceDataObject;
 use App\Http\Controllers\Controller;
 use App\Builders\Frontend\OrderBuilder;
 use App\Http\Requests\Frontend\OrderRequest;
+use App\Services\Frontend\OrderService;
 
 class OrderController extends Controller
 {
@@ -18,11 +21,27 @@ class OrderController extends Controller
                 ->setStockQuantity();
         });
 
-        return redirect()->route('frontend.order.show',  $orderBuilder->getOrder()->id);
+        return redirect()->route('frontend.order.show',  $orderBuilder->getOrder()->hash);
     }
 
-    public function show($id)
+    public function show($hash, OrderService $orderService)
     {
-        dd($id . " " .  "prevent multiple submit");
+        list(
+            $order_data,
+            $order_items,
+            $delivery_payment_price,
+            $order_total_price
+        ) = $orderService->getOrder($hash);
+        try {
+
+            return view('frontend.order.success', [
+                'order' => $order_data,
+                'order_items' => $order_items,
+                'delivery_payment_price' => $delivery_payment_price,
+                'order_total_price' => $order_total_price
+            ]);
+        } catch (\Throwable $th) {
+            return redirect()->route('frontend.home');
+        }
     }
 }

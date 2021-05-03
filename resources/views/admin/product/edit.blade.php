@@ -104,7 +104,7 @@
 
                         <div class="col-sm-6">
                             <div class="form-group">
-                                <label for="name">Nákupní cena <span
+                                <label for="name">Akční cena <span
                                         class="color-red">{{ $errors->first('action_price') }}</span></label>
                                 <input class="form-control" name="action_price" type="text"
                                     value="{{ $product->action_price->formated() }}">

@@ -2,8 +2,9 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
+use App\DataObjects\PriceDataObject;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class OrderItem extends Model
 {
@@ -12,6 +13,7 @@ class OrderItem extends Model
     protected $table = 'order_item';
     protected $fillable = [
         'internal_id',
+        'product_id',
         'name',
         'description',
         'short_description',
@@ -25,6 +27,11 @@ class OrderItem extends Model
         "slug",
         'ean',
     ];
+
+    public function getPriceAttribute($value)
+    {
+        return new PriceDataObject($value);
+    }
 
     public function order()
     {

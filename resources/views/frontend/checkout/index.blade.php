@@ -192,9 +192,11 @@
                                     </div>
 
                                 </div>
-                                <input type="submit" class="btn btn-primary btn-xl btn-block"
-                                    onclick="this.disabled=true;this.value='Odesílám...';this.form.submit();">Odeslat
-                                objednávku</input>
+                                <button type="submit" class="btn btn-primary btn-xl btn-block"
+                                    onclick="this.disabled=true;this.innerHTML='Odesílám...';this.form.submit();">
+                                    Odeslat objednávku
+                                </button>
+
                                 <a class="btn btn-secondary btn-xl btn-block"
                                     href="{{ route('frontend.delivery-payment.index') }}"> Zpět </a>
                             </div>
