@@ -16,8 +16,9 @@ const html = `
             placeholder="Parametr hodnota">
     </div>
 
-    <div class="col-2">
-
+    <div class="col-2 mt-3">
+    <button onclick="return removeParameter(this)" type="button" class="btn btn-outline-danger">Odstranit
+    parametr</button>
 
     </div>
 

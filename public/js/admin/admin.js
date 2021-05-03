@@ -11488,7 +11488,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _autocompleteservice__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./autocompleteservice */ "./resources/js/admin/services/autocompleteservice.js");
 
 var container = document.querySelector("#parameters-container");
-var html = "\n\n    <div class=\"col-5 mt-3\">\n\n        <input form=\"product_form\" class=\"parameters_name form-control\"\n            type=\"text\" name=\"parameters[name][]\"\n            placeholder=\"Parametr n\xE1zev\">\n    </div>\n    <div class=\"col-5 mt-3\">\n\n        <input form=\"product_form\"\n            class=\"parameters_value form-control\" type=\"text\" name=\"parameters[value][]\"\n            placeholder=\"Parametr hodnota\">\n    </div>\n\n    <div class=\"col-2\">\n\n\n    </div>\n\n\n";
+var html = "\n\n    <div class=\"col-5 mt-3\">\n\n        <input form=\"product_form\" class=\"parameters_name form-control\"\n            type=\"text\" name=\"parameters[name][]\"\n            placeholder=\"Parametr n\xE1zev\">\n    </div>\n    <div class=\"col-5 mt-3\">\n\n        <input form=\"product_form\"\n            class=\"parameters_value form-control\" type=\"text\" name=\"parameters[value][]\"\n            placeholder=\"Parametr hodnota\">\n    </div>\n\n    <div class=\"col-2 mt-3\">\n    <button onclick=\"return removeParameter(this)\" type=\"button\" class=\"btn btn-outline-danger\">Odstranit\n    parametr</button>\n\n    </div>\n\n\n";
 var addParameter = function addParameter() {
   var row = document.createElement("div");
   console.log(row);
