@@ -22,9 +22,9 @@ class UpdateProductService
             $calculate['active'] = false;
         }
         if (!strlen($attributes['price_without_vat'])) {
-            $attributes['price_without_vat'] = number_format($attributes['price'] / config('price.tax_rate'), config('price.decimals'));
+            $attributes['price_without_vat'] = $attributes['price'] / config('price.tax_rate');
         } else {
-            $attributes['price_without_vat'] = number_format($attributes['price'], config('price.decimals'));
+            $attributes['price_without_vat'] = $attributes['price'];
         }
         $calculate['tax'] = config('price.tax');
         $calculate['price_margin'] = $attributes['price'] - $attributes['shopping_price'];

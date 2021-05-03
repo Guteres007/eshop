@@ -11291,7 +11291,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _product_signal__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./product-signal */ "./resources/js/admin/product-signal.js");
 /* harmony import */ var _services_images__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./services/images */ "./resources/js/admin/services/images.js");
 /* harmony import */ var _services_add_parameter__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./services/add-parameter */ "./resources/js/admin/services/add-parameter.js");
+/* harmony import */ var _services_remove_parameter__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./services/remove-parameter */ "./resources/js/admin/services/remove-parameter.js");
 __webpack_require__(/*! ./../bootstrap */ "./resources/js/bootstrap.js");
+
 
 
 
@@ -11304,6 +11306,7 @@ try {
 } catch (error) {}
 
 (0,_services_autocompleteservice__WEBPACK_IMPORTED_MODULE_1__.fetchParameters)();
+window.removeParameter = _services_remove_parameter__WEBPACK_IMPORTED_MODULE_5__.removeParameter;
 window.addParameter = _services_add_parameter__WEBPACK_IMPORTED_MODULE_4__.addParameter;
 window.productSignal = _product_signal__WEBPACK_IMPORTED_MODULE_2__.productSignal;
 
@@ -11611,6 +11614,23 @@ var imageResolver = function imageResolver() {
   myDropzone.on("success", function (file, serverFileName) {
     console.log(file, serverFileName);
   });
+};
+
+/***/ }),
+
+/***/ "./resources/js/admin/services/remove-parameter.js":
+/*!*********************************************************!*\
+  !*** ./resources/js/admin/services/remove-parameter.js ***!
+  \*********************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "removeParameter": () => (/* binding */ removeParameter)
+/* harmony export */ });
+var removeParameter = function removeParameter(el) {
+  el.parentElement.parentElement.remove();
 };
 
 /***/ }),

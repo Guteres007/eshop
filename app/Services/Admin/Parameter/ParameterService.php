@@ -11,11 +11,12 @@ class ParameterService
 
     public function saveParametersToProduct(Product $product, $parameters)
     {
-
         if (
             !empty(array_filter($parameters['name'])) &&
             !empty(array_filter($parameters['value']))
         ) {
+            $product->parameters()->detach();
+
             for ($i = 0; $i < count($parameters['name']); $i++) {
                 $is_existing_parameter = Parameter::where('name',  $parameters['name'][$i])->first();
                 $is_existing_value = Parameter::where('value',  $parameters['value'][$i])->first();
@@ -38,6 +39,8 @@ class ParameterService
             }
         }
     }
+
+
 
     public function removeParametersByProduct($product)
     {

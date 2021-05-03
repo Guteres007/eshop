@@ -193,14 +193,22 @@
 
                                                     <div class="col-2">
 
-                                                        <button onclick="return addParameter()" type="button"
-                                                            class="btn btn-outline-success">Další
+                                                        <button onclick="return removeParameter()" type="button"
+                                                            class="btn btn-outline-danger">Další
                                                             parametr</button>
                                                     </div>
 
 
                                                 </div>
 
+                                            </div>
+                                        </div>
+
+                                        <div class="row">
+                                            <div class="col-12 mt-3">
+                                                <button onclick="return addParameter()" type="button"
+                                                    class="btn btn-outline-success">Přidat
+                                                    parametr</button>
                                             </div>
                                         </div>
                                     </div>
