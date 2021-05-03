@@ -26,13 +26,14 @@ class OrderController extends Controller
 
     public function show($hash, OrderService $orderService)
     {
-        list(
-            $order_data,
-            $order_items,
-            $delivery_payment_price,
-            $order_total_price
-        ) = $orderService->getOrder($hash);
+
         try {
+            list(
+                $order_data,
+                $order_items,
+                $delivery_payment_price,
+                $order_total_price
+            ) = $orderService->getOrder($hash);
 
             return view('frontend.order.success', [
                 'order' => $order_data,

@@ -56,7 +56,7 @@ class OrderService
             ->leftJoin('products', 'order_item.product_id', '=', 'products.id')
             ->leftJoin('product_images', 'order_item.product_id', 'product_images.product_id')
             ->where('product_images.rank', 1)
-            ->select('order_item.*', 'orders.*', 'product_images.path as image_path')->get();
+            ->select('order_item.*', 'orders.*', 'product_images.path as image_path', 'products.slug as product_slug')->get();
 
         $order_data = $order_items[0];
 

@@ -56,7 +56,8 @@
                                          <tr>
                                              <td class="order-list__column-image">
                                                  <div class="product-image">
-                                                     <a href="" class="product-image__body">
+                                                     <a href="{{ route('frontend.product.show', $item->product_slug) }}"
+                                                         class="product-image__body">
 
                                                          <img class="product-image__img"
                                                              src="{{ asset('storage/' . ($item->image_path ?? '')) }}"
@@ -65,7 +66,8 @@
                                                  </div>
                                              </td>
                                              <td class="order-list__column-product">
-                                                 <a href="">{{ $item->name }}</a>
+                                                 <a
+                                                     href="{{ route('frontend.product.show', $item->product_slug) }}">{{ $item->name }}</a>
 
                                              </td>
                                              <td class="order-list__column-quantity" data-title="Qty:">
@@ -97,20 +99,19 @@
                          <div class="col-sm-6 col-12 px-2">
                              <div class="card address-card">
                                  <div class="address-card__body">
-                                     <div class="address-card__badge address-card__badge--muted">Shipping Address</div>
-                                     <div class="address-card__name">Helena Garcia</div>
+                                     <div class="address-card__badge address-card__badge--muted">Doručovací adresa</div>
+                                     <div class="address-card__name">{{ $order->first_name }}</div>
                                      <div class="address-card__row">
-                                         Random Federation<br>
-                                         115302, Moscow<br>
-                                         ul. Varshavskaya, 15-2-178
+                                         {{ $order->street }}<br>
+                                         {{ $order->postcode }}, {{ $order->city }}<br>
                                      </div>
                                      <div class="address-card__row">
-                                         <div class="address-card__row-title">Phone Number</div>
-                                         <div class="address-card__row-content">38 972 588-42-36</div>
+                                         <div class="address-card__row-title">Telefon</div>
+                                         <div class="address-card__row-content">{{ $order->phone }}</div>
                                      </div>
                                      <div class="address-card__row">
-                                         <div class="address-card__row-title">Email Address</div>
-                                         <div class="address-card__row-content">stroyka@example.com</div>
+                                         <div class="address-card__row-title">Email</div>
+                                         <div class="address-card__row-content">{{ $order->email }}</div>
                                      </div>
                                  </div>
                              </div>
@@ -118,20 +119,19 @@
                          <div class="col-sm-6 col-12 px-2 mt-sm-0 mt-3">
                              <div class="card address-card">
                                  <div class="address-card__body">
-                                     <div class="address-card__badge address-card__badge--muted">Billing Address</div>
-                                     <div class="address-card__name">Helena Garcia</div>
+                                     <div class="address-card__badge address-card__badge--muted">Fakturační adresa</div>
+                                     <div class="address-card__name">{{ $order->first_name }}</div>
                                      <div class="address-card__row">
-                                         Random Federation<br>
-                                         115302, Moscow<br>
-                                         ul. Varshavskaya, 15-2-178
+                                         {{ $order->street }}<br>
+                                         {{ $order->postcode }}, {{ $order->city }}<br>
                                      </div>
                                      <div class="address-card__row">
-                                         <div class="address-card__row-title">Phone Number</div>
-                                         <div class="address-card__row-content">38 972 588-42-36</div>
+                                         <div class="address-card__row-title">Telefon</div>
+                                         <div class="address-card__row-content">{{ $order->phone }}</div>
                                      </div>
                                      <div class="address-card__row">
-                                         <div class="address-card__row-title">Email Address</div>
-                                         <div class="address-card__row-content">stroyka@example.com</div>
+                                         <div class="address-card__row-title">Email</div>
+                                         <div class="address-card__row-content">{{ $order->email }}</div>
                                      </div>
                                  </div>
                              </div>

@@ -17,6 +17,7 @@ class Order extends Model
         'email',
         'postcode',
         'street',
+        'city',
         'comment',
         'delivery_id',
         'payment_id',
