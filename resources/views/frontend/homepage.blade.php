@@ -12,17 +12,17 @@
                             <div class="owl-carousel">
                                 <a class="block-slideshow__slide" href="">
                                     <div class="block-slideshow__slide-image block-slideshow__slide-image--desktop"
-                                        style="background-image: url('/theme-v1/images/slides/slide-1-full.jpg')">
+                                        style="background-image: url('/images/frontend/banner.jpg')">
                                     </div>
                                     <div class="block-slideshow__slide-image block-slideshow__slide-image--mobile"
-                                        style="background-image: url('/theme-v1/images/slides/slide-1-mobile.jpg')">
+                                        style="background-image: url('/images/frontend/banner.jpg')">
                                     </div>
                                     <div class="block-slideshow__slide-content">
-                                        <div class="block-slideshow__slide-title">Výprodej zásob</div>
+                                        <div class="block-slideshow__slide-title">Podzimní slevy na cokoliv.</div>
                                         <div class="block-slideshow__slide-text">Do konce měsíce platí pro všechny produkty
                                             sleva -30%.</div>
                                         <div class="block-slideshow__slide-button">
-                                            <span class="btn btn-primary btn-lg">Koupit</span>
+                                            <span class="btn btn-primary btn-lg">Vybrat produkt</span>
                                         </div>
                                     </div>
                                 </a>

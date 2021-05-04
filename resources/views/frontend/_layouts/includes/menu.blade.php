@@ -98,10 +98,10 @@
             <div class="topbar__container container">
                 <div class="topbar__row">
                     <div class="topbar__item topbar__item--link">
-                        <a class="topbar-link" href="tel:+420 777 777 777">+420 777 777 777</a>
+                        <a class="topbar-link" href="tel:+420 728 486 511">+420 728 486 511</a>
                     </div>
                     <div class="topbar__item topbar__item--link">
-                        <a class="topbar-link" href="mailto:obchod@obchod.cz">obchod@obchod.cz</a>
+                        <a class="topbar-link" href="mailto:info@shoply.cz">info@shoply.cz</a>
                     </div>
 
                     <div class="topbar__spring"></div>

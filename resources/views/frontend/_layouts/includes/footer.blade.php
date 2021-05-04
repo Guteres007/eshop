@@ -4,83 +4,53 @@
                 <div class="container">
                     <div class="site-footer__widgets">
                         <div class="row">
-                            <div class="col-12 col-md-6 col-lg-4">
+                            <div class="col-12 col-md-6 col-lg-5">
                                 <div class="site-footer__widget footer-contacts">
-                                    <h5 class="footer-contacts__title">Contact Us</h5>
+                                    <h5 class="footer-contacts__title">Kontakt</h5>
                                     <div class="footer-contacts__text">
-                                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer in feugiat
-                                        lorem. Pellentque ac placerat tellus.
+                                        Máte-li dotazy ke zboží nebo objednávce, napište nám.
                                     </div>
                                     <ul class="footer-contacts__contacts">
-                                        <li><i class="footer-contacts__icon fas fa-globe-americas"></i> 715 Fake Street,
-                                            New York 10021 USA</li>
-                                        <li><i class="footer-contacts__icon far fa-envelope"></i> stroyka@example.com
+                                        <li><i class="footer-contacts__icon fas fa-globe-americas"></i> Náměstí Hrdinů
+                                            23,
+                                            Olomouc</li>
+                                        <li><i class="footer-contacts__icon far fa-envelope"></i> info@shoply.cz
                                         </li>
-                                        <li><i class="footer-contacts__icon fas fa-mobile-alt"></i> (800) 060-0730,
-                                            (800) 060-0730</li>
-                                        <li><i class="footer-contacts__icon far fa-clock"></i> Mon-Sat 10:00pm - 7:00pm
+                                        <li><i class="footer-contacts__icon fas fa-mobile-alt"></i>+420 728 486 511</li>
+                                        <li><i class="footer-contacts__icon far fa-clock"></i> PO - PÁ 09:00 - 17:00
                                         </li>
                                     </ul>
                                 </div>
                             </div>
-                            <div class="col-6 col-md-3 col-lg-2">
+                            <div class="col-6 col-md-3 col-lg-3">
                                 <div class="site-footer__widget footer-links">
-                                    <h5 class="footer-links__title">Information</h5>
+                                    <h5 class="footer-links__title">Informace</h5>
                                     <ul class="footer-links__list">
-                                        <li class="footer-links__item"><a href="" class="footer-links__link">About
-                                                Us</a></li>
-                                        <li class="footer-links__item"><a href="" class="footer-links__link">Delivery
-                                                Information</a></li>
-                                        <li class="footer-links__item"><a href="" class="footer-links__link">Privacy
-                                                Policy</a></li>
-                                        <li class="footer-links__item"><a href="" class="footer-links__link">Brands</a>
+                                        <li class="footer-links__item"><a href="{{ route('frontend.contact') }}"
+                                                class="footer-links__link">Kontakt</a>
                                         </li>
-                                        <li class="footer-links__item"><a href="" class="footer-links__link">Contact
-                                                Us</a></li>
-                                        <li class="footer-links__item"><a href="" class="footer-links__link">Returns</a>
-                                        </li>
-                                        <li class="footer-links__item"><a href="" class="footer-links__link">Site
-                                                Map</a></li>
+                                        <li class="footer-links__item"><a
+                                                href="{{ route('frontend.terms-conditions') }}"
+                                                class="footer-links__link">Obchodní podmínky</a></li>
+
                                     </ul>
                                 </div>
                             </div>
-                            <div class="col-6 col-md-3 col-lg-2">
-                                <div class="site-footer__widget footer-links">
-                                    <h5 class="footer-links__title">My Account</h5>
-                                    <ul class="footer-links__list">
-                                        <li class="footer-links__item"><a href="" class="footer-links__link">Store
-                                                Location</a></li>
-                                        <li class="footer-links__item"><a href="" class="footer-links__link">Order
-                                                History</a></li>
-                                        <li class="footer-links__item"><a href="" class="footer-links__link">Wish
-                                                List</a></li>
-                                        <li class="footer-links__item"><a href=""
-                                                class="footer-links__link">Newsletter</a></li>
-                                        <li class="footer-links__item"><a href=""
-                                                class="footer-links__link">Specials</a></li>
-                                        <li class="footer-links__item"><a href="" class="footer-links__link">Gift
-                                                Certificates</a></li>
-                                        <li class="footer-links__item"><a href=""
-                                                class="footer-links__link">Affiliate</a></li>
-                                    </ul>
-                                </div>
-                            </div>
+
                             <div class="col-12 col-md-12 col-lg-4">
                                 <div class="site-footer__widget footer-newsletter">
                                     <h5 class="footer-newsletter__title">Newsletter</h5>
                                     <div class="footer-newsletter__text">
-                                        Praesent pellentesque volutpat ex, vitae auctor lorem pulvinar mollis felis at
-                                        lacinia.
+                                        Už Vám neunikne žádna akce.
                                     </div>
                                     <form action="" class="footer-newsletter__form">
-                                        <label class="sr-only" for="footer-newsletter-address">Email Address</label>
+                                        <label class="sr-only" for="footer-newsletter-address">Email</label>
                                         <input type="text" class="footer-newsletter__form-input form-control"
                                             id="footer-newsletter-address" placeholder="Email Address...">
-                                        <button
-                                            class="footer-newsletter__form-button btn btn-primary">Subscribe</button>
+                                        <button class="footer-newsletter__form-button btn btn-primary">Odebírat</button>
                                     </form>
                                     <div class="footer-newsletter__text footer-newsletter__text--social">
-                                        Follow us on social networks
+                                        Sledujte nás na internetu
                                     </div>
                                     <!-- social-links -->
                                     <div

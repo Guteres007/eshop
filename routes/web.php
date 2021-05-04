@@ -10,6 +10,7 @@ use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\DeliveryController;
 use App\Http\Controllers\Frontend\OrderController;
 use App\Http\Controllers\Admin\DashboardController;
+use App\Http\Controllers\Frontend\ContactController;
 use App\Http\Controllers\Frontend\CheckoutController;
 use App\Http\Controllers\Admin\ProductSignalController;
 use App\Http\Controllers\Frontend\CartProductController;
@@ -37,6 +38,7 @@ Route::name('frontend.')->group(function () {
     Route::get('/order/{hash}', [OrderController::class, 'show'])->name('order.show');
     Route::get('/checkout', [CheckoutController::class, 'index'])->name('checkout.index')->middleware('IsCartProduct');
 
+    Route::get('/contact', [ContactController::class, 'index'])->name('contact');
     Route::get('/terms-and-conditions', [TermsConditionsController::class, 'index'])->name('terms-conditions');
 });
 
