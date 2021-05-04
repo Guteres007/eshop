@@ -1965,7 +1965,8 @@ var getPayments = function getPayments(el, delivery_id) {
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "productFiltering": () => (/* binding */ productFiltering),
-/* harmony export */   "productFilteringReset": () => (/* binding */ productFilteringReset)
+/* harmony export */   "productFilteringReset": () => (/* binding */ productFilteringReset),
+/* harmony export */   "productOrderBy": () => (/* binding */ productOrderBy)
 /* harmony export */ });
 var productFiltering = function productFiltering() {
   var queryBuild = "";
@@ -2004,6 +2005,22 @@ var priceFilter = function priceFilter() {
 
 var productFilteringReset = function productFilteringReset() {
   window.location.href = window.location.origin + window.location.pathname;
+};
+var productOrderBy = function productOrderBy(element) {
+  var url = window.location.href.replaceAll("&order=sale", "");
+  url = url.replaceAll("?order=sale", "");
+
+  if (element.value === "sale") {
+    console.log(window.location);
+
+    if (window.location.search !== "") {
+      window.location.href = url + "&order=sale";
+    } else {
+      window.location.href = url + "?order=sale";
+    }
+  } else {
+    window.location.href = url;
+  }
 };
 
 /***/ }),
@@ -19523,6 +19540,7 @@ __webpack_require__(/*! ../bootstrap */ "./resources/js/bootstrap.js");
 
 
 window.productFiltering = _product_filtering__WEBPACK_IMPORTED_MODULE_2__.productFiltering;
+window.productOrderBy = _product_filtering__WEBPACK_IMPORTED_MODULE_2__.productOrderBy;
 window.productFilteringReset = _product_filtering__WEBPACK_IMPORTED_MODULE_2__.productFilteringReset;
 window.getPayments = _delivery_payment__WEBPACK_IMPORTED_MODULE_1__.getPayments;
 window.changeProductQuantity = _change_product_quantity__WEBPACK_IMPORTED_MODULE_0__.changeProductQuantity;

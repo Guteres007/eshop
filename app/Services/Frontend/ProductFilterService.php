@@ -15,6 +15,7 @@ class ProductFilterService
     private $category_id;
     private $sql_query;
     private $filter;
+    private $ordering;
     public function __construct(ProductRepository $productRepository)
     {
         $this->productRepository = $productRepository;
@@ -23,13 +24,14 @@ class ProductFilterService
 
     public function filter(Request $request)
     {
+        $this->ordering = $request->query('order');
         $this->filter = $request->query('filter');
 
         $this->sql_query = DB::table('category_product')
             ->join('products', 'category_product.product_id', '=', 'products.id')
-            ->join('product_images', 'products.id', '=', 'product_images.product_id');
-
-        if ($this->filter) {
+            ->join('product_images', 'products.id', '=', 'product_images.product_id')
+            ->leftJoin('order_item', 'products.id', '=', 'order_item.product_id');
+        if ($this->filter || $this->ordering) {
             //Builder
             $this->setParameters();
             $this->setPrice();
@@ -83,15 +85,25 @@ class ProductFilterService
         }
     }
 
-    public function execute()
+    private function execute()
     {
-        return $this->sql_query
+        $this->sql_query
             ->where('category_product.category_id', $this->category_id)
             ->where('products.active', true)
             ->where('product_images.rank', 1)
-            ->distinct()
-            ->select('products.*', DB::raw('product_images.path AS image_path'), DB::raw('product_images.name AS image_name'));
+            ->distinct();
+
+        $this->sql_query =  $this->sql_query->select('products.*', DB::raw('count(order_item.product_id) as sales'), DB::raw('product_images.path AS image_path'), DB::raw('product_images.name AS image_name'))
+            ->groupBy('products.id', 'image_path', 'image_name');
+
+        if ($this->ordering) {
+            $this->sql_query =  $this->sql_query->orderBy('sales', 'DESC');
+        }
+
+        return $this->sql_query;
     }
+
+
 
     public function getParameter_ids(): array
     {

@@ -36,3 +36,18 @@ const priceFilter = () => {
 export const productFilteringReset = () => {
     window.location.href = window.location.origin + window.location.pathname;
 };
+
+export const productOrderBy = (element) => {
+    let url = window.location.href.replaceAll("&order=sale", "");
+    url = url.replaceAll("?order=sale", "");
+    if (element.value === "sale") {
+        console.log(window.location);
+        if (window.location.search !== "") {
+            window.location.href = url + "&order=sale";
+        } else {
+            window.location.href = url + "?order=sale";
+        }
+    } else {
+        window.location.href = url;
+    }
+};

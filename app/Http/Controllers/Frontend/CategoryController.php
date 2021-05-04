@@ -26,16 +26,29 @@ class CategoryController extends Controller
         $filtered_price = $productFilterService->getPrice();
         $parameter_names = $parameterRepository->getParameterNamesByCategory($category->id);
         $parameter_values = $parameterRepository->getParameterValuesByCategory($category->id);
+        $ordering = $request->query('order');
+
+        $min_price =  Category::find($category->id)->products()->where('active', true)->min('price');
+        $min_action_price = Category::find($category->id)->products()->where('active', true)->min('action_price');
+
+        if ($min_price > $min_action_price && $min_action_price > 0) {
+            $price_min = $min_action_price;
+        } else {
+            $price_min = $min_price;
+        }
+
+
         return view('frontend.category.show', [
             'products' => $products->paginate(20),
             'category' => $category,
             'cartegories' => $categoryRepository->all(),
             'price_max' =>  Category::find($category->id)->products()->where('active', true)->max('price'),
-            'price_min' => Category::find($category->id)->products()->where('active', true)->min('price'),
+            'price_min' => $price_min,
             'parameters' => $parameter_names,
             'parameter_values' => $parameter_values,
             'active_parameters' => $active_parameters,
-            'filtered_price' => $filtered_price
+            'filtered_price' => $filtered_price,
+            'ordering' => $ordering
         ]);
     }
 }
