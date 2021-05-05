@@ -46,7 +46,7 @@
                                              Telefon: +420 728 486 511
                                          </p>
                                          <p>
-                                             <strong>Otevírací hodinny</strong><br>
+                                             <strong>Otevírací hodiny</strong><br>
                                              PO - PÁ 09:00 - 17:00
                                          </p>
 
