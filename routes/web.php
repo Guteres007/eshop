@@ -45,6 +45,16 @@ Route::name('frontend.')->group(function () {
 //auth pro zákazníky
 Route::get('/register', [\Laravel\Fortify\Http\Controllers\RegisteredUserController::class, 'store'])->name('register.store');
 
+
+//admin login
+
+
+Route::prefix('admin')->group(function () {
+    Route::name('admin.')->group(function () {
+        Route::view('/login', 'admin.login.index')->name('login');
+    });
+});
+
 Route::prefix('admin')->group(function () {
     Route::name('admin.')->group(function () {
         Route::get('dashboard', [DashboardController::class, 'index']);
