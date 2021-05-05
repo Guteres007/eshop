@@ -50,7 +50,6 @@ Route::get('/register', [RegisteredUserController::class, 'store'])->name('regis
 
 //admin login
 
-
 Route::prefix('admin')->group(function () {
     Route::name('admin.')->group(function () {
         Route::view('/login', 'admin.login.index')->middleware('guest:admin')->name('login');
@@ -61,6 +60,10 @@ Route::prefix('admin')->group(function () {
                 $limiter ? 'throttle:' . $limiter : null,
             ]));
     });
+});
+
+Route::get('/admin', function () {
+    return redirect()->route('admin.login');
 });
 
 Route::prefix('admin')->middleware('auth:admin')->group(function () {

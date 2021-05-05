@@ -278,11 +278,11 @@
                                                         name="email">
                                                 </div>
                                                 <div class="form-group">
-                                                    <label for="header-signin-password" class="sr-only">Password</label>
+                                                    <label for="header-signin-password" class="sr-only">Heslo</label>
                                                     <div class="account-menu__form-forgot">
                                                         <input id="header-signin-password" type="password"
                                                             class="form-control form-control-sm" name="password"
-                                                            placeholder="Password">
+                                                            placeholder="Heslo">
 
                                                     </div>
                                                 </div>
