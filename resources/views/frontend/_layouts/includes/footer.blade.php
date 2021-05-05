@@ -46,7 +46,7 @@
                                     <form action="" class="footer-newsletter__form">
                                         <label class="sr-only" for="footer-newsletter-address">Email</label>
                                         <input type="text" class="footer-newsletter__form-input form-control"
-                                            id="footer-newsletter-address" placeholder="Email Address...">
+                                            id="footer-newsletter-address" placeholder="Email">
                                         <button class="footer-newsletter__form-button btn btn-primary">Odebírat</button>
                                     </form>
                                     <div class="footer-newsletter__text footer-newsletter__text--social">
@@ -96,11 +96,15 @@
                     <div class="site-footer__bottom">
                         <div class="site-footer__copyright">
                             <!-- copyright -->
-                            Tvorba e-shopů na míru <a href="https://www.shoply.cz" target="_blank">shoply.cz</a>
+                            <a href="https://www.shoply.cz" target="_blank" class="d-flex">
+
+                                <img style="min-width: 100px" src="/images/frontend/shoply-logo.svg" alt="shoply">
+
+                            </a>
                             <!-- copyright / end -->
                         </div>
                         <div class="site-footer__payments">
-                            <img src="/theme-v1/images/payments.png" alt="">
+                            <img style="min-width: 120px" src="/images/frontend/gopay-logo.svg" alt="gopay">
                         </div>
                     </div>
                 </div>

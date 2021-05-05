@@ -24,13 +24,25 @@
                      </div>
                  </div>
              </div>
+
+             @if ($errors->any())
+                 <div class="alert alert-danger mb-3">
+                     <ul>
+                         @foreach ($errors->all() as $error)
+                             <li>{{ $error }}</li>
+                         @endforeach
+                     </ul>
+
+                 </div>
+             @endif
+
              <div class="block">
                  <div class="container">
                      <div class="row">
                          <div class="col-md-6 d-flex flex-column">
                              <div class="card flex-grow-1 mb-md-0">
                                  <div class="card-body">
-                                     <h3 class="card-title">Login</h3>
+                                     <h3 class="card-title">Přihlášení</h3>
                                      <form action="{{ route('login') }}" method="POST">
                                          @csrf
 
