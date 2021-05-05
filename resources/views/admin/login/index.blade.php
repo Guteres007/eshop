@@ -14,11 +14,13 @@
 <body class="c-app flex-row align-items-center">
 
     <div class="container">
+
         <div class="row justify-content-center">
             <div class="col-md-8">
                 <div class="card-group">
                     <div class="card p-4">
-                        <div class="card-body">
+                        <form action="{{ route('admin.login') }}" method="POST" class="card-body">
+                            @csrf
                             <h1>Administrace</h1>
                             <p class="text-muted">Přihlášení do administrace</p>
                             <div class="input-group mb-3">
@@ -27,7 +29,7 @@
 
                                         </i>
                                     </span></div>
-                                <input class="form-control" type="text" name="name" placeholder="Jméno"
+                                <input class="form-control" type="text" name="email" placeholder="Email"
                                     autocomplete="off">
                             </div>
                             <div class="input-group mb-4">
@@ -40,10 +42,10 @@
                             </div>
                             <div class="row">
                                 <div class="col-6">
-                                    <button class="btn btn-primary px-4" type="button">Přihlásit se</button>
+                                    <button class="btn btn-primary px-4" type="submit">Přihlásit se</button>
                                 </div>
                             </div>
-                        </div>
+                        </form>
                     </div>
                     <div class="card text-white bg-primary py-5 d-md-down-none" style="width:44%">
                         <div class="card-body justify-content-center d-flex align-items-center">

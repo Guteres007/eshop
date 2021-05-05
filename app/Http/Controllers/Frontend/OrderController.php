@@ -42,7 +42,7 @@ class OrderController extends Controller
                 'order_total_price' => $order_total_price
             ]);
         } catch (\Throwable $th) {
-            return redirect()->route('frontend.home');
+            return redirect()->route('frontend.homepage');
         }
     }
 }

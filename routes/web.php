@@ -19,12 +19,14 @@ use App\Http\Controllers\Admin\ProductTemporaryController;
 use App\Http\Controllers\Admin\ProductImageUploadController;
 use App\Http\Controllers\Frontend\DeliveryPaymentController;
 use App\Http\Controllers\Frontend\TermsConditionsController;
+use Laravel\Fortify\Http\Controllers\RegisteredUserController;
+use Laravel\Fortify\Http\Controllers\AuthenticatedSessionController;
 use App\Http\Controllers\Frontend\ProductController as FrontendProductController;
 use App\Http\Controllers\Frontend\CategoryController as FrontendCategoryController;
 use App\Http\Controllers\Admin\DeliveryPaymentController as AdminDeliveryPaymentController;
 
 Route::name('frontend.')->group(function () {
-    Route::get('/', [HomepageController::class, 'index'])->name('home');
+    Route::get('/', [HomepageController::class, 'index'])->name('homepage');
     Route::get('/category/{category:slug}', [FrontendCategoryController::class, 'show'])->name('category.show');
     Route::get('/product/{product:slug}', [FrontendProductController::class, 'show'])->name('product.show');
     Route::resource('cart', CartController::class)->except(['create', 'show']);
@@ -43,7 +45,7 @@ Route::name('frontend.')->group(function () {
 });
 
 //auth pro zákazníky
-Route::get('/register', [\Laravel\Fortify\Http\Controllers\RegisteredUserController::class, 'store'])->name('register.store');
+Route::get('/register', [RegisteredUserController::class, 'store'])->name('register.store');
 
 
 //admin login
@@ -51,13 +53,24 @@ Route::get('/register', [\Laravel\Fortify\Http\Controllers\RegisteredUserControl
 
 Route::prefix('admin')->group(function () {
     Route::name('admin.')->group(function () {
-        Route::view('/login', 'admin.login.index')->name('login');
+        Route::view('/login', 'admin.login.index')->middleware('guest:admin')->name('login');
+        $limiter = config('fortify.limiters.login');
+        Route::post('/login', [AuthenticatedSessionController::class, 'store'])
+            ->middleware(array_filter([
+                'guest:admin',
+                $limiter ? 'throttle:' . $limiter : null,
+            ]));
     });
 });
 
-Route::prefix('admin')->group(function () {
+Route::prefix('admin')->middleware('auth:admin')->group(function () {
     Route::name('admin.')->group(function () {
-        Route::get('dashboard', [DashboardController::class, 'index']);
+
+        Route::post('/logout', [AuthenticatedSessionController::class, 'destroy'])
+            ->name('logout');
+
+        Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
+
         Route::resource('category', CategoryController::class)->except(['show']);
         Route::resource('delivery', DeliveryController::class)->except(['show']);
         Route::resource('payment', PaymentController::class)->except(['show']);

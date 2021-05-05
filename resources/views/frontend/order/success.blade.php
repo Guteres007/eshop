@@ -15,7 +15,8 @@
                          <h1 class="order-success__title">Děkujeme</h1>
                          <div class="order-success__subtitle">Vaše objednávka se nyní zpracovává.</div>
                          <div class="order-success__actions">
-                             <a href="{{ route('frontend.home') }}" class="btn btn-xs btn-secondary">Zpět na homepage</a>
+                             <a href="{{ route('frontend.homepage') }}" class="btn btn-xs btn-secondary">Zpět na
+                                 homepage</a>
                          </div>
                      </div>
                      <div class="order-success__meta">
