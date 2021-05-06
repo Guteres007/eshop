@@ -1,5 +1,5 @@
 import axios from "axios";
-import Dropzone from "dropzone";
+import Dropzone, { createElement } from "dropzone";
 
 export const imageResolver = () => {
     Dropzone.autoDiscover = false;
@@ -8,7 +8,7 @@ export const imageResolver = () => {
         previewTemplate: `
 
 
-      <div id="template" class="file-row" style="max-width: 200px;">
+      <div id="template" class="file-row" style="max-width: 200px; display: inline-block; padding: 10px;">
         <!-- This is used as the file preview template -->
         <div>
             <span class="preview"><img data-dz-thumbnail /></span>
@@ -25,10 +25,6 @@ export const imageResolver = () => {
         </div>
         <div>
 
-          <button data-dz-remove class="btn btn-danger delete">
-            <i class="glyphicon glyphicon-trash"></i>
-            <span>Delete</span>
-          </button>
         </div>
       </div>
 
@@ -49,10 +45,50 @@ export const imageResolver = () => {
         file.previewElement.remove();
     });
     myDropzone.on("addedfile", (file) => {
-        console.log(`File added: ${file.name}`);
+        console.log(file);
     });
 
     myDropzone.on("success", function (file, serverFileName) {
-        console.log(file, serverFileName);
+        let productId = document.querySelector("#product_id").value;
+
+        let span = document.createElement("span");
+        span.classList.add("col-2");
+        let card = `
+            <div class="card">
+              <img style="min-width:150px; width:100%" data-image-name="${file.name}" src="/storage/product-images/${productId}/${file.name}"/>
+              <span class="remove-image btn btn-danger mt-2">Odstranit</span>
+            </div>
+        `;
+        span.innerHTML = card;
+        document.querySelector(".uploaded-images").appendChild(span);
+        file.previewElement.remove();
+        _removeImageListener();
     });
+};
+
+//----- private
+const _removeImageListener = () => {
+    setTimeout(() => {
+        document
+            .querySelectorAll(".uploaded-images .remove-image")
+            .forEach((removeButton) => {
+                removeButton.addEventListener("click", (e) => {
+                    let productId = document.querySelector("#product_id").value;
+                    let image_name = e.target.parentElement
+                        .querySelector("img")
+                        .getAttribute("data-image-name");
+
+                    let form = new FormData();
+                    form.image_name = image_name;
+                    axios
+                        .post(`/admin/product/${productId}/image-remove`, {
+                            ...form,
+                        })
+                        .then(() => {
+                            //odstraní obrázek plus span i s html
+                            e.target.parentElement.parentElement.remove();
+                        });
+                });
+            });
+    }, 1000);
 };

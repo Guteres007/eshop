@@ -11596,7 +11596,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 var imageResolver = function imageResolver() {
   (dropzone__WEBPACK_IMPORTED_MODULE_1___default().autoDiscover) = false;
   var myDropzone = new (dropzone__WEBPACK_IMPORTED_MODULE_1___default())("#image_uploader", {
-    previewTemplate: "\n\n\n      <div id=\"template\" class=\"file-row\" style=\"max-width: 200px;\">\n        <!-- This is used as the file preview template -->\n        <div>\n            <span class=\"preview\"><img data-dz-thumbnail /></span>\n        </div>\n        <div>\n            <p class=\"name\" data-dz-name></p>\n            <strong class=\"error text-danger\" data-dz-errormessage></strong>\n        </div>\n        <div>\n            <p class=\"size\" data-dz-size></p>\n            <div class=\"progress progress-striped active\" role=\"progressbar\" aria-valuemin=\"0\" aria-valuemax=\"100\" aria-valuenow=\"0\">\n              <div class=\"progress-bar progress-bar-success\" style=\"width:0%;\" data-dz-uploadprogress></div>\n            </div>\n        </div>\n        <div>\n\n          <button data-dz-remove class=\"btn btn-danger delete\">\n            <i class=\"glyphicon glyphicon-trash\"></i>\n            <span>Delete</span>\n          </button>\n        </div>\n      </div>\n\n\n    ",
+    previewTemplate: "\n\n\n      <div id=\"template\" class=\"file-row\" style=\"max-width: 200px; display: inline-block; padding: 10px;\">\n        <!-- This is used as the file preview template -->\n        <div>\n            <span class=\"preview\"><img data-dz-thumbnail /></span>\n        </div>\n        <div>\n            <p class=\"name\" data-dz-name></p>\n            <strong class=\"error text-danger\" data-dz-errormessage></strong>\n        </div>\n        <div>\n            <p class=\"size\" data-dz-size></p>\n            <div class=\"progress progress-striped active\" role=\"progressbar\" aria-valuemin=\"0\" aria-valuemax=\"100\" aria-valuenow=\"0\">\n              <div class=\"progress-bar progress-bar-success\" style=\"width:0%;\" data-dz-uploadprogress></div>\n            </div>\n        </div>\n        <div>\n\n        </div>\n      </div>\n\n\n    ",
     removedfile: function removedfile(file) {
       var productId = document.querySelector("#product_id").value;
       var image_name = file.name;
@@ -11609,11 +11609,36 @@ var imageResolver = function imageResolver() {
     file.previewElement.remove();
   });
   myDropzone.on("addedfile", function (file) {
-    console.log("File added: ".concat(file.name));
+    console.log(file);
   });
   myDropzone.on("success", function (file, serverFileName) {
-    console.log(file, serverFileName);
+    var productId = document.querySelector("#product_id").value;
+    var span = document.createElement("span");
+    span.classList.add("col-2");
+    var card = "\n            <div class=\"card\">\n              <img style=\"min-width:150px; width:100%\" data-image-name=\"".concat(file.name, "\" src=\"/storage/product-images/").concat(productId, "/").concat(file.name, "\"/>\n              <span class=\"remove-image btn btn-danger mt-2\">Odstranit</span>\n            </div>\n        ");
+    span.innerHTML = card;
+    document.querySelector(".uploaded-images").appendChild(span);
+    file.previewElement.remove();
+
+    _removeImageListener();
   });
+}; //----- private
+
+var _removeImageListener = function _removeImageListener() {
+  setTimeout(function () {
+    document.querySelectorAll(".uploaded-images .remove-image").forEach(function (removeButton) {
+      removeButton.addEventListener("click", function (e) {
+        var productId = document.querySelector("#product_id").value;
+        var image_name = e.target.parentElement.querySelector("img").getAttribute("data-image-name");
+        var form = new FormData();
+        form.image_name = image_name;
+        axios__WEBPACK_IMPORTED_MODULE_0___default().post("/admin/product/".concat(productId, "/image-remove"), _objectSpread({}, form)).then(function () {
+          //odstraní obrázek plus span i s html
+          e.target.parentElement.parentElement.remove();
+        });
+      });
+    });
+  }, 1000);
 };
 
 /***/ }),

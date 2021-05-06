@@ -164,14 +164,20 @@
 
                                     <div class="tab-pane" id="images" role="tabpanel">
                                         <div class="row">
-                                            <form
-                                                action="{{ route('admin.product-image-upload.store', ['id' => $product->id]) }}"
-                                                id="image_uploader" class="dropzone col-12">
-                                                @csrf
-                                                <div class="dz-message" data-dz-message><span>Přetáhněte obrázky</span>
-                                                </div>
+                                            <div class="col-12">
+                                                <div class="uploaded-images row">
 
-                                            </form>
+                                                </div>
+                                                <form
+                                                    action="{{ route('admin.product-image-upload.store', ['id' => $product->id]) }}"
+                                                    id="image_uploader" class="dropzone col-12">
+                                                    @csrf
+                                                    <div class="dz-message" data-dz-message><span>Přetáhněte obrázky</span>
+                                                    </div>
+
+                                                </form>
+                                            </div>
+
                                         </div>
                                     </div>
                                     <div class="tab-pane" id="parameters" role="tabpanel">
@@ -193,8 +199,8 @@
 
                                                     <div class="col-2">
 
-                                                        <button onclick="return removeParameter()" type="button"
-                                                            class="btn btn-outline-danger">Další
+                                                        <button onclick="return removeParameter(this)" type="button"
+                                                            class="btn btn-outline-danger">Odstranit
                                                             parametr</button>
                                                     </div>
 

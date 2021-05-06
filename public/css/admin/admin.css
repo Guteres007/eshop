@@ -19118,3 +19118,7 @@ h3 {
   background-color: DodgerBlue !important;
   color: #ffffff;
 }
+
+.dropzone {
+  border: 1px dashed red;
+}
