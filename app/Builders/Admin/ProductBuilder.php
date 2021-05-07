@@ -45,7 +45,9 @@ class ProductBuilder
 
     public function createParameters(array $attributes)
     {
-        $this->parameterService->saveParametersToProduct($this->product, $attributes['parameters']);
+        if (isset($attributes['parameters'])) {
+            $this->parameterService->saveParametersToProduct($this->product, $attributes['parameters']);
+        }
         return $this;
     }
 }
