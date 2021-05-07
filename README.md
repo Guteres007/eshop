@@ -10,3 +10,4 @@
 
 Dependencies
 https://dropzone.gitbook.io/dropzone/getting-started/installation/webpack-recommended
+https://github.com/SortableJS/Sortable#store

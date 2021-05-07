@@ -1,7 +1,9 @@
 import axios from "axios";
 import Dropzone, { createElement } from "dropzone";
+import Sortable from "sortablejs";
 
 export const imageResolver = () => {
+    _sortableImage();
     Dropzone.autoDiscover = false;
 
     let myDropzone = new Dropzone("#image_uploader", {
@@ -45,14 +47,16 @@ export const imageResolver = () => {
         file.previewElement.remove();
     });
     myDropzone.on("addedfile", (file) => {
-        console.log(file);
+        // console.log(file);
     });
 
-    myDropzone.on("success", function (file, serverFileName) {
+    myDropzone.on("success", function (file, response) {
+        let imageId = response;
         let productId = document.querySelector("#product_id").value;
 
         let span = document.createElement("span");
         span.classList.add("col-2");
+        span.setAttribute("data-id", imageId);
         let card = `
             <div class="card">
               <img style="min-width:150px; width:100%" data-image-name="${file.name}" src="/storage/product-images/${productId}/${file.name}"/>
@@ -67,6 +71,41 @@ export const imageResolver = () => {
 };
 
 //----- private
+
+const _sortableImage = () => {
+    var el = document.querySelector(".uploaded-images");
+    let productId = document.querySelector("#product_id").value;
+    setTimeout(() => {
+        new Sortable(el, {
+            animation: 150,
+            ghostClass: "sortable-ghost",
+            store: {
+                set: function (sortable) {
+                    var elements = sortable.el.children;
+
+                    let newArrayOfImages = { [productId]: [] };
+                    elements.forEach((element) => {
+                        newArrayOfImages[productId].push(
+                            element.getAttribute("data-id")
+                        );
+                    });
+                    let form = new FormData();
+
+                    form.image_data = newArrayOfImages;
+
+                    axios
+                        .post(`/admin/product/${productId}/image-sorting`, {
+                            ...form,
+                        })
+                        .then(({ data }) => {
+                            console.log(data);
+                        });
+                },
+            },
+        });
+    }, 1000);
+};
+
 const _removeImageListener = () => {
     setTimeout(() => {
         document
@@ -84,7 +123,8 @@ const _removeImageListener = () => {
                         .post(`/admin/product/${productId}/image-remove`, {
                             ...form,
                         })
-                        .then(() => {
+                        .then((data) => {
+                            console.log(data);
                             //odstraní obrázek plus span i s html
                             e.target.parentElement.parentElement.remove();
                         });
