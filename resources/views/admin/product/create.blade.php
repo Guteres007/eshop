@@ -170,7 +170,7 @@
                                                 </div>
                                                 <form
                                                     action="{{ route('admin.product-image-upload.store', ['id' => $product->id]) }}"
-                                                    id="image_uploader" class="dropzone col-12">
+                                                    id="image_uploader" class="dropzone__own-style col-12">
                                                     @csrf
                                                     <div class="dz-message" data-dz-message><span>Přetáhněte obrázky</span>
                                                     </div>

@@ -11300,15 +11300,13 @@ __webpack_require__(/*! ./../bootstrap */ "./resources/js/bootstrap.js");
 
 
 
-
-try {
+window.addEventListener("DOMContentLoaded", function () {
   (0,_services_images__WEBPACK_IMPORTED_MODULE_3__.imageResolver)();
-} catch (error) {}
-
-(0,_services_autocompleteservice__WEBPACK_IMPORTED_MODULE_1__.fetchParameters)();
-window.removeParameter = _services_remove_parameter__WEBPACK_IMPORTED_MODULE_5__.removeParameter;
-window.addParameter = _services_add_parameter__WEBPACK_IMPORTED_MODULE_4__.addParameter;
-window.productSignal = _product_signal__WEBPACK_IMPORTED_MODULE_2__.productSignal;
+  (0,_services_autocompleteservice__WEBPACK_IMPORTED_MODULE_1__.fetchParameters)();
+  window.removeParameter = _services_remove_parameter__WEBPACK_IMPORTED_MODULE_5__.removeParameter;
+  window.addParameter = _services_add_parameter__WEBPACK_IMPORTED_MODULE_4__.addParameter;
+  window.productSignal = _product_signal__WEBPACK_IMPORTED_MODULE_2__.productSignal;
+});
 
 /***/ }),
 
@@ -11597,6 +11595,8 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
 var imageResolver = function imageResolver() {
   _sortableImage();
+
+  _removeImageListener();
 
   (dropzone__WEBPACK_IMPORTED_MODULE_1___default().autoDiscover) = false;
   var myDropzone = new (dropzone__WEBPACK_IMPORTED_MODULE_1___default())("#image_uploader", {

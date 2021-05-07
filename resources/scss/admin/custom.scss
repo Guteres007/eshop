@@ -38,6 +38,8 @@
 
 //autocomplete end
 
-.dropzone {
+.dropzone__own-style {
+    text-align: center;
     border: 1px dashed red;
+    min-height: 120px;
 }

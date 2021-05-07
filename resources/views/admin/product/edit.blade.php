@@ -167,24 +167,36 @@
 
                                     </div>
 
+
+
                                     <div class="tab-pane" id="images" role="tabpanel">
                                         <div class="row">
+                                            <div class="col-12">
+                                                <div class="uploaded-images row">
 
-                                            @foreach ($product->images as $image)
-                                                <img style="width: 150px;"
-                                                    src="{{ asset('storage/' . ($image->path ?? '')) }}"
-                                                    alt="{{ $image->name ?? '' }}">
-                                            @endforeach
+                                                    @foreach ($product->images as $image)
+                                                        <span class="col-2" data-id="{{ $image->id }}">
+                                                            <div class="card">
+                                                                <img style="min-width:150px; width:100%"
+                                                                    data-image-name="{{ $image->name }}"
+                                                                    src="/storage/{{ $image->path }}">
+                                                                <span
+                                                                    class="remove-image btn btn-danger mt-2">Odstranit</span>
+                                                            </div>
+                                                        </span>
+                                                    @endforeach
 
-
-                                            <form
-                                                action="{{ route('admin.product-image-upload.store', ['id' => $product->id]) }}"
-                                                id="image_uploader" class="dropzone col-12">
-                                                @csrf
-                                                <div class="dz-message" data-dz-message><span>Přetáhněte obrázky</span>
                                                 </div>
+                                                <form
+                                                    action="{{ route('admin.product-image-upload.store', ['id' => $product->id]) }}"
+                                                    id="image_uploader" class="dropzone__own-style col-12">
+                                                    @csrf
+                                                    <div class="dz-message" data-dz-message><span>Přetáhněte obrázky</span>
+                                                    </div>
 
-                                            </form>
+                                                </form>
+                                            </div>
+
                                         </div>
                                     </div>
                                     <div class="tab-pane" id="parameters" role="tabpanel">
@@ -271,6 +283,8 @@
                 </div>
 
                 <div class="card-footer">
+                    <input type="hidden" form="product_form" name="product_id" id="product_id"
+                        value="{{ $product->id }}">
                     <button class="btn btn-success" form="product_form" type="submit">Editovat</button>
                 </div>
             </div>

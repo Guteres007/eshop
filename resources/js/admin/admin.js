@@ -6,11 +6,10 @@ import { imageResolver } from "./services/images";
 import { addParameter } from "./services/add-parameter";
 import { removeParameter } from "./services/remove-parameter";
 
-try {
+window.addEventListener("DOMContentLoaded", () => {
     imageResolver();
-} catch (error) {}
-
-fetchParameters();
-window.removeParameter = removeParameter;
-window.addParameter = addParameter;
-window.productSignal = productSignal;
+    fetchParameters();
+    window.removeParameter = removeParameter;
+    window.addParameter = addParameter;
+    window.productSignal = productSignal;
+});

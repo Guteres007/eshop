@@ -4,6 +4,7 @@ import Sortable from "sortablejs";
 
 export const imageResolver = () => {
     _sortableImage();
+    _removeImageListener();
     Dropzone.autoDiscover = false;
 
     let myDropzone = new Dropzone("#image_uploader", {
@@ -66,6 +67,7 @@ export const imageResolver = () => {
         span.innerHTML = card;
         document.querySelector(".uploaded-images").appendChild(span);
         file.previewElement.remove();
+
         _removeImageListener();
     });
 };
