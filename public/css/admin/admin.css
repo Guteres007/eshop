@@ -19124,3 +19124,7 @@ h3 {
   border: 1px dashed red;
   min-height: 120px;
 }
+.dropzone__own-style .dz-message {
+  margin-top: 40px;
+  font-weight: 900;
+}
