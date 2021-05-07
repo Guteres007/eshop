@@ -33,8 +33,12 @@ class UpdateProductService
         $array_of_category_ids = $attributes['category_id'];
 
         $product = $this->productRepository->find($id);
-
-        $this->parameterService->saveParametersToProduct($product, $attributes['parameters']);
+        //není-li parametr,
+        if (isset($attributes['parameters'])) {
+            $this->parameterService->saveParametersToProduct($product, $attributes['parameters']);
+        } else {
+            $this->parameterService->removeParametersByProduct($product);
+        }
         $product->update($attributes);
         $product->categories()->sync($array_of_category_ids);
 

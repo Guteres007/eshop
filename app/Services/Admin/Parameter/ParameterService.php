@@ -11,6 +11,9 @@ class ParameterService
 
     public function saveParametersToProduct(Product $product, $parameters)
     {
+
+        //Musím pořešit, jak to bude fungovat u velikosti.
+        //Například šířka a výška mají společné rozměry výška 20cm / šířka 20 cm
         if (
             !empty(array_filter($parameters['name'])) &&
             !empty(array_filter($parameters['value']))
@@ -20,9 +23,14 @@ class ParameterService
             for ($i = 0; $i < count($parameters['name']); $i++) {
                 $is_existing_parameter = Parameter::where('name',  $parameters['name'][$i])->first();
                 $is_existing_value = Parameter::where('value',  $parameters['value'][$i])->first();
+                $is_existing_parameter_and_value = Parameter::where('value',  $parameters['value'][$i])
+                    ->where('name',  $parameters['name'][$i])
+                    ->first();
 
-                if ($is_existing_parameter && $is_existing_value) {
+                if ($is_existing_parameter && $is_existing_value && !$is_existing_parameter_and_value) {
                     $product->parameters()->sync($is_existing_value->id, false);
+                } else if ($is_existing_parameter_and_value) {
+                    $product->parameters()->sync($is_existing_parameter_and_value->id, false);
                 } else if ($is_existing_parameter) {
                     $parameter = Parameter::create([
                         'name' => $is_existing_parameter->name,
