@@ -97,7 +97,7 @@
                             <h1 class="product__name">{{ $product->name }}</h1>
 
                             <div class="product__description">
-                                {{ $product->short_description }}
+                                {{ $product->description }}
                             </div>
 
                             <ul class="product__meta">
@@ -182,7 +182,7 @@
                     <div class="product-tabs__content">
                         <div class="product-tabs__pane product-tabs__pane--active" id="tab-description">
                             <div class="typography">
-                                {{ $product->long_description ?? $product->description }}
+                                {!! $product->long_description ?? $product->description !!}
                             </div>
                         </div>
                         <div class="product-tabs__pane" id="tab-specification">

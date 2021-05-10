@@ -54,35 +54,6 @@
                                             </div>
 
 
-                                            <div class="col-sm-6">
-                                                <div class="form-group">
-                                                    <label for="name">Popis produktu <span
-                                                            class="color-red">{{ $errors->first('description') }}</span></label>
-                                                    <textarea form="product_form" class="form-control" name="description"
-                                                        type="text">{{ old('description') }}</textarea>
-                                                </div>
-                                            </div>
-
-                                            <div class="col-sm-6">
-                                                <div class="form-group">
-                                                    <label for="name">Dlouhý popis <span
-                                                            class="color-red">{{ $errors->first('long_description') }}</span></label>
-                                                    <textarea form="product_form" class="form-control"
-                                                        name="long_description"
-                                                        type="text">{{ old('long_description') }}</textarea>
-                                                </div>
-                                            </div>
-
-                                            <div class="col-sm-6">
-                                                <div class="form-group">
-                                                    <label for="name">Krátký popis produktu <span
-                                                            class="color-red">{{ $errors->first('short_description') }}</span></label>
-                                                    <textarea form="product_form" class="form-control"
-                                                        name="short_description"
-                                                        type="text">{{ old('short_description') }}</textarea>
-                                                </div>
-                                            </div>
-
 
                                             <div class="col-sm-6">
                                                 <div class="form-group">
@@ -91,7 +62,6 @@
                                                     <input form="product_form" class="form-control" name="ean" type="text">
                                                 </div>
                                             </div>
-
 
                                             <div class="col-sm-6">
                                                 <div class="form-group">
@@ -102,6 +72,41 @@
                                                     </div>
                                                 </div>
                                             </div>
+
+                                            <div class="col-sm-6">
+                                                <div class="form-group">
+                                                    <label for="name">Popis produktu <span
+                                                            class="color-red">{{ $errors->first('description') }}</span></label>
+                                                    <textarea form="product_form" class="form-control" name="description"
+                                                        type="text">{{ old('description') }}</textarea>
+                                                </div>
+                                            </div>
+
+
+
+                                            <div class="col-sm-6">
+                                                <div class="form-group">
+                                                    <label for="name">Krátký popis<span
+                                                            class="color-red">{{ $errors->first('short_description') }}</span></label>
+                                                    <textarea form="product_form" class="form-control"
+                                                        name="short_description"
+                                                        type="text">{{ old('short_description') }}</textarea>
+                                                </div>
+                                            </div>
+
+
+
+                                            <div class="col-sm-12">
+                                                <div class="form-group">
+                                                    <label for="name">Dlouhý popis <span
+                                                            class="color-red">{{ $errors->first('long_description') }}</span></label>
+                                                    <textarea class="editor" form="product_form" class="form-control"
+                                                        name="long_description"
+                                                        type="text">{{ old('long_description') }}</textarea>
+                                                </div>
+                                            </div>
+
+
 
                                         </div>
                                     </div>

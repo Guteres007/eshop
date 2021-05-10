@@ -416,7 +416,7 @@
                                                         <div class="product-card__rating-legend">9 Reviews</div>
                                                     </div>
                                                     <div class="product-card__features-list">
-                                                        {{ $product->description }}
+                                                        {{ Str::words($product->short_description, 5, '') }}
                                                     </div>
                                                 </div>
                                                 <div class="product-card__actions">

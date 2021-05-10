@@ -57,36 +57,6 @@
                                                 </div>
                                             </div>
 
-
-                                            <div class="col-sm-6">
-                                                <div class="form-group">
-                                                    <label for="name">Popis produktu <span
-                                                            class="color-red">{{ $errors->first('description') }}</span></label>
-                                                    <textarea class="form-control" form="product_form" name="description"
-                                                        type="text">{{ $product->description }}</textarea>
-                                                </div>
-                                            </div>
-
-                                            <div class="col-sm-6">
-                                                <div class="form-group">
-                                                    <label for="name">Dlouhý popis <span
-                                                            class="color-red">{{ $errors->first('long_description') }}</span></label>
-                                                    <textarea form="product_form" class="form-control"
-                                                        name="long_description"
-                                                        type="text">{{ $product->long_description }}</textarea>
-                                                </div>
-                                            </div>
-
-                                            <div class="col-sm-6">
-                                                <div class="form-group">
-                                                    <label for="name">Krátký popis produktu <span
-                                                            class="color-red">{{ $errors->first('short_description') }}</span></label>
-                                                    <textarea form="product_form" class="form-control"
-                                                        name="short_description"
-                                                        type="text">{{ $product->short_description }}</textarea>
-                                                </div>
-                                            </div>
-
                                             <div class="col-sm-6">
                                                 <div class="form-group">
                                                     <label for="name">EAN <span
@@ -95,7 +65,6 @@
                                                         value="{{ $product->ean }}">
                                                 </div>
                                             </div>
-
 
                                             <div class="col-sm-6">
                                                 <div class="form-group">
@@ -107,6 +76,44 @@
                                                     </div>
                                                 </div>
                                             </div>
+
+                                            <div class="col-sm-6">
+                                                <div class="form-group">
+                                                    <label for="name">Popis produktu <span
+                                                            class="color-red">{{ $errors->first('description') }}</span></label>
+                                                    <textarea class="form-control" form="product_form" name="description"
+                                                        type="text">{{ $product->description }}</textarea>
+                                                </div>
+                                            </div>
+
+
+
+                                            <div class="col-sm-6">
+                                                <div class="form-group">
+                                                    <label for="name">Krátký popis<span
+                                                            class="color-red">{{ $errors->first('short_description') }}</span></label>
+                                                    <textarea form="product_form" class="form-control"
+                                                        name="short_description"
+                                                        type="text">{{ $product->short_description }}</textarea>
+                                                </div>
+                                            </div>
+
+
+
+
+                                            <div class="col-sm-12">
+                                                <div class="form-group">
+                                                    <label for="name">Dlouhý popis <span
+                                                            class="color-red">{{ $errors->first('long_description') }}</span></label>
+                                                    <textarea class="editor" form="product_form" class="form-control"
+                                                        name="long_description"
+                                                        type="text">{{ $product->long_description }}</textarea>
+                                                </div>
+                                            </div>
+
+
+
+
 
                                         </div>
                                     </div>
