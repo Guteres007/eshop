@@ -25,6 +25,7 @@ use Laravel\Fortify\Http\Controllers\AuthenticatedSessionController;
 use App\Http\Controllers\Frontend\ProductController as FrontendProductController;
 use App\Http\Controllers\Frontend\CategoryController as FrontendCategoryController;
 use App\Http\Controllers\Admin\DeliveryPaymentController as AdminDeliveryPaymentController;
+use App\Http\Controllers\Admin\OrderController as AdminOrderController;
 
 Route::name('frontend.')->group(function () {
     Route::get('/', [HomepageController::class, 'index'])->name('homepage');
@@ -89,5 +90,7 @@ Route::prefix('admin')->middleware('auth:admin')->group(function () {
         Route::get('/product-parameters-name', [ProductParameterController::class, 'name']);
         Route::get('/product-parameters-value', [ProductParameterController::class, 'value']);
         Route::post('/product-temporary', [ProductTemporaryController::class, 'store'])->name('product-temporary.store');
+
+        Route::get('/order', [AdminOrderController::class, 'index'])->name('order.index');
     });
 });

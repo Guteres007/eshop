@@ -1,6 +1,7 @@
 <div class="c-sidebar-brand d-lg-down-none">
     <img class="c-sidebar-brand-full" style="width: 120px;" src="{{ asset('images/admin/logo.svg') }}" alt="logo">
-    <img class="c-sidebar-brand-minimized" style="width: 120px;" src="{{ asset('images/admin/logo.svg') }}" alt="logo">
+    <img class="c-sidebar-brand-minimized" style="width: 120px;" src="{{ asset('images/admin/logo.svg') }}"
+        alt="logo">
 </div>
 
 <ul class="c-sidebar-nav">
@@ -79,13 +80,8 @@
             ">
             </i> Objednávky <span class="badge badge-danger">2</span></a>
         <ul class="c-sidebar-nav-dropdown-items">
-            <li class="c-sidebar-nav-item"><a class="c-sidebar-nav-link"
-                    href="{{ route('admin.delivery-payment.index') }}">
+            <li class="c-sidebar-nav-item"><a class="c-sidebar-nav-link" href="{{ route('admin.order.index') }}">
                     Seznam </a> </li>
-            <li class="c-sidebar-nav-item"><a class="c-sidebar-nav-link"
-                    href="{{ route('admin.delivery-payment.index') }}">
-                    Stavy </a>
-            </li>
         </ul>
     </li>
 
