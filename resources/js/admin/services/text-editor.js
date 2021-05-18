@@ -1,11 +1,13 @@
-import ClassicEditor from "@ckeditor/ckeditor5-build-classic";
+//import ClassicEditor from "@ckeditor/ckeditor5-build-classic";
 
+
+console.log(ClassicEditor.builtinPlugins.map( plugin => plugin.pluginName ));
 
 export const textEditorInit = () => {
     ClassicEditor.create(document.querySelector(".editor"),
     {
 
-        toolbar: [ 'heading', '|', 'bold', 'italic', 'link', 'bulletedList', 'numberedList', 'blockQuote'],
+       // toolbar: [ 'heading', '|', 'bold', 'italic', 'link', 'bulletedList', 'numberedList', 'blockQuote'],
         heading: {
             options: [
                 { model: 'paragraph', title: 'Paragraph', class: 'ck-heading_paragraph' },
@@ -14,8 +16,8 @@ export const textEditorInit = () => {
             ]
         },
         image: {
-
-		}
+            toolbar: [ 'imageTextAlternative' ]
+        }
     }).catch((error) => {
         console.error(error);
     });

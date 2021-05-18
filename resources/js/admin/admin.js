@@ -5,13 +5,39 @@ import { productSignal } from "./product-signal";
 import { imageResolver } from "./services/images";
 import { addParameter } from "./services/add-parameter";
 import { removeParameter } from "./services/remove-parameter";
-import { textEditorInit } from "./services/text-editor";
+
+
 
 window.addEventListener("DOMContentLoaded", () => {
-    textEditorInit();
+  try {
     imageResolver();
+
+  } catch (error) {
+
+  }
+
+  try {
     fetchParameters();
+
+  } catch (error) {
+
+  }
+  try {
     window.removeParameter = removeParameter;
+
+  } catch (error) {
+
+  }
+
+  try {
     window.addParameter = addParameter;
+  } catch (error) {
+
+  }
+  try {
     window.productSignal = productSignal;
+  } catch (error) {
+
+  }
+
 });

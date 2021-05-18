@@ -3,6 +3,7 @@ import Dropzone, { createElement } from "dropzone";
 import Sortable from "sortablejs";
 
 export const imageResolver = () => {
+
     _sortableImage();
     _removeImageListener();
     Dropzone.autoDiscover = false;
