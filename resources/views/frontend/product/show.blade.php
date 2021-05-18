@@ -103,13 +103,15 @@
                             <ul class="product__meta">
                                 <li class="product__meta-availability">Dostupnost:
                                     @if ($product->quantity > 0 && $product->active)
-                                        <span class="text-success">Dostupný</span>
+                                        <span class="text-success">Skladem</span>
                                     @else
                                         <span class="text-danger">Nedostupný</span>
                                     @endif
                                 </li>
-
+                                @if ($product->ean)
                                 <li>EAN: {{ $product->ean }}</li>
+                                @endif
+
                             </ul>
                         </div>
                         <!-- .product__info / end -->

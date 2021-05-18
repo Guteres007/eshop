@@ -65,7 +65,7 @@
             </div>
         </div>
         <!-- .block-slideshow / end -->
-        @if ($homepage_products->count())
+
 
 
             <!-- .block-features -->
@@ -112,6 +112,8 @@
                 </div>
             </div>
             <!-- .block-features / end -->
+
+            @if ($homepage_products->count() > 6 )
             <!-- .block-products -->
             <div class="block block-products block-products--layout--large-first" data-mobile-grid-columns="2">
                 <div class="container">

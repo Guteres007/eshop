@@ -100,6 +100,8 @@
                                                 <div class="form-group">
                                                     <label for="name">Dlouhý popis <span
                                                             class="color-red">{{ $errors->first('long_description') }}</span></label>
+
+                                                            <div id="toolbar-container"></div>
                                                     <textarea class="editor" form="product_form" class="form-control"
                                                         name="long_description"
                                                         type="text">{{ old('long_description') }}</textarea>

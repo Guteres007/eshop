@@ -11727,7 +11727,27 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _ckeditor_ckeditor5_build_classic__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_ckeditor_ckeditor5_build_classic__WEBPACK_IMPORTED_MODULE_0__);
 
 var textEditorInit = function textEditorInit() {
-  _ckeditor_ckeditor5_build_classic__WEBPACK_IMPORTED_MODULE_0___default().create(document.querySelector(".editor"))["catch"](function (error) {
+  _ckeditor_ckeditor5_build_classic__WEBPACK_IMPORTED_MODULE_0___default().create(document.querySelector(".editor"), {
+    toolbar: ['heading', '|', 'bold', 'italic', 'link', 'bulletedList', 'numberedList', 'blockQuote'],
+    heading: {
+      options: [{
+        model: 'paragraph',
+        title: 'Paragraph',
+        "class": 'ck-heading_paragraph'
+      }, {
+        model: 'heading1',
+        view: 'h2',
+        title: 'Heading 1',
+        "class": 'ck-heading_heading1'
+      }, {
+        model: 'heading2',
+        view: 'h3',
+        title: 'Heading 2',
+        "class": 'ck-heading_heading2'
+      }]
+    },
+    image: {}
+  })["catch"](function (error) {
     console.error(error);
   });
 };
