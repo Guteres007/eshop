@@ -10,8 +10,14 @@ class OrderController extends Controller
 {
     public function index()
     {
-        $orders = Order::with('order_items')->paginate();
+        $orders = Order::with('order_items')->orderBy('id', 'desc')->paginate();
 
         return view('admin.order.index', ['orders' => $orders]);
+    }
+
+    public function show($id)
+    {
+        $order = Order::with('order_items')->where('id', $id)->first();
+        return view('admin.order.show', ['order' => $order]);
     }
 }

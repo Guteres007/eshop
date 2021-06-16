@@ -63,7 +63,7 @@
                                     </td>
                                     <td>
                                         <a class="btn btn-secondary btn-sm" href="#"> <i class="cil-print c-icon"></i></a>
-                                        <a class="btn btn-primary btn-sm" href="#"> <i class="cil-basket c-icon"></i></a>
+                                        <a class="btn btn-primary btn-sm" href="{{route('admin.order.show', $item->id)}}"> <i class="cil-basket c-icon"></i></a>
                                     </td>
                                 </tr>
 

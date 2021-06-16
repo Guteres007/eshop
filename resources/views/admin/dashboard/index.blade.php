@@ -7,7 +7,7 @@
                 <div class="card text-white bg-primary">
                     <div class="card-body card-body d-flex justify-content-between align-items-start">
                         <div>
-                            <div class="text-value-lg">87 548 Kč</div>
+                            <div class="text-value-lg">{{$earnings}} Kč</div>
                             <div>Obrat</div>
                         </div>
 
@@ -20,7 +20,7 @@
                 <div class="card text-white bg-success">
                     <div class="card-body card-body d-flex justify-content-between align-items-start">
                         <div>
-                            <div class="text-value-lg">23 430 Kč</div>
+                            <div class="text-value-lg">{{$profit}}  Kč</div>
                             <div>Zisk</div>
                         </div>
 
@@ -35,7 +35,7 @@
                 <div class="card text-white bg-info">
                     <div class="card-body card-body d-flex justify-content-between align-items-start">
                         <div>
-                            <div class="text-value-lg">57</div>
+                            <div class="text-value-lg">{{$orders_last_month_count}}</div>
                             <div>Počet objednávek za měsíc</div>
                         </div>
 
@@ -49,7 +49,7 @@
                 <div class="card text-white bg-danger">
                     <div class="card-body card-body d-flex justify-content-between align-items-start">
                         <div>
-                            <div class="text-value-lg">2</div>
+                            <div class="text-value-lg">{{$orders_last_day_count}}</div>
                             <div>Počet objednávek dnes</div>
                         </div>
 
@@ -85,76 +85,56 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr>
+                                @foreach ($orders as $order)
 
-                                    <td>
-                                        <div>#2021174</div>
-                                        <div class="small text-muted"> 12. 5. 2021</div>
-                                    </td>
 
-                                    <td>
+                                    <tr>
 
-                                        Marika Tobiášová
-                                    </td>
-                                    <td>
-                                        PPL
-                                    </td>
-                                    <td>
-                                        Kartou
-                                    </td>
-                                    <td>
-                                        <select class="form-control" name="" id="">
-                                            <option value="4">Stornována</option>
-                                            <option value="3" selected>Nevyřízena</option>
-                                            <option value="2">Vyřizuje se</option>
-                                            <option value="1">Vyřízena</option>
-                                        </select>
-                                    </td>
-                                    <td>
-                                        543 Kč
-                                    </td>
-                                    <td>
-                                        <a class="btn btn-secondary btn-sm" href="#"> <i class="cil-print c-icon"></i></a>
-                                        <a class="btn btn-primary btn-sm" href="#"> <i class="cil-basket c-icon"></i></a>
-                                    </td>
-                                </tr>
+                                        <td>
+                                            <div>#{{ $order->id }}</div>
+                                            <div class="small text-muted"> {{ $order->created_at->format('d. m. Y') }}
+                                            </div>
+                                        </td>
 
-                                <tr>
+                                        <td>
 
-                                    <td>
-                                        <div>#2021173</div>
-                                        <div class="small text-muted"> 12. 5. 2021</div>
-                                    </td>
+                                            {{ $order->first_name }} {{ $order->last_name }}
+                                        </td>
+                                        <td>
+                                            {{ $order->delivery_name }}
+                                        </td>
+                                        <td>
+                                            {{ $order->payment_name }}
+                                        </td>
+                                        <td>
+                                            <select class="form-control" name="" id="">
+                                                <option value="4">Stornována</option>
+                                                <option value="3" selected>Nevyřízena</option>
+                                                <option value="2">Vyřizuje se</option>
+                                                <option value="1">Vyřízena</option>
+                                            </select>
+                                        </td>
+                                        <td>
+                                            @php
+                                                $total_price = 0;
+                                                foreach ($order->order_items as $item) {
+                                                    $total_price += $item->price->raw() * $item->quantity;
+                                                }
+                                            @endphp
 
-                                    <td>
+                                            {{ \App\Helpers\PriceHelper::format_price_with_currency($total_price + $order->delivery_price + $order->payment_price) }}
 
-                                        Veronika Rychlá
-                                    </td>
-                                    <td>
-                                        ČP
-                                    </td>
-                                    <td>
-                                        Dobírka
-                                    </td>
-                                    <td>
-                                        <select class="form-control" name="" id="">
-                                            <option value="4">Stornována</option>
-                                            <option value="3" selected>Nevyřízena</option>
-                                            <option value="2">Vyřizuje se</option>
-                                            <option value="1">Vyřízena</option>
-                                        </select>
-                                    </td>
-                                    <td>
-                                        419 Kč
-                                    </td>
-                                    <td>
-                                        <a class="btn btn-secondary btn-sm" href="#"> <i class="cil-print c-icon"></i></a>
-                                        <a class="btn btn-primary btn-sm" href="#"> <i class="cil-basket c-icon"></i></a>
+                                        </td>
+                                        <td>
+                                            <a class="btn btn-secondary btn-sm" href="#"> <i class="cil-print c-icon"></i></a>
+                                            <a class="btn btn-primary btn-sm" href="{{route('admin.order.show', $item->id)}}"> <i class="cil-basket c-icon"></i></a>
+                                        </td>
+                                    </tr>
 
-                                    </td>
-                                </tr>
+                                @endforeach
                             </tbody>
                         </table>
+                        {{ $orders->links() ?? '' }}
                     </div>
                 </div>
             </div>

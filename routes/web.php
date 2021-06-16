@@ -92,5 +92,6 @@ Route::prefix('admin')->middleware('auth:admin')->group(function () {
         Route::post('/product-temporary', [ProductTemporaryController::class, 'store'])->name('product-temporary.store');
 
         Route::get('/order', [AdminOrderController::class, 'index'])->name('order.index');
+        Route::get('/order/{id}', [AdminOrderController::class, 'show'])->name('order.show');
     });
 });
