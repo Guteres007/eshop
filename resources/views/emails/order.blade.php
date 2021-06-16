@@ -32,7 +32,7 @@
 
 
 
-    <table>
+    <table style="width: 100%;">
         <thead class="order-list__header">
             <tr>
                 <th class="order-list__column-label" colspan="2">Produkty</th>
@@ -47,11 +47,11 @@
 
                 <tr>
                     <td style="width: 100px;">
-                        <div>
+                        <div style="width: 100px;">
                             <a href="{{ route('frontend.product.show', $item->product_slug) }}"
                                 class="product-image__body">
 
-                                <img class="product-image__img"
+                                <img style="width: 100px;"
                                     src="{{ asset('storage/' . ($item->image_path ?? '')) }}"
                                     alt="{{ $item->name }}">
                             </a>
