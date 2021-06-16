@@ -26,13 +26,17 @@ class Order extends Model
         'payment_name',
         'payment_price',
         'phone',
-        'hash'
+        'hash',
     ];
 
 
     public function getPriceAttribute($value)
     {
         return new PriceDataObject($value);
+    }
+
+    public function setUniqIdAttribute($value) {
+        return  $this->attributes['uniq_id'] = date("Y-m") . "-" . str_pad($value, 6, "0", STR_PAD_LEFT);
     }
 
     public function cart()

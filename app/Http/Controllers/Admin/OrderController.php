@@ -20,4 +20,10 @@ class OrderController extends Controller
         $order = Order::with('order_items')->where('id', $id)->first();
         return view('admin.order.show', ['order' => $order]);
     }
+
+    public function destroy($id) {
+        Order::destroy($id);
+        return redirect()->route('admin.order.index');
+    }
+
 }

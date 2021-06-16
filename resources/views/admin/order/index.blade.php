@@ -27,7 +27,7 @@
                                 <tr>
 
                                     <td>
-                                        <div>#{{ $order->id }}</div>
+                                        <div>#{{ $order->uniq_id }}</div>
                                         <div class="small text-muted"> {{ $order->created_at->format('d. m. Y') }}
                                         </div>
                                     </td>
@@ -63,7 +63,7 @@
                                     </td>
                                     <td>
                                         <a class="btn btn-secondary btn-sm" href="#"> <i class="cil-print c-icon"></i></a>
-                                        <a class="btn btn-primary btn-sm" href="{{route('admin.order.show', $item->id)}}"> <i class="cil-basket c-icon"></i></a>
+                                        <a class="btn btn-primary btn-sm" href="{{route('admin.order.show', $order->id)}}"> <i class="cil-basket c-icon"></i></a>
                                     </td>
                                 </tr>
 

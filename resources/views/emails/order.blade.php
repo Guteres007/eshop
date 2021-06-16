@@ -14,7 +14,7 @@
     <ul class="order-success__meta-list">
         <li class="order-success__meta-item">
             <span class="order-success__meta-title">Číslo objednávky:</span>
-            <span class="order-success__meta-value">#{{ $order->id }}</span>
+            <span class="order-success__meta-value">#{{ $order->uniq_id }}</span>
         </li>
         <li class="order-success__meta-item">
             <span class="order-success__meta-title">Vytvořeno:</span>

@@ -41,6 +41,8 @@ class OrderService
         ]);
 
         if ($order->id) {
+            $order->uniq_id = $order->id;
+            $order->save();
             $cart->update(['active' => false]);
             return $order;
         }

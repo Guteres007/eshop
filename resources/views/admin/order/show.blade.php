@@ -5,7 +5,9 @@
     <div class="row">
         <div class="col-12">
             <div class="card">
-                <div class="card-header"><strong>Objednávka #{{$order->id}}</strong></div>
+                <div class="card-header"><strong>Objednávka #{{$order->uniq_id}}</strong>
+                    <a class="btn btn-danger" href="{{route('admin.order.destroy', $order->id)}}" onclick="return confirm('Určitě smazat?')">Smazat objednávku</a>
+                </div>
                 <div class="card-body">
 
 

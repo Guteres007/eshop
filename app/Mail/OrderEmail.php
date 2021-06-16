@@ -43,6 +43,6 @@ class OrderEmail extends Mailable
             'order_items' => $order_items,
             'delivery_payment_price' => $delivery_payment_price,
             'order_total_price' => $order_total_price
-        ])->subject('Objednávka #' . $order_data->id);
+        ])->subject('Objednávka #' . $order_data->uniq_id);
     }
 }
