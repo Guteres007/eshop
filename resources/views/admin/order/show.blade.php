@@ -175,7 +175,7 @@
 
 
                                             @if ($order->comment)
-                                            <div class="col-sm-6">
+                                            <div class="col-sm-6 mt-4">
                                                 <div class="card">
                                                     <div class="card-header">
                                                        Vzkaz od zákazníka

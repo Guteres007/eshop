@@ -4,8 +4,10 @@ namespace App\Builders\Frontend;
 
 use App\Models\Cart;
 use App\Models\Product;
+use App\Mail\OrderEmail;
 use App\Models\OrderItem;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Mail;
 use App\Services\Frontend\OrderService;
 
 class OrderBuilder
@@ -13,6 +15,7 @@ class OrderBuilder
     private $orderService;
     private $cart;
     private $order;
+    private $params;
     public function __construct(OrderService $orderService)
     {
         $this->orderService = $orderService;
@@ -21,6 +24,7 @@ class OrderBuilder
 
     public function setOrder($params)
     {
+        $this->params = $params;
         $this->order = $this->orderService->makeOrder($this->cart, $params);
         return $this;
     }
@@ -88,5 +92,11 @@ class OrderBuilder
     public function getOrder()
     {
         return $this->order;
+    }
+
+    public function sendEmail() {
+        $order_data = $this->orderService->getOrder($this->order->hash);
+        Mail::to($this->params->input('email'))->send(new OrderEmail($order_data));
+        return $this;
     }
 }

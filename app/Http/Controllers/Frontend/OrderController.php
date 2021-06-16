@@ -18,7 +18,8 @@ class OrderController extends Controller
         DB::transaction(function () use ($orderBuilder, $request) {
             $orderBuilder->setOrder($request)
                 ->setOrderItem()
-                ->setStockQuantity();
+                ->setStockQuantity()
+                ->sendEmail();
         });
 
         return redirect()->route('frontend.order.show',  $orderBuilder->getOrder()->hash);
