@@ -15,8 +15,7 @@ export const change = (ctx, id) => {
                 stopOnFocus: true, // Prevents dismissing of toast on hover
                 onClick: function(){} // Callback after click
               }).showToast();
-        }
-
+        } else {
             Toastify({
                 text: "Status nezměněn",
                 duration: 3000,
@@ -27,6 +26,9 @@ export const change = (ctx, id) => {
                 stopOnFocus: true, // Prevents dismissing of toast on hover
                 onClick: function(){} // Callback after click
               }).showToast();
+        }
+
+
 
     });
 
