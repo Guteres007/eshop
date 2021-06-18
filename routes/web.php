@@ -26,6 +26,7 @@ use App\Http\Controllers\Frontend\ProductController as FrontendProductController
 use App\Http\Controllers\Frontend\CategoryController as FrontendCategoryController;
 use App\Http\Controllers\Admin\DeliveryPaymentController as AdminDeliveryPaymentController;
 use App\Http\Controllers\Admin\OrderController as AdminOrderController;
+use App\Http\Controllers\Admin\OrderStatusController;
 
 Route::name('frontend.')->group(function () {
     Route::get('/', [HomepageController::class, 'index'])->name('homepage');
@@ -94,5 +95,6 @@ Route::prefix('admin')->middleware('auth:admin')->group(function () {
         Route::get('/order', [AdminOrderController::class, 'index'])->name('order.index');
         Route::get('/order/{id}', [AdminOrderController::class, 'show'])->name('order.show');
         Route::get('/order/{id}/destroy', [AdminOrderController::class, 'destroy'])->name('order.destroy');
+        Route::get('/order/{id}/status/{status_id}', [OrderStatusController::class, 'store'])->name('order-status.store');
     });
 });

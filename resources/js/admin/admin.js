@@ -5,8 +5,9 @@ import { productSignal } from "./product-signal";
 import { imageResolver } from "./services/images";
 import { addParameter } from "./services/add-parameter";
 import { removeParameter } from "./services/remove-parameter";
+import {change} from './services/order-status';
 
-
+window.change = change;
 
 window.addEventListener("DOMContentLoaded", () => {
   try {

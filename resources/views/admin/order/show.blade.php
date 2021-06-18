@@ -5,8 +5,28 @@
     <div class="row">
         <div class="col-12">
             <div class="card">
-                <div class="card-header"><strong>Objednávka #{{$order->uniq_id}}</strong>
-                    <a class="btn btn-danger" href="{{route('admin.order.destroy', $order->id)}}" onclick="return confirm('Určitě smazat?')">Smazat objednávku</a>
+                <div class="card-header">
+
+                    <div class="row">
+                        <div class="col-3"><h1 class="h3"><strong>Objednávka #{{$order->uniq_id}}</strong></h1></div>
+                        <div class="col-2">
+                                           <a class="btn btn-danger" href="{{route('admin.order.destroy', $order->id)}}" onclick="return confirm('Určitě smazat?')">Smazat objednávku</a>
+                        </div>
+                        <div class="col-2">
+                            <select class="form-control" onchange="return change(this, {{$order->id}})" >
+                                <option value="4">Stornována</option>
+                                <option value="3" selected="">Nevyřízena</option>
+                                <option value="2">Vyřizuje se</option>
+                                <option value="1">Vyřízena</option>
+                            </select>
+
+                        </div>
+                    </div>
+
+
+
+
+
                 </div>
                 <div class="card-body">
 

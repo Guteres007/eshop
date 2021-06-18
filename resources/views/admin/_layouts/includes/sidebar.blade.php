@@ -43,9 +43,9 @@
         <ul class="c-sidebar-nav-dropdown-items">
             <li class="c-sidebar-nav-item"><a class="c-sidebar-nav-link" href="{{ route('admin.payment.index') }}">
                     Seznam </a> </li>
-            <li class="c-sidebar-nav-item"><a class="c-sidebar-nav-link" href="{{ route('admin.payment.create') }}">
+           {{-- <li class="c-sidebar-nav-item"><a class="c-sidebar-nav-link" href="{{ route('admin.payment.create') }}">
                     Přidat
-                </a></li>
+                </a></li>--}}
         </ul>
     </li>
 
@@ -56,9 +56,9 @@
         <ul class="c-sidebar-nav-dropdown-items">
             <li class="c-sidebar-nav-item"><a class="c-sidebar-nav-link" href="{{ route('admin.delivery.index') }}">
                     Seznam </a> </li>
-            <li class="c-sidebar-nav-item"><a class="c-sidebar-nav-link" href="{{ route('admin.delivery.create') }}">
+         {{--  <li class="c-sidebar-nav-item"><a class="c-sidebar-nav-link" href="{{ route('admin.delivery.create') }}">
                     Přidat
-                </a></li>
+                </a></li>--}}
         </ul>
     </li>
 
@@ -78,7 +78,7 @@
         <a class="c-sidebar-nav-dropdown-toggle" href="#">
             <i class="c-sidebar-nav-icon cil-cart
             ">
-            </i> Objednávky <span class="badge badge-danger">2</span></a>
+            </i> Objednávky @if($order_count_last_day)<span class="badge badge-danger">{{$order_count_last_day}}</span> @endif</a>
         <ul class="c-sidebar-nav-dropdown-items">
             <li class="c-sidebar-nav-item"><a class="c-sidebar-nav-link" href="{{ route('admin.order.index') }}">
                     Seznam </a> </li>

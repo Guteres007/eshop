@@ -29,7 +29,7 @@
                                             action="{{ route('admin.delivery.destroy', $delivery) }}" method="POST">
                                             @csrf
                                             @method("DELETE")
-                                            <button type="submit" class="btn btn-sm">Odstranit</button>
+                                            {{--<button type="submit" class="btn btn-sm">Odstranit</button>--}}
                                         </form>
                                     </td>
                                 </tr>
