@@ -13,7 +13,7 @@ class OrderStatusController extends Controller
    // V modelu si nadefinuji konstanty na typy. const NEVYRIZENA = 1 atd
 
     public function store($order_id, $status_id) {
-      dd(Order::find($order_id)->order_status->update(['status_id' => $status_id]));
+      Order::find($order_id)->order_status->update(['status_id' => $status_id]);
       return true;
     }
 }

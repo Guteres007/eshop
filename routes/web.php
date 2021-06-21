@@ -8,9 +8,11 @@ use App\Http\Controllers\Admin\ProductController;
 use App\Http\Controllers\Frontend\CartController;
 use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\DeliveryController;
+use App\Http\Controllers\Admin\SettingsController;
 use App\Http\Controllers\Frontend\OrderController;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Frontend\ContactController;
+use App\Http\Controllers\Admin\OrderStatusController;
 use App\Http\Controllers\Frontend\CheckoutController;
 use App\Http\Controllers\Admin\ProductSignalController;
 use App\Http\Controllers\Frontend\CartProductController;
@@ -22,11 +24,10 @@ use App\Http\Controllers\Frontend\TermsConditionsController;
 use App\Http\Controllers\Admin\ProductImageSortingController;
 use Laravel\Fortify\Http\Controllers\RegisteredUserController;
 use Laravel\Fortify\Http\Controllers\AuthenticatedSessionController;
+use App\Http\Controllers\Admin\OrderController as AdminOrderController;
 use App\Http\Controllers\Frontend\ProductController as FrontendProductController;
 use App\Http\Controllers\Frontend\CategoryController as FrontendCategoryController;
 use App\Http\Controllers\Admin\DeliveryPaymentController as AdminDeliveryPaymentController;
-use App\Http\Controllers\Admin\OrderController as AdminOrderController;
-use App\Http\Controllers\Admin\OrderStatusController;
 
 Route::name('frontend.')->group(function () {
     Route::get('/', [HomepageController::class, 'index'])->name('homepage');
@@ -96,5 +97,10 @@ Route::prefix('admin')->middleware('auth:admin')->group(function () {
         Route::get('/order/{id}', [AdminOrderController::class, 'show'])->name('order.show');
         Route::get('/order/{id}/destroy', [AdminOrderController::class, 'destroy'])->name('order.destroy');
         Route::get('/order/{id}/status/{status_id}', [OrderStatusController::class, 'store'])->name('order-status.store');
+
+
+        Route::get('/settings', [SettingsController::class, 'index'])->name('settings.index');
+        Route::post('/settings', [SettingsController::class, 'store'])->name('settings.store');
+
     });
 });
