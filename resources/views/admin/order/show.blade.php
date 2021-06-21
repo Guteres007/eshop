@@ -13,11 +13,28 @@
                                            <a class="btn btn-danger" href="{{route('admin.order.destroy', $order->id)}}" onclick="return confirm('Určitě smazat?')">Smazat objednávku</a>
                         </div>
                         <div class="col-2">
-                            <select class="form-control" onchange="return change(this, {{$order->id}})" >
-                                <option value="4">Stornována</option>
-                                <option value="3" selected="">Nevyřízena</option>
-                                <option value="2">Vyřizuje se</option>
-                                <option value="1">Vyřízena</option>
+
+                            <select class="form-control" onchange="return change(this, {{$order->id}})">
+                                @if ($order->order_status->status_id === 4)
+                                    <option value="4" selected>Stornována</option>
+                                    @else
+                                    <option value="4">Stornována</option>
+                                @endif
+                                @if ($order->order_status->status_id === 3)
+                                    <option value="3" selected >Nevyřízena</option>
+                                    @else
+                                    <option value="3" >Nevyřízena</option>
+                                @endif
+                                @if ($order->order_status->status_id === 2)
+                                    <option value="2" selected>Vyřizuje se</option>
+                                    @else
+                                    <option value="2">Vyřizuje se</option>
+                                @endif
+                                @if ($order->order_status->status_id === 1)
+                                    <option value="1" selected>Vyřízena</option>
+                                    @else
+                                    <option value="1">Vyřízena</option>
+                                @endif
                             </select>
 
                         </div>

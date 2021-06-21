@@ -40,7 +40,9 @@ class OrderService
             'hash' => Str::random(32),
         ]);
 
+
         if ($order->id) {
+            $order->order_status()->create();
             $order->uniq_id = $order->id;
             $order->save();
             $cart->update(['active' => false]);
