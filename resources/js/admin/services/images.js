@@ -9,6 +9,8 @@ export const imageResolver = () => {
     Dropzone.autoDiscover = false;
 
     let myDropzone = new Dropzone("#image_uploader", {
+        autoProcessQueue: true,
+        parallelUploads: 1,
         previewTemplate: `
 
 
