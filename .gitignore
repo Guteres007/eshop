@@ -13,3 +13,5 @@ npm-debug.log
 yarn-error.log
 
 /frontend-resources/node_modules
+/nbproject/private/
+.idea

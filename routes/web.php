@@ -28,6 +28,7 @@ use App\Http\Controllers\Admin\OrderController as AdminOrderController;
 use App\Http\Controllers\Frontend\ProductController as FrontendProductController;
 use App\Http\Controllers\Frontend\CategoryController as FrontendCategoryController;
 use App\Http\Controllers\Admin\DeliveryPaymentController as AdminDeliveryPaymentController;
+use App\Http\Controllers\Admin\FeedController;
 
 Route::name('frontend.')->group(function () {
     Route::get('/', [HomepageController::class, 'index'])->name('homepage');
@@ -101,6 +102,9 @@ Route::prefix('admin')->middleware('auth:admin')->group(function () {
 
         Route::get('/settings', [SettingsController::class, 'index'])->name('settings.index');
         Route::post('/settings', [SettingsController::class, 'store'])->name('settings.store');
+
+        //feed
+        Route::get('/feed/{type}', [FeedController::class, 'generate'])->name('feed.generate');
 
     });
 });
