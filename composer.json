@@ -17,6 +17,8 @@
         "laravel/fortify": "^1.7",
         "laravel/framework": "^8.12",
         "laravel/tinker": "^2.5",
+        "php-flasher/flasher-laravel": "^0.9.8",
+        "php-flasher/flasher-toastr-laravel": "^0.9.8",
         "spatie/laravel-image-optimizer": "^1.6"
     },
     "require-dev": {

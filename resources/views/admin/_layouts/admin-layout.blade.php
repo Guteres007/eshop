@@ -79,6 +79,8 @@
     <script>
         CKEDITOR.replace(document.querySelector('.editor'))
     </script>
+
+    @flasher_render
 </body>
 
 </html>

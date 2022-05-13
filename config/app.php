@@ -231,6 +231,7 @@ return [
         //custom
 
         'Debugbar' => Barryvdh\Debugbar\Facade::class,
+        'Flasher' => Flasher\Laravel\Facade\Flasher::class,
 
     ],
 
