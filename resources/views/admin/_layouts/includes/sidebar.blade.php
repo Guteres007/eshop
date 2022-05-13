@@ -93,7 +93,7 @@
     </li>
 
     <li class="c-sidebar-nav-item">
-        <a class="c-sidebar-nav-link" href="#">
+        <a class="c-sidebar-nav-link" href="{{route('admin.feed.index')}}">
             <i class="c-sidebar-nav-icon cil-speedometer"></i> Feedy
         </a>
     </li>

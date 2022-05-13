@@ -105,6 +105,7 @@ Route::prefix('admin')->middleware('auth:admin')->group(function () {
 
         //feed
         Route::get('/feed/{type}', [FeedController::class, 'generate'])->name('feed.generate');
+        Route::get('/feeds', [FeedController::class, 'index'])->name('feed.index');
 
     });
 });

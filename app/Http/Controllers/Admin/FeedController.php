@@ -2,17 +2,20 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\Feeds\FeedExporter;
 use App\Http\Controllers\Controller;
-use App\Feeds\Google;
+use App\Jobs\FeedJob;
 
 
 class FeedController extends Controller
 {
-    public function generate($type , FeedExporter $feedExporter)
+    public function generate($type)
     {
-        $feedExporter->createXml(new Google(),'xml/google.xml');
+        $this->dispatch(new FeedJob($type));
+        return redirect()->back();
+    }
 
-        return response('ok')->header('Content-type', 'text/xml');
+    public function index()
+    {
+        return view('admin.feeds.index');
     }
 }
